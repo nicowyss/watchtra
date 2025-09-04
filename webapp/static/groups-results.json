@@ -1,0 +1,46 @@
+{
+  "totalGroups": 8,
+  "groups": [
+    {
+      "name": "T-Department-Gruppe-DigitalTransformation&Marketing ",
+      "memberCount": 0,
+      "membershipRule": "(user.department -eq \"Digital Transformation & Marketing \")"
+    },
+    {
+      "name": "All-Users-cloudfil-Company-SharePointSite",
+      "memberCount": 8,
+      "membershipRule": "(user.companyName -eq \"cloudfil.ch\")"
+    },
+    {
+      "name": "AutoAssignment_c2485710-a9e3-4a2e-abcb-55897276d206",
+      "memberCount": 0,
+      "membershipRule": "(user.department -eq \"Digital Transformation & Marketing \")"
+    },
+    {
+      "name": "All-Users-All-Companies",
+      "memberCount": 16,
+      "membershipRule": "(user.accountEnabled -eq True) and (user.userType -eq \"Member\")"
+    },
+    {
+      "name": "All Guest Users ",
+      "memberCount": 1,
+      "membershipRule": "(user.userPrincipalName -contains \"#EXT#\") -and (user.accountEnabled -eq true)"
+    },
+    {
+      "name": "Contoso-SharePoint-Page",
+      "memberCount": 2,
+      "membershipRule": "(user.companyName -eq \"contoso.com\")"
+    },
+    {
+      "name": "test2",
+      "memberCount": 0,
+      "membershipRule": "user.memberof -any (group.objectId -in ['e7caff86-d13d-493e-9d7d-1c15f3fb4a4b']) -and (user.objectId -ne '209f224b-1b9e-4d47-9801-56703ccbd20f')"
+    },
+    {
+      "name": "test1",
+      "memberCount": 0,
+      "membershipRule": "user.memberof -any (group.objectId -in ['e7caff86-d13d-493e-9d7d-1c15f3fb4a4b'])"
+    }
+  ],
+  "lastUpdated": "2025-09-03T13:38:40.649Z"
+}

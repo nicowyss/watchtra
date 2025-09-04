@@ -1,0 +1,157 @@
+{
+  "total": 19,
+  "issues": 11,
+  "findings": [
+    {
+      "id": "df59b801-049b-4ea1-80ab-8a21235f9d8a",
+      "userPrincipalName": "admin@cloudfil.ch",
+      "name": "Admin",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "companyName": null,
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.148Z"
+    },
+    {
+      "id": "6166824b-7c02-4729-beb7-317c53b15509",
+      "userPrincipalName": "BreakGlass1@SWOTDEMPID021545.onmicrosoft.com",
+      "name": "Break Glass Account 1",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "companyName": null,
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "c43c5675-504e-46ac-af71-c217bdb68429",
+      "userPrincipalName": "chris.green@cloudfil.ch",
+      "name": "Chris Green",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "companyName": "contoso.commmmmm",
+        "department": "Sales"
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "9128f7d8-2e22-49f1-ba77-29699d8af846",
+      "userPrincipalName": "EMP1222@cloudfil.ch",
+      "name": "_TEST Talya Fleeta",
+      "userType": "Member",
+      "accountEnabled": false,
+      "issues": {
+        "companyName": null,
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "89c008f4-e745-4c5c-b4e2-b70b93e3c461",
+      "userPrincipalName": "EMP1513@cloudfil.ch",
+      "name": "_TEST Ginnie Hansmut",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "companyName": null,
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "f0826019-0175-432d-a30f-685f0057c9d2",
+      "userPrincipalName": "frank.mako@cloudfil.ch",
+      "name": "Frank Mako",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "department": "Digital Transformation"
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "66d3f5de-f0d8-4ee0-acf3-e8816e02cc3d",
+      "userPrincipalName": "maria.stern@cloudfil.ch",
+      "name": "Maria Stern",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "department": "Sales"
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "4cb375b5-9936-4bc8-b34a-9eeecb2d86b8",
+      "userPrincipalName": "mike.mitchell@cloudfil.ch",
+      "name": "Mike Michell",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "department": "Digital Transformation"
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "4aa6f623-ff2a-4fac-a229-e998aa9c5a07",
+      "userPrincipalName": "nico.adds@SWOTDEMPID021545.onmicrosoft.com",
+      "name": "Nico Wyss (ADDS)",
+      "userType": "Member",
+      "accountEnabled": true,
+      "issues": {
+        "companyName": null,
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "7fc9c3fc-7064-4d4a-9ece-012802aea68b",
+      "userPrincipalName": "nico.wyss_softwareone.com#EXT#@SWOTDEMPID021545.onmicrosoft.com",
+      "name": "Wyss, Nico",
+      "userType": "Guest",
+      "accountEnabled": true,
+      "issues": {
+        "companyName": "GUESTCOMPANY",
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    },
+    {
+      "id": "9cd70d0f-4461-4d43-a3da-5ef4f97ed983",
+      "userPrincipalName": "wyss.nico_bluewin.ch#EXT#@SWOTDEMPID021545.onmicrosoft.com",
+      "name": "Nico TEST Guest",
+      "userType": "Guest",
+      "accountEnabled": false,
+      "issues": {
+        "companyName": "GUESTCOMPANY",
+        "department": null,
+        "officeLocation": null,
+        "city": null,
+        "country": null
+      },
+      "timestamp": "2025-09-03T13:38:39.149Z"
+    }
+  ],
+  "lastUpdated": "2025-09-03T13:38:39.593Z"
+}
