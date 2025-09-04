@@ -11,10 +11,17 @@ https://infima.dev/docs/components/badge
 
 - UPDATE DATA: node app/scripts/scan.js 
 
+⚠️ App Registration caveat:
+Deploying Entra ID App Registrations via Bicep requires the Microsoft Graph resource provider (preview). The deploying user must have permission (Application.ReadWrite.All) in Entra ID. If your customers deploy, they’ll need those rights in their tenant.
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
+
 
 ## Deploy to Azure
 
 Click the button below to deploy this solution to your Azure subscription:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2F<YOUR_ORG_OR_USER>%2F<YOUR_REPO>%2Fmain%2Fdeployment%2Fmain.json)
+# Watchtra Deployment
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/nicowyss/watchtra/main/deployment/bicep/_main.bicep)
+
 
