@@ -1,6 +1,68 @@
 {
-  "totalLogs": 48,
+  "totalLogs": 36,
   "logs": [
+    {
+      "id": "Directory_ebb0c2dd-5f8e-4ada-b710-7d4d2db21b17_G3P2C_90284420",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        },
+        {
+          "displayName": "ActorId.ServicePrincipalNames",
+          "oldValue": null,
+          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
+        },
+        {
+          "displayName": "SPN",
+          "oldValue": null,
+          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
+        }
+      ],
+      "timestamp": "2025-09-04T19:47:54.0410267Z"
+    },
+    {
+      "id": "Directory_9035ef7a-7ef0-4166-857b-df7553ad4703_MZUOQ_471884552",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        },
+        {
+          "displayName": "ActorId.ServicePrincipalNames",
+          "oldValue": null,
+          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
+        },
+        {
+          "displayName": "SPN",
+          "oldValue": null,
+          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
+        }
+      ],
+      "timestamp": "2025-09-03T17:34:18.8921398Z"
+    },
     {
       "id": "Directory_08c62d3e-9f06-446f-8201-d26388c96a88_79FJF_401973983",
       "category": "GroupManagement",
@@ -1064,476 +1126,7 @@
         }
       ],
       "timestamp": "2025-08-07T05:38:05.9090851Z"
-    },
-    {
-      "id": "Directory_c098ae8c-8ca7-4216-945c-60414e7c2d52_AR3PZ_215733630",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        }
-      ],
-      "timestamp": "2025-08-06T03:47:08.4341078Z"
-    },
-    {
-      "id": "Directory_1ad06972-0e08-4620-bd1a-aab35bed0421_77G7I_33802770",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "AD_G_SOA_1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[]",
-          "newValue": "[true]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[]",
-          "newValue": "[\"2025-08-05T09:15:58Z\"]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "Action Client Name",
-          "oldValue": null,
-          "newValue": "\"DirectorySync\""
-        },
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.SourceOfAuthorityViolationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:15:58.6286936Z"
-    },
-    {
-      "id": "Directory_1ad06972-0e08-4620-bd1a-aab35bed0421_77G7I_33802754",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "AD_U_SOA_1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[]",
-          "newValue": "[true]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[]",
-          "newValue": "[\"2025-08-05T09:15:58Z\"]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "Action Client Name",
-          "oldValue": null,
-          "newValue": "\"DirectorySync\""
-        },
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.SourceOfAuthorityViolationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:15:58.6196885Z"
-    },
-    {
-      "id": "Directory_1ad06972-0e08-4620-bd1a-aab35bed0421_77G7I_33802737",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "AD_D_SOA_1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[]",
-          "newValue": "[true]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[]",
-          "newValue": "[\"2025-08-05T09:15:58Z\"]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "Action Client Name",
-          "oldValue": null,
-          "newValue": "\"DirectorySync\""
-        },
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.SourceOfAuthorityViolationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:15:58.6076966Z"
-    },
-    {
-      "id": "Directory_a6cadc0c-c92a-4378-b569-c4ef11556975_2SUXT_322262317",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "AD_U_SOA_1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[true]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[\"2025-08-05T07:13:18Z\"]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:15:03.6268438Z"
-    },
-    {
-      "id": "Directory_f7d5d737-e47e-45e1-93fc-28fab4847382_2LI5O_325621176",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "AD_G_SOA_1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[true]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[\"2025-08-05T07:13:18Z\"]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:15:02.9886733Z"
-    },
-    {
-      "id": "Directory_3700e288-1b0a-4531-a66d-bb2325ac1a86_2ZD4K_295851501",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "AD_D_SOA_1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[true]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[\"2025-08-05T07:13:18Z\"]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"abf9d5f7-846d-4a76-b53e-f76fc6c13a8b\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"abf9d5f7-846d-4a76-b53e-f76fc6c13a8b\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:15:02.3870506Z"
-    },
-    {
-      "id": "Directory_6a13f99b-30a7-45c8-ae80-db377f437f6b_BQQ2A_15390",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "op-group3",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[true]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[\"2025-02-12T08:21:03Z\"]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T09:00:04.9306713Z"
-    },
-    {
-      "id": "Directory_fd2b33b5-c67d-4257-ac3e-b0772a2cd10d_SMJRJ_222681047",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "op-group2",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[true]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[\"2025-02-12T08:21:03Z\"]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T08:59:49.43052Z"
-    },
-    {
-      "id": "Directory_5cf159e9-0da4-4a57-9bb9-5d4115a2d048_LAJVR_303560080",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "op-group1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"abf9d5f7-846d-4a76-b53e-f76fc6c13a8b\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"abf9d5f7-846d-4a76-b53e-f76fc6c13a8b\""
-        }
-      ],
-      "timestamp": "2025-08-05T08:55:02.8324197Z"
-    },
-    {
-      "id": "Directory_76415ff7-3b4c-40da-880f-faa0433652de_GFX43_303357872",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "op-group1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        }
-      ],
-      "timestamp": "2025-08-05T08:00:42.4002874Z"
-    },
-    {
-      "id": "Directory_8961f7fe-ffe1-4cda-8290-b307ea8b482b_6NIGE_323176631",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "op-group1",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"\"},{\"key\":\"User-Agent\",\"value\":\"Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.26100; de-CH) PowerShell/7.4.10\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "DirSyncEnabled",
-          "oldValue": "[true]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "LastDirSyncTime",
-          "oldValue": "[\"2025-02-12T08:21:03Z\"]",
-          "newValue": "[]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"DirSyncEnabled, LastDirSyncTime\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"abf9d5f7-846d-4a76-b53e-f76fc6c13a8b\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"abf9d5f7-846d-4a76-b53e-f76fc6c13a8b\""
-        }
-      ],
-      "timestamp": "2025-08-05T08:00:10.5212657Z"
-    },
-    {
-      "id": "Directory_470ca76b-56b0-4463-aa2f-a392c208a36b_HHMXY_299498686",
-      "category": "UserManagement",
-      "activity": "Update user",
-      "initiatedBy": "system",
-      "target": "admin@cloudfil.ch",
-      "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.27\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-04T06:28:08.762957Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.27\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-05T07:05:35.4071168Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"StrongAuthenticationPhoneAppDetail\""
-        },
-        {
-          "displayName": "TargetId.UserType",
-          "oldValue": null,
-          "newValue": "\"Member\""
-        }
-      ],
-      "timestamp": "2025-08-05T07:05:35.6114424Z"
-    },
-    {
-      "id": "Directory_30d992e7-b602-40a6-ade2-43828455308e_7AMRR_332134679",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        }
-      ],
-      "timestamp": "2025-08-05T01:43:33.8261409Z"
     }
   ],
-  "lastUpdated": "2025-09-03T13:38:46.596Z"
+  "lastUpdated": "2025-09-05T06:06:27.789Z"
 }

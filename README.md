@@ -1,20 +1,32 @@
+## Architecture (Components)
 - Cosmos DB
 - Azure Web App
 - Azure Function
 - Entra ID App Registration
-- https://docusaurus.io/docs
-https://infima.dev/docs/components/badge
 
-- BUGS:
+## Sources (Links)
+- https://docusaurus.io/docs
+- https://infima.dev/docs/components/badge
+- https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
+
+## Features (To Do List)
+- members.json Rules cannot stay in the webapp (for Later Updates pushes would override this)
+- Deploy to Azure (bicep via GitHub)
+- User Summary (Link the Button to a unique Entra ID Link with the User ID)
+- Full Stying Update (index.js) from Tailwind CSS Code to native Docusaurus css file
+
+
+
+## Bugs (Known Issues)
 - Dynamic Group Membership Validator not works
 
+
+## Notes
 
 - UPDATE DATA: node app/scripts/scan.js 
 
 ⚠️ App Registration caveat:
 Deploying Entra ID App Registrations via Bicep requires the Microsoft Graph resource provider (preview). The deploying user must have permission (Application.ReadWrite.All) in Entra ID. If your customers deploy, they’ll need those rights in their tenant.
-https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
-
 
 ## Deploy to Azure
 

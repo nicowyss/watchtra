@@ -7,7 +7,7 @@ const crypto = require("crypto");
  */
 async function getUsers(token) {
   const url =
-    "https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,companyName,department,officeLocation,city,country,userType,accountEnabled";
+    "https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,companyName,department,officeLocation,city,country,userType,accountEnabled,jobTitle,manager";
 
   let users = [];
   let nextLink = url;
@@ -50,6 +50,13 @@ function validateUsers(users, rules) {
         name: u.displayName,
         userType: u.userType,
         accountEnabled: u.accountEnabled,
+        jobTitle: u.jobTitle,
+        companyName: u.companyName,
+        department: u.department,
+        officeLocation: u.officeLocation,
+        city: u.city,
+        country: u.country,
+        manager: u.manager,
         issues,
         timestamp: new Date().toISOString(),
       });

@@ -3,11 +3,17 @@
   "issues": 11,
   "findings": [
     {
-      "id": "df59b801-049b-4ea1-80ab-8a21235f9d8a",
+      "id": "b2d75473-2975-4472-9e7a-cc49842d9fbb",
       "userPrincipalName": "admin@cloudfil.ch",
       "name": "Admin",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": "TEST Job Title",
+      "companyName": null,
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": null,
         "department": null,
@@ -15,14 +21,20 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.148Z"
+      "timestamp": "2025-09-05T06:06:20.808Z"
     },
     {
-      "id": "6166824b-7c02-4729-beb7-317c53b15509",
+      "id": "b5b2973a-c674-434a-825e-84d6569e1153",
       "userPrincipalName": "BreakGlass1@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Break Glass Account 1",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": null,
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": null,
         "department": null,
@@ -30,26 +42,38 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "c43c5675-504e-46ac-af71-c217bdb68429",
+      "id": "5d281f46-d047-41dd-8aea-ee9341f1b0c6",
       "userPrincipalName": "chris.green@cloudfil.ch",
       "name": "Chris Green",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": "contoso.commmmmm",
+      "department": "Sales",
+      "officeLocation": "Hamburg",
+      "city": "Hamburg",
+      "country": "Germany",
       "issues": {
         "companyName": "contoso.commmmmm",
         "department": "Sales"
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "9128f7d8-2e22-49f1-ba77-29699d8af846",
+      "id": "e1a457f1-91dc-411a-9f7a-751c0dcfc28c",
       "userPrincipalName": "EMP1222@cloudfil.ch",
       "name": "_TEST Talya Fleeta",
       "userType": "Member",
       "accountEnabled": false,
+      "jobTitle": null,
+      "companyName": null,
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": null,
         "department": null,
@@ -57,14 +81,20 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "89c008f4-e745-4c5c-b4e2-b70b93e3c461",
+      "id": "f3441143-369c-4a7d-802a-762a9ac309f0",
       "userPrincipalName": "EMP1513@cloudfil.ch",
       "name": "_TEST Ginnie Hansmut",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": null,
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": null,
         "department": null,
@@ -72,47 +102,71 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "f0826019-0175-432d-a30f-685f0057c9d2",
+      "id": "112a64f7-341b-43f1-b557-81eca9425d13",
       "userPrincipalName": "frank.mako@cloudfil.ch",
       "name": "Frank Mako",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": "cloudfil.ch",
+      "department": "Digital Transformation",
+      "officeLocation": "Bern",
+      "city": "Bern",
+      "country": "Switzerland",
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "66d3f5de-f0d8-4ee0-acf3-e8816e02cc3d",
+      "id": "d1d61bb3-0e86-4248-94e1-c550f54b3ad2",
       "userPrincipalName": "maria.stern@cloudfil.ch",
       "name": "Maria Stern",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": "contoso.com",
+      "department": "Sales",
+      "officeLocation": "Hamburg",
+      "city": "Hamburg",
+      "country": "Germany",
       "issues": {
         "department": "Sales"
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "4cb375b5-9936-4bc8-b34a-9eeecb2d86b8",
+      "id": "a508a93d-dd99-4596-ba93-37583541de7c",
       "userPrincipalName": "mike.mitchell@cloudfil.ch",
       "name": "Mike Michell",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": "cloudfil.ch",
+      "department": "Digital Transformation",
+      "officeLocation": "Bern",
+      "city": "Bern",
+      "country": "Switzerland",
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "4aa6f623-ff2a-4fac-a229-e998aa9c5a07",
+      "id": "07df53ec-9f5f-4793-a2ff-dbc09679c7c7",
       "userPrincipalName": "nico.adds@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico Wyss (ADDS)",
       "userType": "Member",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": null,
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": null,
         "department": null,
@@ -120,14 +174,20 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "7fc9c3fc-7064-4d4a-9ece-012802aea68b",
+      "id": "4aafcff0-522a-428f-8ecd-e76467b65097",
       "userPrincipalName": "nico.wyss_softwareone.com#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Wyss, Nico",
       "userType": "Guest",
       "accountEnabled": true,
+      "jobTitle": null,
+      "companyName": "GUESTCOMPANY",
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": "GUESTCOMPANY",
         "department": null,
@@ -135,14 +195,20 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     },
     {
-      "id": "9cd70d0f-4461-4d43-a3da-5ef4f97ed983",
+      "id": "e1ecbd10-6fa0-4cef-8b44-dcfc654011a6",
       "userPrincipalName": "wyss.nico_bluewin.ch#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico TEST Guest",
       "userType": "Guest",
       "accountEnabled": false,
+      "jobTitle": null,
+      "companyName": "GUESTCOMPANY",
+      "department": null,
+      "officeLocation": null,
+      "city": null,
+      "country": null,
       "issues": {
         "companyName": "GUESTCOMPANY",
         "department": null,
@@ -150,8 +216,8 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-03T13:38:39.149Z"
+      "timestamp": "2025-09-05T06:06:20.811Z"
     }
   ],
-  "lastUpdated": "2025-09-03T13:38:39.593Z"
+  "lastUpdated": "2025-09-05T06:06:21.400Z"
 }

@@ -64,11 +64,39 @@ export default function Home() {
     >
       <HomepageHeader />
       <main className="container mx-auto p-6">
+        <div class="row">
+          <div class="col col--2">
+            <div class="col-demo">
+              <p>Total Users with Error: {users.length}</p>
+            </div>
+          </div>
+          <div class="col col--2">
+            <div class="col-demo">
+              <p>Total Members with Error: {users.filter((user) => user.userType === "Member").length}
+              </p>
+            </div>
+          </div>
+          <div class="col col--2">
+            <div class="col-demo">
+              <p>Total Guests with Error: {users.filter((user) => user.userType === "Guest").length}</p>
+            </div>
+          </div>
+          <div class="col col--2">
+            <div class="col-demo">2</div>
+          </div>
+          <div class="col col--2">
+            <div class="col-demo">2</div>
+          </div>
+          <div class="col col--2">
+            <div class="col-demo">2</div>
+          </div>
+        </div>
         <h2 className="text-2xl font-bold mb-4">User Issues</h2>
         <table className="min-w-full border border-gray-300">
           <thead className="bg-gray-100">
             <tr>
-              <th className="border px-4 py-2">User</th>
+              <th className="border px-4 py-2">UserType</th>
+              <th className="border px-4 py-2">UserPrincipalName</th>
               <th className="border px-4 py-2">Name</th>
               <th className="border px-4 py-2">Issues</th>
             </tr>
@@ -90,6 +118,7 @@ export default function Home() {
                     className="hover:bg-gray-50 cursor-pointer"
                     onClick={() => toggleRow(user.userPrincipalName)}
                   >
+                    <td className="border px-4 py-2">{user.userType}</td>
                     <td className="border px-4 py-2">
                       {user.userPrincipalName}
                     </td>
@@ -102,6 +131,59 @@ export default function Home() {
                     <tr>
                       <td colSpan={3} className="border px-4 py-2 bg-gray-50">
                         <Tabs>
+                          <TabItem value="usersummary" label="User Summary">
+                            <div className="mb-4">
+                              <h4 className="font-bold mb-2">User Summary</h4>
+                            </div>
+                            <div className="card p-4 bg-purple-100 shadow rounded">
+                              <div class="avatar mb-4 flex flex-col items-center">
+                                <img
+                                  class="avatar__photo"
+                                  src="https://avatars1.githubusercontent.com/u/4060187?s=460&v=4"
+                                />
+                                <div class="avatar__intro">
+                                  <div class="avatar__name">{user.name}</div>
+                                  <small class="avatar__subtitle ">
+                                    {user.jobTitle}
+                                  </small>
+                                </div>
+                              </div>
+                              <div class="card__body">
+                                <p>
+                                  <strong>ID:</strong> {user.id}
+                                </p>
+                                <p>
+                                  <strong>Account Enabled:</strong>{" "}
+                                  {user.accountEnabled ? "Yes" : "No"}
+                                </p>
+                                <p>
+                                  <strong>UserType:</strong> {user.userType}
+                                </p>
+                                <p>
+                                  <strong>User Principal Name:</strong>{" "}
+                                  {user.userPrincipalName}
+                                </p>
+                                <p>
+                                  <strong>CompanyName:</strong>{" "}
+                                  {user.companyName}
+                                </p>
+                                <p>
+                                  <strong>Country:</strong> {user.country}
+                                </p>
+                                <p>
+                                  <strong>Department:</strong> {user.department}
+                                </p>
+                                <p>
+                                  <strong>Manager:</strong> {user.manager}
+                                </p>
+                              </div>
+                              <div class="card__footer">
+                                <button class="button button--secondary button--block">
+                                  See in Entra ID
+                                </button>
+                              </div>
+                            </div>
+                          </TabItem>
                           <TabItem value="issues" label="Issues" default>
                             <div className="mb-4">
                               <h4 className="font-bold mb-2">Issues</h4>
@@ -273,7 +355,7 @@ export default function Home() {
                                               "—"
                                             )}
                                           </td>
-                                                                                    <td className="border px-4 py-2">
+                                          <td className="border px-4 py-2">
                                             {new Date(
                                               l.timestamp
                                             ).toLocaleString()}
