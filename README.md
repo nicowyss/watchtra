@@ -19,7 +19,7 @@
 
 ## Bugs (Known Issues)
 - Dynamic Group Membership Validator not works
-
+- Improve the Review Organization Attribute Pop Out (Styling and fix excluded Users View and Close Button (ESC, X and Close))
 
 ## Notes
 

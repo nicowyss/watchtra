@@ -21,3 +21,87 @@
   align-items: center;
   justify-content: center;
 }
+
+
+/* Statistics*/
+.statistics {
+  background-color: blue;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+.stacol {
+  background-color: blueviolet;
+  border-radius: 4rem;
+  text-align: center;
+}
+
+/* User Issues Table */
+.userissuetable{
+  width: 100%;
+  table-layout: fixed;
+
+}
+.userissuetable th {
+  width: 20%;
+  word-wrap: break-word;
+  border: 1px solid #ddd;
+  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+
+/* Issues Table */
+.tabtables  {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+
+}
+.tabtables th, .tabtables td {
+  word-wrap: break-word;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tabtables th {
+  background-color: #1d04aa;
+  color: white;
+}
+
+.popup {
+  position: relative; /* change from absolute */
+  z-index: 50;
+  max-width: 600px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 0.5rem; /* add spacing from button */
+}
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  max-width: 600px;
+  width: 90%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  max-height: 80vh;
+}

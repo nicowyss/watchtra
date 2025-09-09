@@ -1,6 +1,48 @@
 {
-  "totalLogs": 36,
+  "totalLogs": 37,
   "logs": [
+    {
+      "id": "Directory_7ba225f0-ece0-485c-8b2f-6f6aa66b7d9e_9CGXK_121875302",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-06T23:50:12.6075825Z"
+    },
+    {
+      "id": "Directory_bb2d2632-c881-4b67-bd10-24af83db69ad_ZM57F_376004626",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-05T22:01:19.8004412Z"
+    },
     {
       "id": "Directory_ebb0c2dd-5f8e-4ada-b710-7d4d2db21b17_G3P2C_90284420",
       "category": "GroupManagement",
@@ -18,16 +60,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-09-04T19:47:54.0410267Z"
@@ -49,16 +81,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-09-03T17:34:18.8921398Z"
@@ -80,16 +102,6 @@
           "displayName": "Group.DisplayName",
           "oldValue": "\"Contoso-SharePoint-Page\"",
           "newValue": null
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"65d91a3d-ab74-42e6-8a2f-0add61688c74/approvalmanagement.activedirectory.windowsazure.com;65d91a3d-ab74-42e6-8a2f-0add61688c74;https://approvalmanagement.activedirectory.windowsazure.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"65d91a3d-ab74-42e6-8a2f-0add61688c74/approvalmanagement.activedirectory.windowsazure.com;65d91a3d-ab74-42e6-8a2f-0add61688c74;https://approvalmanagement.activedirectory.windowsazure.com\""
         }
       ],
       "timestamp": "2025-09-03T13:13:43.4950151Z"
@@ -129,11 +141,6 @@
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
         {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.30\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-09-02T11:48:36.1987839Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.30\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-09-03T13:11:55.1017408Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
-        {
           "displayName": "Included Updated Properties",
           "oldValue": null,
           "newValue": "\"StrongAuthenticationPhoneAppDetail\""
@@ -154,11 +161,6 @@
       "target": "admin@cloudfil.ch",
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
-        {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.30\",\"OathTokenTimeDrift\":-1,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-09-01T11:47:30.6118948Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.30\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-09-02T11:48:36.1987839Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
         {
           "displayName": "Included Updated Properties",
           "oldValue": null,
@@ -189,16 +191,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-09-02T05:59:34.9534163Z"
@@ -212,11 +204,6 @@
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
         {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":-1,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-22T05:33:00.5693745Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.30\",\"OathTokenTimeDrift\":-1,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-09-01T11:47:30.6118948Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
-        {
           "displayName": "Included Updated Properties",
           "oldValue": null,
           "newValue": "\"StrongAuthenticationPhoneAppDetail\""
@@ -225,16 +212,6 @@
           "displayName": "TargetId.UserType",
           "oldValue": null,
           "newValue": "\"Member\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"b5a60e17-278b-4c92-a4e2-b9262e66bb28\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"b5a60e17-278b-4c92-a4e2-b9262e66bb28\""
         }
       ],
       "timestamp": "2025-09-01T11:47:30.8170743Z"
@@ -256,16 +233,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-09-01T04:16:08.3470118Z"
@@ -287,16 +254,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-31T02:11:09.1490946Z"
@@ -318,16 +275,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-29T23:59:03.0399544Z"
@@ -349,16 +296,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-28T22:10:44.7661183Z"
@@ -380,16 +317,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-27T20:02:29.1714318Z"
@@ -411,16 +338,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-26T18:11:50.6818089Z"
@@ -442,16 +359,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-25T16:28:17.1571722Z"
@@ -473,16 +380,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-24T05:11:11.5886308Z"
@@ -504,16 +401,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-23T02:51:15.6155914Z"
@@ -578,11 +465,6 @@
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
         {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-20T07:20:13.2265101Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":-1,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-22T05:33:00.5693745Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
-        {
           "displayName": "Included Updated Properties",
           "oldValue": null,
           "newValue": "\"StrongAuthenticationPhoneAppDetail\""
@@ -612,16 +494,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-22T01:09:15.6929874Z"
@@ -643,16 +515,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-20T22:25:09.3255537Z"
@@ -666,11 +528,6 @@
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
         {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-18T07:08:34.5118633Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-20T07:20:13.2265101Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
-        {
           "displayName": "Included Updated Properties",
           "oldValue": null,
           "newValue": "\"StrongAuthenticationPhoneAppDetail\""
@@ -679,16 +536,6 @@
           "displayName": "TargetId.UserType",
           "oldValue": null,
           "newValue": "\"Member\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"b5a60e17-278b-4c92-a4e2-b9262e66bb28\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"b5a60e17-278b-4c92-a4e2-b9262e66bb28\""
         }
       ],
       "timestamp": "2025-08-20T07:20:13.4586041Z"
@@ -710,16 +557,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-19T20:15:11.8472443Z"
@@ -741,16 +578,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-18T17:44:57.4181082Z"
@@ -763,11 +590,6 @@
       "target": "admin@cloudfil.ch",
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
-        {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-13T08:08:57.7464091Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-18T07:08:34.5118633Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
         {
           "displayName": "Included Updated Properties",
           "oldValue": null,
@@ -798,16 +620,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-17T09:05:49.803641Z"
@@ -829,16 +641,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-16T06:35:03.2674382Z"
@@ -860,16 +662,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-15T04:35:17.676713Z"
@@ -891,16 +683,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-14T02:51:09.8128578Z"
@@ -914,11 +696,6 @@
       "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
       "modifiedProperties": [
         {
-          "displayName": "StrongAuthenticationPhoneAppDetail",
-          "oldValue": "[{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.27\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-05T07:05:35.4071168Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]",
-          "newValue": "[{\"DeviceName\":\"iPhone 11\",\"DeviceToken\":\"apns2-6901bab5d27ce59ccff40da74365e3df0c2a9fc90d8e15c411f7cd1dba7a503f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.3\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"3cd937a6-a37d-40a0-912c-f8c0b3b298cb\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2024-02-19T06:57:29.4635834Z\",\"AuthenticatorFlavor\":null,\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775},{\"DeviceName\":\"iPhone\",\"DeviceToken\":\"apns2-63cb4fe02136bae2e03f0fd9a6535fcdd2b72799c115e89fa22bc94ce65c200f\",\"DeviceTag\":\"SoftwareTokenActivated\",\"PhoneAppVersion\":\"6.8.29\",\"OathTokenTimeDrift\":0,\"DeviceId\":\"00000000-0000-0000-0000-000000000000\",\"Id\":\"35640b00-2914-45ab-bcb2-68d13dd7ce80\",\"TimeInterval\":0,\"AuthenticationType\":3,\"NotificationType\":2,\"LastAuthenticatedTimestamp\":\"2025-08-13T08:08:57.7464091Z\",\"AuthenticatorFlavor\":\"Authenticator\",\"HashFunction\":null,\"TenantDeviceId\":null,\"SecuredPartitionId\":20174,\"SecuredKeyId\":32775}]"
-        },
-        {
           "displayName": "Included Updated Properties",
           "oldValue": null,
           "newValue": "\"StrongAuthenticationPhoneAppDetail\""
@@ -927,16 +704,6 @@
           "displayName": "TargetId.UserType",
           "oldValue": null,
           "newValue": "\"Member\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"b5a60e17-278b-4c92-a4e2-b9262e66bb28\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"b5a60e17-278b-4c92-a4e2-b9262e66bb28\""
         }
       ],
       "timestamp": "2025-08-13T08:08:57.9955397Z"
@@ -958,16 +725,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-13T01:09:54.5531043Z"
@@ -989,16 +746,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-11T22:59:52.2438661Z"
@@ -1020,16 +767,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-10T21:17:13.8401159Z"
@@ -1051,16 +788,6 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-09T19:29:16.8228578Z"
@@ -1082,51 +809,10 @@
           "displayName": "TargetId.GroupType",
           "oldValue": null,
           "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
         }
       ],
       "timestamp": "2025-08-08T17:22:43.0260658Z"
-    },
-    {
-      "id": "Directory_c2c130e1-3ee3-454c-8dba-ccde2da8fb0d_SU9IQ_67855271",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        },
-        {
-          "displayName": "ActorId.ServicePrincipalNames",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        },
-        {
-          "displayName": "SPN",
-          "oldValue": null,
-          "newValue": "\"00000002-0000-0ff1-ce00-000000000000/outlook.office365.com;00000002-0000-0ff1-ce00-000000000000/mail.office365.com;00000002-0000-0ff1-ce00-000000000000/outlook.com;00000002-0000-0ff1-ce00-000000000000/*.outlook.com;00000002-0000-0ff1-ce00-000000000000;https://ps.compliance.protection.outlook.com;https://outlook-sdf.office.com/;https://outlook-sdf.office365.com/;https://outlook.office365.com:443/;https://outlook.office.com/;https://outlook.office365.com/;https://outlook.com/;https://ps.protection.outlook.com/;https://outlook-tdf.office.com/;https://outlook-tdf-2.office.com/;https://ps.outlook.com;https://outlook.office.com\""
-        }
-      ],
-      "timestamp": "2025-08-07T05:38:05.9090851Z"
     }
   ],
-  "lastUpdated": "2025-09-05T06:06:27.789Z"
+  "lastUpdated": "2025-09-07T11:35:13.686Z"
 }

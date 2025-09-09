@@ -18,6 +18,13 @@ async function fetchAuditLogs() {
     url = res.data["@odata.nextLink"] || null;
   }
 
+const ignoredProperties = [
+  "SPN",
+  "ActorId.ServicePrincipalNames",
+  "StrongAuthenticationPhoneAppDetail",
+  // add more keys here later if needed - to remove noise from the audit Logs
+];
+
   // Filter relevant events
   const filtered = logs.filter((l) =>
     [
@@ -31,25 +38,27 @@ async function fetchAuditLogs() {
   );
 
   // Transform for storage & UI
-  const transformed = filtered.map((l) => {
-    // Extract modified properties (if any)
-    let modifiedProperties = [];
-    if (l.targetResources && l.targetResources.length > 0) {
-      l.targetResources.forEach((resource) => {
-        if (
-          resource.modifiedProperties &&
-          resource.modifiedProperties.length > 0
-        ) {
-          resource.modifiedProperties.forEach((prop) => {
+const transformed = filtered.map((l) => {
+  let modifiedProperties = [];
+
+  if (l.targetResources && l.targetResources.length > 0) {
+    l.targetResources.forEach((resource) => {
+      if (
+        resource.modifiedProperties &&
+        resource.modifiedProperties.length > 0
+      ) {
+        resource.modifiedProperties.forEach((prop) => {
+          if (!ignoredProperties.includes(prop.displayName)) {
             modifiedProperties.push({
               displayName: prop.displayName,
               oldValue: prop.oldValue,
               newValue: prop.newValue,
             });
-          });
-        }
-      });
-    }
+          }
+        });
+      }
+    });
+  }
 
     let initiatedBy = "system"; // fallback
     if (l.initiatedBy) {

@@ -6,19 +6,21 @@ const { getUsers, validateUsers } = require("../users");
 const { fetchDynamicGroups } = require("../groups");
 const { saveFindings } = require("../cosmos");
 const { fetchAuditLogs } = require("../auditlogs");
-
-// Rules paths
-const MEMBER_RULES_PATH = path.join(__dirname, "../rules/members.json");
-const GUEST_RULES_PATH = path.join(__dirname, "../rules/guests.json");
+const { loadRules } = require("./appconfig");
 
 // Output paths for frontend
-const USERS_OUTPUT_PATH = path.join(__dirname, "../../static/users-results.json");
-const GROUPS_OUTPUT_PATH = path.join(__dirname, "../../static/groups-results.json");
+const USERS_OUTPUT_PATH = path.join(
+  __dirname,
+  "../../static/users-results.json"
+);
+const GROUPS_OUTPUT_PATH = path.join(
+  __dirname,
+  "../../static/groups-results.json"
+);
 const LOGS_OUTPUT_PATH = path.join(__dirname, "../../static/logs-results.json");
 
 async function runUserScan() {
-  const memberRules = JSON.parse(fs.readFileSync(MEMBER_RULES_PATH, "utf8"));
-  const guestRules = JSON.parse(fs.readFileSync(GUEST_RULES_PATH, "utf8"));
+  const { members: memberRules, guests: guestRules } = await loadRules();
 
   const token = await getGraphToken();
   const users = await getUsers(token);
@@ -52,9 +54,9 @@ async function runGroupScan() {
 async function runAuditLogScan() {
   const logs = await fetchAuditLogs();
   return {
-      totalLogs: logs.length,
-      logs,
-      lastUpdated: new Date().toISOString(),
+    totalLogs: logs.length,
+    logs,
+    lastUpdated: new Date().toISOString(),
   };
 }
 

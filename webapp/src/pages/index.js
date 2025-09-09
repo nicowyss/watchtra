@@ -9,6 +9,8 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 import styles from "./index.module.css";
 import { checkUserInGroup } from "../utils/validateUser";
+import RulesButton from "../components/RulesButton";
+
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -50,13 +52,6 @@ export default function Home() {
     );
   };
 
-  // Helper to determine status color
-  const getStatusClass = (status) => {
-    if (status === "In Group") return "bg-green-50";
-    if (status === "Not in Group") return "bg-red-50";
-    return "bg-yellow-50";
-  };
-
   return (
     <Layout
       title="User Audit Dashboard"
@@ -64,41 +59,52 @@ export default function Home() {
     >
       <HomepageHeader />
       <main className="container mx-auto p-6">
-        <div class="row">
-          <div class="col col--2">
+        <div class={clsx("row", styles.statistics)}>
+          <div class={clsx("col col--2", styles.stacol)}>
             <div class="col-demo">
-              <p>Total Users with Error: {users.length}</p>
+              <strong>{users.length}</strong>
+              <p>Total Users</p>
             </div>
           </div>
-          <div class="col col--2">
+          <div class={clsx("col col--2", styles.stacol)}>
             <div class="col-demo">
-              <p>Total Members with Error: {users.filter((user) => user.userType === "Member").length}
-              </p>
+              <strong>
+                {users.filter((user) => user.userType === "Member").length}
+              </strong>
+              <p>Members</p>
             </div>
           </div>
-          <div class="col col--2">
+          <div class={clsx("col col--2", styles.stacol)}>
             <div class="col-demo">
-              <p>Total Guests with Error: {users.filter((user) => user.userType === "Guest").length}</p>
+              <strong>
+                {users.filter((user) => user.userType === "Guest").length}
+              </strong>
+              <p>Guests</p>
             </div>
           </div>
-          <div class="col col--2">
+          <div class={clsx("col col--2", styles.stacol)}>
             <div class="col-demo">2</div>
           </div>
-          <div class="col col--2">
+          <div class={clsx("col col--2", styles.stacol)}>
             <div class="col-demo">2</div>
           </div>
-          <div class="col col--2">
+          <div class={clsx("col col--2", styles.stacol)}>
             <div class="col-demo">2</div>
           </div>
         </div>
         <h2 className="text-2xl font-bold mb-4">User Issues</h2>
-        <table className="min-w-full border border-gray-300">
+        <table
+          className={clsx(
+            "min-w-full border border-gray-300",
+            styles.userissuetable
+          )}
+        >
           <thead className="bg-gray-100">
             <tr>
-              <th className="border px-4 py-2">UserType</th>
-              <th className="border px-4 py-2">UserPrincipalName</th>
-              <th className="border px-4 py-2">Name</th>
-              <th className="border px-4 py-2">Issues</th>
+              <th>UserType</th>
+              <th>UserPrincipalName</th>
+              <th>Name</th>
+              <th>Issues</th>
             </tr>
           </thead>
           <tbody>
@@ -118,14 +124,10 @@ export default function Home() {
                     className="hover:bg-gray-50 cursor-pointer"
                     onClick={() => toggleRow(user.userPrincipalName)}
                   >
-                    <td className="border px-4 py-2">{user.userType}</td>
-                    <td className="border px-4 py-2">
-                      {user.userPrincipalName}
-                    </td>
-                    <td className="border px-4 py-2">{user.name}</td>
-                    <td className="border px-4 py-2 text-center">
-                      {Object.keys(user.issues).length}
-                    </td>
+                    <td>{user.userType}</td>
+                    <td>{user.userPrincipalName}</td>
+                    <td>{user.name}</td>
+                    <td>{Object.keys(user.issues).length}</td>
                   </tr>
                   {isExpanded && (
                     <tr>
@@ -185,27 +187,21 @@ export default function Home() {
                             </div>
                           </TabItem>
                           <TabItem value="issues" label="Issues" default>
-                            <div className="mb-4">
-                              <h4 className="font-bold mb-2">Issues</h4>
-                              <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-300">
-                                  <thead className="bg-gray-100">
+                            <div>
+                              <h4>Issues</h4>
+                              <div>
+                                <table className={styles.tabtables}>
+                                  <thead>
                                     <tr>
-                                      <th className="border px-4 py-2">
-                                        Attribute
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Value
-                                      </th>
+                                      <th>Attribute</th>
+                                      <th>Value</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     {Object.entries(user.issues).map(
                                       ([key, value]) => (
                                         <tr key={key}>
-                                          <td className="border px-4 py-2">
-                                            {key}
-                                          </td>
+                                          <td>{key}</td>
                                           <td
                                             className={`border px-4 py-2 font-bold ${
                                               value === null
@@ -220,6 +216,9 @@ export default function Home() {
                                     )}
                                   </tbody>
                                 </table>
+                                <div class="card__footer">
+                                  <RulesButton />
+                                </div>
                               </div>
                             </div>
                           </TabItem>
@@ -228,65 +227,69 @@ export default function Home() {
                             label="Dynamic Groups"
                             default
                           >
-                            <div className="mb-4">
-                              <h4 className="font-bold mb-2">
-                                Dynamic Group Membership
-                              </h4>
-                              <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-300">
-                                  <thead className="bg-gray-100">
+                            <div>
+                              <h4>Dynamic Group Membership</h4>
+                              <div>
+                                <table className={styles.tabtables}>
+                                  <thead>
                                     <tr>
-                                      <th className="border px-4 py-2">
-                                        Status
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Group
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Member Count
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Membership Rule
-                                      </th>
+                                      <th>Status</th>
+                                      <th>Group</th>
+                                      <th>Member Count</th>
+                                      <th>Membership Rule</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     {groups.length > 0 ? (
-                                      groups.map((g) => {
-                                        const status = checkUserInGroup(
-                                          user,
-                                          g.membershipRule
-                                        );
-                                        return (
+                                      groups
+                                        // step 1: add status
+                                        .map((g) => ({
+                                          ...g,
+                                          status: checkUserInGroup(
+                                            user,
+                                            g.membershipRule
+                                          ),
+                                        }))
+                                        // step 2: sort by status
+                                        .sort((a, b) => {
+                                          const order = {
+                                            "In Group": 0,
+                                            "Not in Group": 1,
+                                            Unknown: 2,
+                                          };
+                                          return (
+                                            order[a.status] - order[b.status]
+                                          );
+                                        })
+                                        // step 3: render with color
+                                        .map((g) => (
                                           <tr
                                             key={g.name}
-                                            className={`hover:bg-gray-50 ${getStatusClass(
-                                              status
-                                            )}`}
+                                            className="hover:bg-gray-50"
                                           >
-                                            <td className="border px-4 py-2 font-bold">
-                                              {status}
+                                            <td>
+                                              <span
+                                                className={clsx(
+                                                  "badge",
+                                                  g.status === "In Group"
+                                                    ? "badge--success"
+                                                    : g.status ===
+                                                      "Not in Group"
+                                                    ? "badge--danger"
+                                                    : "badge--warning"
+                                                )}
+                                              >
+                                                {g.status}
+                                              </span>
                                             </td>
-                                            <td className="border px-4 py-2">
-                                              {g.name}
-                                            </td>
-                                            <td className="border px-4 py-2">
-                                              {g.memberCount}
-                                            </td>
-                                            <td className="border px-4 py-2 font-mono">
-                                              {g.membershipRule}
-                                            </td>
+                                            <td>{g.name}</td>
+                                            <td>{g.memberCount}</td>
+                                            <td>{g.membershipRule}</td>
                                           </tr>
-                                        );
-                                      })
+                                        ))
                                     ) : (
                                       <tr>
-                                        <td
-                                          colSpan={4}
-                                          className="border px-4 py-2"
-                                        >
-                                          No groups available
-                                        </td>
+                                        <td colSpan={4}>No groups available</td>
                                       </tr>
                                     )}
                                   </tbody>
@@ -297,26 +300,16 @@ export default function Home() {
 
                           <TabItem value="logs" label="Audit Logs">
                             <div>
-                              <h4 className="font-bold mb-2">Audit Logs</h4>
-                              <div className="overflow-x-auto">
-                                <table className="min-w-full border border-gray-300">
-                                  <thead className="bg-gray-100">
+                              <h4>Audit Logs</h4>
+                              <div>
+                                <table className={styles.tabtables}>
+                                  <thead>
                                     <tr>
-                                      <th className="border px-4 py-2">
-                                        Activity
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Initiator
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Target
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Modified Properties
-                                      </th>
-                                      <th className="border px-4 py-2">
-                                        Timestamp
-                                      </th>
+                                      <th>Activity</th>
+                                      <th>Initiator</th>
+                                      <th>Target</th>
+                                      <th>Modified Properties</th>
+                                      <th>Timestamp</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -326,16 +319,10 @@ export default function Home() {
                                           key={l.id}
                                           className="hover:bg-gray-50 align-top"
                                         >
-                                          <td className="border px-4 py-2">
-                                            {l.activity}
-                                          </td>
-                                          <td className="border px-4 py-2">
-                                            {l.initiatedBy}
-                                          </td>
-                                          <td className="border px-4 py-2">
-                                            {l.target}
-                                          </td>
-                                          <td className="border px-4 py-2">
+                                          <td>{l.activity}</td>
+                                          <td>{l.initiatedBy}</td>
+                                          <td>{l.target}</td>
+                                          <td>
                                             {l.modifiedProperties &&
                                             l.modifiedProperties.length > 0 ? (
                                               <ul className="list-disc pl-5">
@@ -355,7 +342,7 @@ export default function Home() {
                                               "—"
                                             )}
                                           </td>
-                                          <td className="border px-4 py-2">
+                                          <td>
                                             {new Date(
                                               l.timestamp
                                             ).toLocaleString()}
@@ -364,12 +351,7 @@ export default function Home() {
                                       ))
                                     ) : (
                                       <tr>
-                                        <td
-                                          colSpan={5}
-                                          className="border px-4 py-2"
-                                        >
-                                          No logs found
-                                        </td>
+                                        <td colSpan={5}>No logs found</td>
                                       </tr>
                                     )}
                                   </tbody>
