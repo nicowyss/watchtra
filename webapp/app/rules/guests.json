@@ -1,5 +1,7 @@
 {
-  "excludeUsers": ["breakglass@yourcompany.com", "admin@yourcompany.com"],
+  "excludeUsers": {
+    "allowed": ["breakglass@yourcompany.com", "admin@yourcompany.com"]
+  },
   "companyName": {
     "allowed": ["cloudfil.ch", "contoso.com"]
   },

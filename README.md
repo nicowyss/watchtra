@@ -12,14 +12,10 @@
 ## Features (To Do List)
 - members.json Rules cannot stay in the webapp (for Later Updates pushes would override this)
 - Deploy to Azure (bicep via GitHub)
-- User Summary (Link the Button to a unique Entra ID Link with the User ID)
 - Full Stying Update (index.js) from Tailwind CSS Code to native Docusaurus css file
-
-
 
 ## Bugs (Known Issues)
 - Dynamic Group Membership Validator not works
-- Improve the Review Organization Attribute Pop Out (Styling and fix excluded Users View and Close Button (ESC, X and Close))
 
 ## Notes
 
@@ -34,6 +30,6 @@ Click the button below to deploy this solution to your Azure subscription:
 
 # Watchtra Deployment
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/nicowyss/watchtra/main/deployment/bicep/_main.bicep)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/nicowyss/watchtra/main/deployment/azuredeploy.json)
 
 

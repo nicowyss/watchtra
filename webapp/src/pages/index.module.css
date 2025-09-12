@@ -21,18 +21,54 @@
   align-items: center;
   justify-content: center;
 }
-
+.h2titles {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin: 2rem 0 1rem 0;
+  color: #2d3748; /* dark gray */
+}
 
 /* Statistics*/
 .statistics {
-  background-color: blue;
-  padding: 2rem 0;
   margin: 2rem 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
+
 .stacol {
-  background-color: blueviolet;
-  border-radius: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.colDemo {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.colDemo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.colDemo strong {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748; /* dark gray */
+  margin-bottom: 0.5rem;
+}
+
+.colDemo p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #718096; /* muted gray */
 }
 
 /* User Issues Table */
@@ -49,11 +85,22 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
+  font-size: 1.1rem; /* slightly larger font for headers */
   background-color: #04AA6D;
   color: white;
 }
-tr:nth-child(even){background-color: #f2f2f2;}
-tr:hover {background-color: #ddd;}
+.userissuetable tr:nth-child(even):not(.expanded-row) {
+  background-color: #f2f2f2;
+}
+
+.userissuetable tbody tr:not(.expanded-row):hover {
+  background-color: #ddd;
+}
+
+.issueBadge {
+  font-size: 1rem; 
+  padding: 0.5rem 0.75rem; 
+}
 
 /* Issues Table */
 .tabtables  {
@@ -70,21 +117,59 @@ tr:hover {background-color: #ddd;}
 }
 
 .tabtables th {
-  background-color: #1d04aa;
+  background-color: #4F46E5;
   color: white;
 }
 
-.popup {
-  position: relative; /* change from absolute */
-  z-index: 50;
-  max-width: 600px;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin-top: 0.5rem; /* add spacing from button */
+/* User Summary Card */
+.userCard {
+  background: #f5f5ff; /* soft purple background */
+  border: 1px solid #f5f5ff;
+  border-radius: 12px;
+  overflow: hidden;
 }
+.userCardHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+.userAvatar {
+  text-align: center;
+}
+.userAvatar img {
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.userName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4F46E5; /* deep purple */
+}
+.userJob {
+  color: #6b7280;
+}
+.userCardBody {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+.userInfoColumn {
+  flex: 1;
+}
+.userInfoColumn p {
+  margin: 0.5rem 0;
+}
+.userInfoSeparator {
+  width: 1px;
+  background: #ddd;
+}
+
+/* Organization Rules POPOUT */
 .modalBackdrop {
   position: fixed;
   inset: 0;
@@ -96,12 +181,61 @@ tr:hover {background-color: #ddd;}
 }
 
 .modalContent {
-  max-width: 600px;
-  width: 90%;
+  max-width: 900px;   /* 👈 wider modal here */
+  width: 95%;
   background: white;
-  padding: 1.5rem;
+  padding: 0;         
   border-radius: 0.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
 }
+
+.modalHeader {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h3 {
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modalBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.rulesTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.rulesTable th {
+  background: #4F46E5;
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.rulesTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+

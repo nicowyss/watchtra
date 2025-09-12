@@ -12,7 +12,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'WatchTra',
   tagline: 'Your Control Dog for Security & Identity',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/watchtra-favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -27,8 +27,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'nicowyss', // Usually your GitHub org/user name.
+  projectName: 'watchtra', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -84,7 +84,7 @@ const config = {
         title: 'WatchTra',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/watrchtra-logo.svg',
+          src: 'img/watchtra-logo.svg',
         },
         items: [
           {
@@ -95,7 +95,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/nicowyss/watchtra',
             label: 'GitHub',
             position: 'right',
           },

@@ -1,5 +1,7 @@
 {
-  "excludeUsers": ["BreakGlass2@SWOTDEMPID021545.onmicrosoft.com", "admin@yourcompany.com"],
+  "excludeUsers": {
+    "allowed": ["BreakGlass2@SWOTDEMPID021545.onmicrosoft.com", "BreakGlass1@SWOTDEMPID021545.onmicrosoft.com"]
+  },
   "companyName": {
     "allowed": ["cloudfil.ch", "contoso.com"]
   },

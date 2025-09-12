@@ -31,7 +31,7 @@ function validateUsers(users, rules) {
   const excludeUsers = rules.excludeUsers || [];
 
   for (const u of users) {
-    if (excludeUsers.includes(u.userPrincipalName)) continue;
+    if (excludeUsers.allowed.includes(u.userPrincipalName)) continue;
 
     const issues = {};
     if (!rules.companyName.allowed.includes(u.companyName))
