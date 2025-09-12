@@ -5,7 +5,7 @@
     "siteName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Web App."
+        "description": "Base name of the Web App. A unique suffix will be added."
       }
     },
     "location": {
@@ -17,7 +17,7 @@
     },
     "skuName": {
       "type": "string",
-      "defaultValue": "B1",
+      "defaultValue": "F1",
       "allowedValues": [
         "F1", "B1", "B2", "B3", "S1", "S2", "S3", "P1v2", "P2v2", "P3v2"
       ],
@@ -25,19 +25,10 @@
         "description": "App Service plan SKU."
       }
     },
-    "skuCapacity": {
-      "type": "int",
-      "defaultValue": 1,
-      "metadata": {
-        "description": "Number of instances in the App Service plan."
-      }
-    },
     "nodeVersion": {
       "type": "string",
       "defaultValue": "~18",
       "allowedValues": [
-        "~14",
-        "~16",
         "~18",
         "~20"
       ],
@@ -47,7 +38,9 @@
     }
   },
   "variables": {
-    "hostingPlanName": "[concat(parameters('siteName'), '-plan')]"
+    "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
+    "hostingPlanName": "[concat(parameters('siteName'), '-plan')]",
+    "webAppName": "[concat(parameters('siteName'), '-', variables('uniqueSuffix'))]"
   },
   "resources": [
     {
@@ -57,17 +50,18 @@
       "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('skuName')]",
-        "capacity": "[parameters('skuCapacity')]"
+        "capacity": 1
       },
       "properties": {
-        "reserved": true  // Linux plan
+        "reserved": true
       }
     },
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
-      "name": "[parameters('siteName')]",
+      "name": "[variables('webAppName')]",
       "location": "[parameters('location')]",
+      "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
@@ -75,17 +69,36 @@
         },
         "httpsOnly": true
       },
-      "kind": "app,linux"
+      "resources": [
+        {
+          "type": "sourcecontrols",
+          "apiVersion": "2021-03-01",
+          "name": "web",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('webAppName'))]"
+          ],
+          "properties": {
+            "repoUrl": "https://github.com/nicowyss/watchtra",
+            "branch": "main",
+            "isManualIntegration": false,
+            "isGitHubAction": true,
+            "gitHubActionConfiguration": {
+              "generateWorkflowFile": true,
+              "workflowSettings": {
+                "app_artifact_location": "webapp",
+                "runtime_stack": "node",
+                "runtime_version": "[parameters('nodeVersion')]"
+              }
+            }
+          }
+        }
+      ]
     }
   ],
   "outputs": {
-    "webAppName": {
-      "type": "string",
-      "value": "[parameters('siteName')]"
-    },
     "webAppUrl": {
       "type": "string",
-      "value": "[concat('https://', parameters('siteName'), '.azurewebsites.net')]"
+      "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]"
     }
   }
 }

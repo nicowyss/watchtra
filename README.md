@@ -30,6 +30,7 @@ Click the button below to deploy this solution to your Azure subscription:
 
 # Watchtra Deployment
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/nicowyss/watchtra/main/deployment/azuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnicowyss%2Fwatchtra%2Fmain%2Fdeployment%2Fazuredeploy.json)
+
 
 

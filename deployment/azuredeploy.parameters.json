@@ -3,16 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "siteName": {
-      "value": "my-node-webapp-demo"
+      "value": "watchtra"
     },
     "location": {
-      "value": "westeurope"
+      "value": "switzerlandnorth"
     },
     "skuName": {
-      "value": "B1"
-    },
-    "skuCapacity": {
-      "value": 1
+      "value": "F1"
     },
     "nodeVersion": {
       "value": "~18"
