@@ -27,6 +27,9 @@
 Deploying Entra ID App Registrations via Bicep requires the Microsoft Graph resource provider (preview). The deploying user must have permission (Application.ReadWrite.All) in Entra ID. If your customers deploy, they’ll need those rights in their tenant.
 
 ## Deploy to Azure
+1. App Registration
+2. Deploy to Azure (ARM Template)
+3. GitHub Connection (Web App - Deployment Center)
 
 Click the button below to deploy this solution to your Azure subscription: (YOU NEED GLOBAL ADMIN PERMISSION)
 

@@ -12,9 +12,9 @@
   },
   "variables": {
     "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
-    "hostingPlanName": "[concat(parameters('siteName'), '-plan')]",
-    "webAppName": "[concat(parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "functionAppName": "[concat(parameters('siteName'), '-func-', variables('uniqueSuffix'))]"
+    "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]"
   },
   "resources": [
     {

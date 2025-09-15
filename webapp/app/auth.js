@@ -1,7 +1,14 @@
-const path = require("path");
-require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
-
 const axios = require("axios");
+
+// Load .env only if it exists (for local development)
+if (process.env.NODE_ENV !== "production") {
+  const path = require("path");
+  const fs = require("fs");
+  const envPath = path.resolve(__dirname, "../../.env");
+  if (fs.existsSync(envPath)) {
+    require("dotenv").config({ path: envPath });
+  }
+}
 
 const TENANT_ID = process.env.TENANT_ID;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -9,7 +16,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const GRAPH_SCOPE = "https://graph.microsoft.com/.default";
 
 if (!TENANT_ID || !CLIENT_ID || !CLIENT_SECRET) {
-  throw new Error("TENANT_ID, CLIENT_ID, and CLIENT_SECRET must be set in .env");
+  throw new Error("TENANT_ID, CLIENT_ID, and CLIENT_SECRET must be set");
 }
 
 async function getGraphToken() {
