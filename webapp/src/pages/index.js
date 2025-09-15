@@ -41,6 +41,7 @@ export default function Home() {
   const [groups, setGroups] = useState([]);
   const [logs, setLogs] = useState([]);
   const [expandedUser, setExpandedUser] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState("");
 
   useEffect(() => {
     Promise.all([
@@ -52,6 +53,7 @@ export default function Home() {
         setUsers(userData.findings);
         setGroups(groupData.groups);
         setLogs(logData.logs);
+        setLastUpdated(userData.lastUpdated);
       })
       .catch(console.error);
   }, []);
@@ -107,9 +109,11 @@ export default function Home() {
             <div className={clsx(styles.colDemo)}>
               <UserPlus size={28} color="#4F46E5" />
               <strong>
-                ?
+                {lastUpdated
+                  ? new Date(lastUpdated).toLocaleDateString("en-GB") // DD/MM/YYYY
+                  : "…"}
               </strong>
-              <p>???????????</p>
+              <p>Last Sync Date</p>
             </div>
           </div>
         </div>

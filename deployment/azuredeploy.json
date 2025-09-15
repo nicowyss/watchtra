@@ -18,29 +18,20 @@
     "skuName": {
       "type": "string",
       "defaultValue": "F1",
-      "allowedValues": [
-        "F1", "B1", "B2", "B3", "S1", "S2", "S3", "P1v2", "P2v2", "P3v2"
-      ],
-      "metadata": {
-        "description": "App Service plan SKU."
-      }
+      "allowedValues": ["F1","B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"]
     },
     "nodeVersion": {
       "type": "string",
-      "defaultValue": "~18",
-      "allowedValues": [
-        "~18",
-        "~20"
-      ],
-      "metadata": {
-        "description": "Node.js version for the Web App."
-      }
+      "defaultValue": "~20",
+      "allowedValues": ["~18","~20"]
     }
   },
   "variables": {
     "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
     "hostingPlanName": "[concat(parameters('siteName'), '-plan')]",
-    "webAppName": "[concat(parameters('siteName'), '-', variables('uniqueSuffix'))]"
+    "webAppName": "[concat(parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "functionAppName": "[concat(parameters('siteName'), '-func-', variables('uniqueSuffix'))]",
+    "appRegistrationName": "[concat('WatchTra-App-', variables('uniqueSuffix'))]"
   },
   "resources": [
     {
@@ -48,13 +39,8 @@
       "apiVersion": "2021-03-01",
       "name": "[variables('hostingPlanName')]",
       "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('skuName')]",
-        "capacity": 1
-      },
-      "properties": {
-        "reserved": true
-      }
+      "sku": { "name": "[parameters('skuName')]", "capacity": 1 },
+      "properties": { "reserved": true }
     },
     {
       "type": "Microsoft.Web/sites",
@@ -64,9 +50,7 @@
       "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "siteConfig": {
-          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]"
-        },
+        "siteConfig": { "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]" },
         "httpsOnly": true
       },
       "resources": [
@@ -74,9 +58,7 @@
           "type": "sourcecontrols",
           "apiVersion": "2021-03-01",
           "name": "web",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/sites', variables('webAppName'))]"
-          ],
+          "dependsOn": ["[resourceId('Microsoft.Web/sites', variables('webAppName'))]"],
           "properties": {
             "repoUrl": "https://github.com/nicowyss/watchtra",
             "branch": "main",
@@ -93,12 +75,46 @@
           }
         }
       ]
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2021-03-01",
+      "name": "[variables('functionAppName')]",
+      "location": "[parameters('location')]",
+      "kind": "functionapp,linux",
+      "dependsOn": ["[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"],
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+          "appSettings": [
+            { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "1" },
+            { "name": "TENANT_ID", "value": "[subscription().tenantId]" }
+          ],
+          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]"
+        },
+        "httpsOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "createAppRegistrationScript",
+      "location": "[parameters('location')]",
+      "kind": "AzureCLI",
+      "dependsOn": ["[resourceId('Microsoft.Web/sites', variables('webAppName'))]"],
+      "properties": {
+        "azCliVersion": "2.37.0",
+        "timeout": "PT30M",
+        "scriptContent": "APP_ID=$(az ad app create --display-name '${appRegistrationName}' --query appId -o tsv)\\nSECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\naz ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\naz webapp config appsettings set --resource-group $(az group show --query name -o tsv) --name [variables('webAppName')] --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=$TENANT_ID",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D",
+        "environmentVariables": { "TENANT_ID": "[subscription().tenantId]" }
+      }
     }
   ],
   "outputs": {
-    "webAppUrl": {
-      "type": "string",
-      "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]"
-    }
+    "webAppUrl": { "type": "string", "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]" },
+    "functionAppName": { "type": "string", "value": "[variables('functionAppName')]" }
   }
 }

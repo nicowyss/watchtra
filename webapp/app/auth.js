@@ -6,7 +6,7 @@ const axios = require("axios");
 const TENANT_ID = process.env.TENANT_ID;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const GRAPH_SCOPE = process.env.GRAPH_SCOPE;
+const GRAPH_SCOPE = "https://graph.microsoft.com/.default";
 
 if (!TENANT_ID || !CLIENT_ID || !CLIENT_SECRET) {
   throw new Error("TENANT_ID, CLIENT_ID, and CLIENT_SECRET must be set in .env");

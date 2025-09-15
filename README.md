@@ -26,7 +26,7 @@ Deploying Entra ID App Registrations via Bicep requires the Microsoft Graph reso
 
 ## Deploy to Azure
 
-Click the button below to deploy this solution to your Azure subscription:
+Click the button below to deploy this solution to your Azure subscription: (YOU NEED GLOBAL ADMIN PERMISSION)
 
 # Watchtra Deployment
 
