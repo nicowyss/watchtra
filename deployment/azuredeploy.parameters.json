@@ -13,6 +13,15 @@
     },
     "nodeVersion": {
       "value": "~20"
+    },
+    "tenantId": {
+      "value": "YOUR-TENANT-ID"
+    },
+    "clientId": {
+      "value": "YOUR-CLIENT-ID"
+    },
+    "clientSecret": {
+      "value": "YOUR-CLIENT-SECRET"
     }
   }
 }

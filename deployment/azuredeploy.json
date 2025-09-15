@@ -2,32 +2,19 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "siteName": {
-      "type": "string",
-      "metadata": { "description": "Base name of the Web App. A unique suffix will be added." }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": { "description": "Location for all resources." }
-    },
-    "skuName": {
-      "type": "string",
-      "defaultValue": "B1",
-      "allowedValues": ["B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"]
-    },
-    "nodeVersion": {
-      "type": "string",
-      "defaultValue": "~20",
-      "allowedValues": ["~18","~20"]
-    }
+    "siteName": { "type": "string", "metadata": { "description": "Base name of the Web App. A unique suffix will be added." } },
+    "location": { "type": "string", "defaultValue": "[resourceGroup().location]", "metadata": { "description": "Location for all resources." } },
+    "skuName": { "type": "string", "defaultValue": "B1", "allowedValues": ["B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"] },
+    "nodeVersion": { "type": "string", "defaultValue": "~20", "allowedValues": ["~18","~20"] },
+    "tenantId": { "type": "string", "defaultValue": "YOUR-TENANT-ID", "metadata": { "description": "Tenant ID of the Azure AD where the app registration exists." } },
+    "clientId": { "type": "string", "defaultValue": "YOUR-CLIENT-ID", "metadata": { "description": "Client ID of the pre-created app registration." } },
+    "clientSecret": { "type": "securestring", "defaultValue": "YOUR-CLIENT-SECRET", "metadata": { "description": "Client Secret of the app registration." } }
   },
   "variables": {
     "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
     "hostingPlanName": "[concat(parameters('siteName'), '-plan')]",
     "webAppName": "[concat(parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "functionAppName": "[concat(parameters('siteName'), '-func-', variables('uniqueSuffix'))]",
-    "appRegistrationName": "[concat('WatchTra-App-', variables('uniqueSuffix'))]"
+    "functionAppName": "[concat(parameters('siteName'), '-func-', variables('uniqueSuffix'))]"
   },
   "resources": [
     {
@@ -47,7 +34,14 @@
       "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "siteConfig": { "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]" },
+        "siteConfig": {
+          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
+          "appSettings": [
+            { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
+            { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
+            { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" }
+          ]
+        },
         "httpsOnly": true
       },
       "resources": [
@@ -70,38 +64,21 @@
       "apiVersion": "2021-03-01",
       "name": "[variables('functionAppName')]",
       "location": "[parameters('location')]",
-      "kind": "functionapp,linux",
       "dependsOn": ["[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"],
+      "kind": "functionapp,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
+          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
           "appSettings": [
             { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "1" },
-            { "name": "TENANT_ID", "value": "[subscription().tenantId]" }
-          ],
-          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]"
+            { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
+            { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
+            { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" }
+          ]
         },
         "httpsOnly": true
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
-      "name": "createAppRegistrationScript",
-      "location": "[parameters('location')]",
-      "kind": "AzureCLI",
-      "identity": { "type": "SystemAssigned" },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', variables('webAppName'))]",
-        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-      ],
-      "properties": {
-        "azCliVersion": "2.37.0",
-        "timeout": "PT30M",
-        "scriptContent": "[concat('az login --identity\n', 'APP_ID=$(az ad app create --display-name \"', variables('appRegistrationName'), '\" --query appId -o tsv)\\n', 'SECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\n', 'az ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\n', 'az webapp config appsettings set --resource-group ', resourceGroup().name, ' --name ', variables('webAppName'), ' --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=', subscription().tenantId)]",
-        "cleanupPreference": "OnSuccess",
-        "retentionInterval": "P1D"
       }
     }
   ],
