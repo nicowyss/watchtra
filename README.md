@@ -20,6 +20,8 @@
 ## Notes
 
 - UPDATE DATA: node app/scripts/scan.js 
+      // "schedule": "0 0 */4 * * *"
+
 
 ⚠️ App Registration caveat:
 Deploying Entra ID App Registrations via Bicep requires the Microsoft Graph resource provider (preview). The deploying user must have permission (Application.ReadWrite.All) in Entra ID. If your customers deploy, they’ll need those rights in their tenant.
