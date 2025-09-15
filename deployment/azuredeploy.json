@@ -17,7 +17,7 @@
     },
     "skuName": {
       "type": "string",
-      "defaultValue": "F1",
+      "defaultValue": "B1",
       "allowedValues": ["F1","B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"]
     },
     "nodeVersion": {
@@ -63,15 +63,7 @@
             "repoUrl": "https://github.com/nicowyss/watchtra",
             "branch": "main",
             "isManualIntegration": false,
-            "isGitHubAction": true,
-            "gitHubActionConfiguration": {
-              "generateWorkflowFile": true,
-              "workflowSettings": {
-                "app_artifact_location": "webapp",
-                "runtime_stack": "node",
-                "runtime_version": "[parameters('nodeVersion')]"
-              }
-            }
+            "isGitHubAction": true
           }
         }
       ]
@@ -106,7 +98,12 @@
       "properties": {
         "azCliVersion": "2.37.0",
         "timeout": "PT30M",
-        "scriptContent": "APP_ID=$(az ad app create --display-name '${appRegistrationName}' --query appId -o tsv)\\nSECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\naz ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\naz webapp config appsettings set --resource-group $(az group show --query name -o tsv) --name [variables('webAppName')] --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=$TENANT_ID",
+        "scriptContent": "[concat(
+        'APP_ID=$(az ad app create --display-name \"', variables('appRegistrationName'), '\" --query appId -o tsv)\n',
+        'SECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\n',
+        'az ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\n',
+        'az webapp config appsettings set --resource-group ', resourceGroup().name, ' --name ', variables('webAppName'), ' --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=$TENANT_ID\n'
+      )]",        
         "cleanupPreference": "OnSuccess",
         "retentionInterval": "P1D"
       }
