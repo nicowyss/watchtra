@@ -4,21 +4,17 @@
   "parameters": {
     "siteName": {
       "type": "string",
-      "metadata": {
-        "description": "Base name of the Web App. A unique suffix will be added."
-      }
+      "metadata": { "description": "Base name of the Web App. A unique suffix will be added." }
     },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
+      "metadata": { "description": "Location for all resources." }
     },
     "skuName": {
       "type": "string",
       "defaultValue": "B1",
-      "allowedValues": ["F1","B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"]
+      "allowedValues": ["B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"]
     },
     "nodeVersion": {
       "type": "string",
@@ -47,6 +43,7 @@
       "apiVersion": "2021-03-01",
       "name": "[variables('webAppName')]",
       "location": "[parameters('location')]",
+      "dependsOn": ["[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"],
       "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -94,11 +91,14 @@
       "name": "createAppRegistrationScript",
       "location": "[parameters('location')]",
       "kind": "AzureCLI",
-      "dependsOn": ["[resourceId('Microsoft.Web/sites', variables('webAppName'))]"],
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('webAppName'))]",
+        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
+      ],
       "properties": {
         "azCliVersion": "2.37.0",
         "timeout": "PT30M",
-        "scriptContent": "APP_ID=$(az ad app create --display-name \"[variables('appRegistrationName')]\" --query appId -o tsv)\nSECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\naz ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\naz webapp config appsettings set --resource-group [resourceGroup().name] --name [variables('webAppName')] --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=[subscription().tenantId]",
+        "scriptContent": "[concat('APP_ID=$(az ad app create --display-name \"', variables('appRegistrationName'), '\" --query appId -o tsv)\\n', 'SECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\n', 'az ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\n', 'az webapp config appsettings set --resource-group ', resourceGroup().name, ' --name ', variables('webAppName'), ' --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=', subscription().tenantId)]",
         "cleanupPreference": "OnSuccess",
         "retentionInterval": "P1D"
       }
