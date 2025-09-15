@@ -109,7 +109,12 @@
         "scriptContent": "APP_ID=$(az ad app create --display-name '${appRegistrationName}' --query appId -o tsv)\\nSECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\naz ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\naz webapp config appsettings set --resource-group $(az group show --query name -o tsv) --name [variables('webAppName')] --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=$TENANT_ID",
         "cleanupPreference": "OnSuccess",
         "retentionInterval": "P1D",
-        "environmentVariables": { "TENANT_ID": "[subscription().tenantId]" }
+        "environmentVariables": [
+        {
+          "name": "TENANT_ID",
+          "value": "[subscription().tenantId]"
+        }
+        ]
       }
     }
   ],
