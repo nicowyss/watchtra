@@ -91,6 +91,7 @@
       "name": "createAppRegistrationScript",
       "location": "[parameters('location')]",
       "kind": "AzureCLI",
+      "identity": { "type": "SystemAssigned" },
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('webAppName'))]",
         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
@@ -98,7 +99,7 @@
       "properties": {
         "azCliVersion": "2.37.0",
         "timeout": "PT30M",
-        "scriptContent": "[concat('APP_ID=$(az ad app create --display-name \"', variables('appRegistrationName'), '\" --query appId -o tsv)\\n', 'SECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\n', 'az ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\n', 'az webapp config appsettings set --resource-group ', resourceGroup().name, ' --name ', variables('webAppName'), ' --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=', subscription().tenantId)]",
+        "scriptContent": "[concat('az login --identity\n', 'APP_ID=$(az ad app create --display-name \"', variables('appRegistrationName'), '\" --query appId -o tsv)\\n', 'SECRET=$(az ad app credential reset --id $APP_ID --query password -o tsv)\\n', 'az ad app permission add --id $APP_ID --api 00000003-0000-0000-c000-000000000000 --api-permissions b0afded3-3588-46d8-8b3d-9842eff778da=Role\\n', 'az webapp config appsettings set --resource-group ', resourceGroup().name, ' --name ', variables('webAppName'), ' --settings CLIENT_ID=$APP_ID CLIENT_SECRET=$SECRET TENANT_ID=', subscription().tenantId)]",
         "cleanupPreference": "OnSuccess",
         "retentionInterval": "P1D"
       }
