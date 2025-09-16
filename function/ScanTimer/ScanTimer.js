@@ -1,5 +1,5 @@
 // watchtra/function/src/functions/ScanTimer.js
-const { runScan } = require("../../../webapp/app/scripts/scan");
+const { runScan } = require("../../webapp/app/scripts/scan");
 
 module.exports = async function (context, myTimer) {
   context.log("Timer function started.");

@@ -15,8 +15,8 @@
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip",
-    "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip"
+    "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D",
+    "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
   "resources": [
     {
@@ -36,8 +36,10 @@
       "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "alwaysOn": true,
         "siteConfig": {
           "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
+          "appCommandLine": "npx serve -s /home/site/wwwroot -l 8080",
           "appSettings": [
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
@@ -57,10 +59,12 @@
       "kind": "functionapp,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "alwaysOn": true,
         "siteConfig": {
-          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
+        "linuxFxVersion": "[concat('NODE|', replace(parameters('nodeVersion'), '~', ''))]",
           "appSettings": [
             { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
+            { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~4" },
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
