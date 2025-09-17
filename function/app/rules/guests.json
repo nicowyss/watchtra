@@ -1,0 +1,20 @@
+{
+  "excludeUsers": {
+    "allowed": ["breakglass@yourcompany.com", "admin@yourcompany.com"]
+  },
+  "companyName": {
+    "allowed": ["cloudfil.ch", "contoso.com"]
+  },
+  "department": {
+    "allowed": ["IT", "HR", "Finance"]
+  },
+  "officeLocation": {
+    "allowed": ["Bern", "Zürich", "Branch2"]
+  },
+  "city": {
+    "allowed": ["Zurich", "Bern", "Zürich"]
+  },
+  "country": {
+    "allowed": ["Switzerland", "Germany", "France"]
+  }
+}

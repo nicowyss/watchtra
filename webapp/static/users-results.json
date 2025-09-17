@@ -3,7 +3,7 @@
   "issues": 10,
   "findings": [
     {
-      "id": "1ae78038-c6be-4e0c-a5b9-ef7f526c8963",
+      "id": "19ef6c7e-ea32-4f24-972a-b613a16298fe",
       "userPrincipalName": "admin@cloudfil.ch",
       "name": "Admin",
       "userType": "Member",
@@ -21,10 +21,10 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.409Z"
     },
     {
-      "id": "e7e01a89-1f40-4324-b780-17355e366e4d",
+      "id": "1e796bb6-cb67-48f9-aa70-518e95d7b5c1",
       "userPrincipalName": "chris.green@cloudfil.ch",
       "name": "Chris Green",
       "userType": "Member",
@@ -39,10 +39,10 @@
         "companyName": "contoso.commmmmm",
         "department": "Sales"
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "cce49052-6f81-4dfe-a4df-f22b097db4fc",
+      "id": "98644163-6df2-43db-9959-dcdc03a98918",
       "userPrincipalName": "EMP1222@cloudfil.ch",
       "name": "_TEST Talya Fleeta",
       "userType": "Member",
@@ -60,10 +60,10 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "ed059806-9603-475a-b553-9cdef711c4da",
+      "id": "15a699e1-bde0-41b0-bc20-f3fd61e994af",
       "userPrincipalName": "EMP1513@cloudfil.ch",
       "name": "_TEST Ginnie Hansmut",
       "userType": "Member",
@@ -81,10 +81,10 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "28f3737a-c394-4dc9-a618-e38b700043ac",
+      "id": "88c80775-8025-445b-934c-9ff9a21b3e9a",
       "userPrincipalName": "frank.mako@cloudfil.ch",
       "name": "Frank Mako",
       "userType": "Member",
@@ -98,10 +98,10 @@
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "a655897e-93fa-4073-8243-4260e2ec9085",
+      "id": "92bdc8f1-1a36-4e54-b9a6-e0a47ccafe4d",
       "userPrincipalName": "maria.stern@cloudfil.ch",
       "name": "Maria Stern",
       "userType": "Member",
@@ -115,10 +115,10 @@
       "issues": {
         "department": "Sales"
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "5be3e508-a2a5-4aa7-baae-096edfc754c1",
+      "id": "be3e1bf6-f6c1-4538-8e61-b3a0c546e1bc",
       "userPrincipalName": "mike.mitchell@cloudfil.ch",
       "name": "Mike Michell",
       "userType": "Member",
@@ -132,10 +132,10 @@
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "3e935771-cdec-43ee-9ae0-be50681deb73",
+      "id": "7220e474-50f2-475c-9b5a-df06fc0fcb4a",
       "userPrincipalName": "nico.adds@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico Wyss (ADDS)",
       "userType": "Member",
@@ -153,10 +153,10 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "fc47a938-4de9-47ed-820f-31d863ff0634",
+      "id": "6a1653a9-1040-42d5-a5d9-b6acdffd9d44",
       "userPrincipalName": "nico.wyss_softwareone.com#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Wyss, Nico",
       "userType": "Guest",
@@ -174,10 +174,10 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     },
     {
-      "id": "a2a53f2b-3676-4a00-b790-74d1db1bbec7",
+      "id": "3e0cb90d-dd26-4134-9457-0600722c7eaa",
       "userPrincipalName": "wyss.nico_bluewin.ch#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico TEST Guest",
       "userType": "Guest",
@@ -195,8 +195,8 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T13:06:00.465Z"
+      "timestamp": "2025-09-17T22:30:06.410Z"
     }
   ],
-  "lastUpdated": "2025-09-17T13:06:00.565Z"
+  "lastUpdated": "2025-09-17T22:30:06.870Z"
 }

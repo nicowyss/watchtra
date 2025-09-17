@@ -1,5 +1,5 @@
 {
-  "totalLogs": 36,
+  "totalLogs": 35,
   "logs": [
     {
       "id": "Directory_13a9dc18-a367-4548-a1f1-dc34bb2036eb_J372A_254187344",
@@ -770,28 +770,7 @@
         }
       ],
       "timestamp": "2025-08-19T20:15:11.8472443Z"
-    },
-    {
-      "id": "Directory_92a600cf-0b18-48d9-8791-5bd04ed1823c_2OWZV_208806252",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        }
-      ],
-      "timestamp": "2025-08-18T17:44:57.4181082Z"
     }
   ],
-  "lastUpdated": "2025-09-17T13:06:03.770Z"
+  "lastUpdated": "2025-09-17T22:30:09.341Z"
 }

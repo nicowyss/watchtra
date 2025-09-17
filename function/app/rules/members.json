@@ -1,0 +1,20 @@
+{
+  "excludeUsers": {
+    "allowed": ["BreakGlass2@SWOTDEMPID021545.onmicrosoft.com", "BreakGlass1@SWOTDEMPID021545.onmicrosoft.com"]
+  },
+  "companyName": {
+    "allowed": ["cloudfil.ch", "contoso.com"]
+  },
+  "department": {
+    "allowed": ["IT", "HR", "Finance", "Marketing"]
+  },
+  "officeLocation": {
+    "allowed": ["Bern", "Zürich", "Hamburg"]
+  },
+  "city": {
+    "allowed": ["Zurich", "Bern", "Zürich", "Hamburg"]
+  },
+  "country": {
+    "allowed": ["Switzerland", "Germany", "France"]
+  }
+}

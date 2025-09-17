@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/functions/*.js",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.5.1",
+    "@azure/functions": "^4.0.0",
+    "@azure/storage-blob": "^12.28.0",
+    "axios": "^1.12.2",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.2.2",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "azure-functions-core-tools": "^4.x"
+  }
+}
