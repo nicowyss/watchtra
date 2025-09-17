@@ -15,14 +15,50 @@
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "appConfigName": "[concat('appcs-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "cosmosAccountName": "[concat('cosmos-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "cosmosDbName": "watchtra",
     "cosmosContainerName": "scanResults",
+    "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]",
+    "storageContainerName": "configuration",
     "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D",
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
   "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2023-01-01",
+        "name": "[variables('storageAccountName')]",
+        "location": "[parameters('location')]",
+        "sku": { "name": "Standard_LRS" },
+        "kind": "StorageV2",
+        "properties": {}
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+        "apiVersion": "2022-09-01",
+        "name": "[concat(variables('storageAccountName'), '/default/configuration')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        ],
+        "properties": { "publicAccess": "None" }
+      },
+      {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "UploadJsonFiles",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'configuration')]"
+      ],
+      "kind": "AzureCLI",
+      "properties": {
+        "azCliVersion": "2.50.0",
+        "timeout": "PT15M",
+        "retentionInterval": "PT1H",
+        "scriptContent": "[concat('az storage blob upload --account-name ', variables('storageAccountName'), ' --container-name configuration --name members.json --file https://raw.githubusercontent.com/nicowyss/watchtra/webapp/app/rules/members.json && az storage blob upload --account-name ', variables('storageAccountName'), ' --container-name configuration --name guests.json --file https://raw.githubusercontent.com/nicowyss/watchtra/webapp/app/rules/guests.json')]",
+        "cleanupPreference": "OnSuccess"
+      }
+      },
       {
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "apiVersion": "2021-10-15",
@@ -75,16 +111,6 @@
       "sku": { "name": "[parameters('skuName')]", "capacity": 1 },
       "properties": { "reserved": true }
     },
-        {
-      "type": "Microsoft.AppConfiguration/configurationStores",
-      "apiVersion": "2023-03-01",
-      "name": "[variables('appConfigName')]",
-      "location": "[parameters('location')]",
-      "sku": { "name": "Standard" },
-      "properties": {
-        "publicNetworkAccess": "Enabled"
-      }
-    },
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
@@ -92,7 +118,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigName'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'configuration')]"
       ],
       "kind": "app,linux",
       "properties": {
@@ -106,7 +132,9 @@
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" },
-            { "name": "APP_CONFIG_CONNECTION_STRING", "value": "[listKeys(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigName')), '2023-07-01').primaryConnectionString]" }
+            { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
+            { "name": "STORAGE_CONTAINER_NAME", "value": "configuration" },
+            { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rl\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
           ]
         },
         "httpsOnly": true
@@ -145,7 +173,6 @@
   "outputs": {
     "webAppUrl": { "type": "string", "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]" },
     "functionAppName": { "type": "string", "value": "[variables('functionAppName')]" },
-    "cosmosEndpoint": { "type": "string", "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))).documentEndpoint]" },
-    "appConfigConnectionString": { "type": "string", "value": "[listKeys(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigName')), '2023-07-01').primaryConnectionString]" }
+    "cosmosEndpoint": { "type": "string", "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))).documentEndpoint]" }
   }
 }
