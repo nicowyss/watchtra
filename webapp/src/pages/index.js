@@ -10,6 +10,7 @@ import Heading from "@theme/Heading";
 import { Users, UserCheck, UserPlus, Group } from "lucide-react";
 import styles from "./index.module.css";
 import { checkUserInGroup } from "../utils/validateUser";
+import { formatDate } from "../utils/formatDate";
 import RulesButton from "../components/RulesButton";
 
 function HomepageHeader() {
@@ -71,7 +72,18 @@ export default function Home() {
     >
       <HomepageHeader />
       <main className="container mx-auto p-6">
-        <h2 class={styles.h2titles}>Statistics</h2>
+        <div class="row">
+          <div class="col col--6">
+            <div class="col-demo">
+              <h2 class={styles.h2titles}>Statistics</h2>
+            </div>
+          </div>
+          <div class="col col--6">
+            <div class="col-demo">
+              <h2 class={styles.lastSyncDate}>Last Sync Date: {lastUpdated ? formatDate(lastUpdated) : "…"}</h2>
+            </div>
+          </div>
+        </div>
         <div class={clsx("row", styles.statistics)}>
           <div class={clsx("col col--2", styles.stacol)}>
             <div className={clsx(styles.colDemo)}>
@@ -108,12 +120,8 @@ export default function Home() {
           <div class={clsx("col col--2", styles.stacol)}>
             <div className={clsx(styles.colDemo)}>
               <UserPlus size={28} color="#4F46E5" />
-              <strong>
-                {lastUpdated
-                  ? new Date(lastUpdated).toLocaleDateString("en-GB") // DD/MM/YYYY
-                  : "…"}
-              </strong>
-              <p>Last Sync Date</p>
+              <strong>????</strong>
+              <p>???</p>
             </div>
           </div>
         </div>

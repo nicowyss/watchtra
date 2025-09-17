@@ -23,6 +23,7 @@
     "clsx": "^2.0.0",
     "dotenv": "^17.2.2",
     "lucide-react": "^0.543.0",
+    "node-cron": "^4.2.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

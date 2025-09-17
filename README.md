@@ -10,12 +10,12 @@
 - https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
 
 ## Features (To Do List)
-- members.json Rules cannot stay in the webapp (for Later Updates pushes would override this)
 - Deploy to Azure (bicep via GitHub)
-- Full Stying Update (index.js) from Tailwind CSS Code to native Docusaurus css file
+- Setup static (guests, members) app config in the webapp   
 
 ## Bugs (Known Issues)
 - Dynamic Group Membership Validator not works
+- scheduler.js does not start automatically after ARM Template deployment (needs to be fixed, every hour update data)
 
 ## Notes
 

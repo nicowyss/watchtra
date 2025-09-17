@@ -2,6 +2,153 @@
   "totalLogs": 36,
   "logs": [
     {
+      "id": "Directory_13a9dc18-a367-4548-a1f1-dc34bb2036eb_J372A_254187344",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-17T03:32:24.294019Z"
+    },
+    {
+      "id": "Directory_0b65912e-e087-47b4-a6e3-f1eba6943e3a_91SDY_56593320",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-16T01:25:29.4262048Z"
+    },
+    {
+      "id": "Directory_38e2019e-8a35-4d58-b67d-4d0ce0b10670_QVIEP_319573124",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-14T23:21:28.9818915Z"
+    },
+    {
+      "id": "Directory_74153a2f-a3d9-4cfe-aba7-6927f69c334d_R0U93_116256322",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-13T21:31:40.7121139Z"
+    },
+    {
+      "id": "Directory_ee279351-58f8-4dc9-9fb1-dc95ee67e239_DRCJF_137295204",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-12T19:27:13.7362954Z"
+    },
+    {
+      "id": "Directory_dfa5a307-6f56-4dfc-bd2f-75dfc9eea9bf_II1IS_57839377",
+      "category": "UserManagement",
+      "activity": "Update user",
+      "initiatedBy": "system",
+      "target": "admin@cloudfil.ch",
+      "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "Included Updated Properties",
+          "oldValue": null,
+          "newValue": "\"StrongAuthenticationPhoneAppDetail\""
+        },
+        {
+          "displayName": "TargetId.UserType",
+          "oldValue": null,
+          "newValue": "\"Member\""
+        }
+      ],
+      "timestamp": "2025-09-12T06:12:16.1762087Z"
+    },
+    {
+      "id": "Directory_59353a49-b180-47d1-9783-ee26d3658bfc_M68KQ_370899114",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-11T17:21:58.0743506Z"
+    },
+    {
       "id": "Directory_ae315126-d7fa-4463-b695-75716d255e9a_A12V9_58990900",
       "category": "GroupManagement",
       "activity": "Update group",
@@ -644,154 +791,7 @@
         }
       ],
       "timestamp": "2025-08-18T17:44:57.4181082Z"
-    },
-    {
-      "id": "Directory_a5337781-8a57-4646-9db6-3c75581305ad_RZOF4_23841639",
-      "category": "UserManagement",
-      "activity": "Update user",
-      "initiatedBy": "system",
-      "target": "admin@cloudfil.ch",
-      "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"StrongAuthenticationPhoneAppDetail\""
-        },
-        {
-          "displayName": "TargetId.UserType",
-          "oldValue": null,
-          "newValue": "\"Member\""
-        }
-      ],
-      "timestamp": "2025-08-18T07:08:34.6829255Z"
-    },
-    {
-      "id": "Directory_64d2a9a0-f2ff-494e-a10f-32b5406ab888_CELKQ_34793876",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        }
-      ],
-      "timestamp": "2025-08-17T09:05:49.803641Z"
-    },
-    {
-      "id": "Directory_bf0a7673-e04c-4227-b669-6aba57214484_ADVGI_134992544",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        }
-      ],
-      "timestamp": "2025-08-16T06:35:03.2674382Z"
-    },
-    {
-      "id": "Directory_3745f971-6aa5-4a25-a79c-057880553140_LI9BS_59695561",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        }
-      ],
-      "timestamp": "2025-08-15T04:35:17.676713Z"
-    },
-    {
-      "id": "Directory_a62df3b7-26df-45e7-9e44-74b650c1a623_X9Z36_212367795",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        }
-      ],
-      "timestamp": "2025-08-14T02:51:09.8128578Z"
-    },
-    {
-      "id": "Directory_3f639de1-9cb6-472e-af83-4434266170ca_JH4ZY_233215439",
-      "category": "UserManagement",
-      "activity": "Update user",
-      "initiatedBy": "system",
-      "target": "admin@cloudfil.ch",
-      "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "Included Updated Properties",
-          "oldValue": null,
-          "newValue": "\"StrongAuthenticationPhoneAppDetail\""
-        },
-        {
-          "displayName": "TargetId.UserType",
-          "oldValue": null,
-          "newValue": "\"Member\""
-        }
-      ],
-      "timestamp": "2025-08-13T08:08:57.9955397Z"
-    },
-    {
-      "id": "Directory_2126ff93-88c5-46b7-802e-bab97f85d4ef_6823P_34482360",
-      "category": "GroupManagement",
-      "activity": "Update group",
-      "initiatedBy": "system",
-      "target": "cloudfil",
-      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
-      "modifiedProperties": [
-        {
-          "displayName": "MethodExecutionResult.",
-          "oldValue": null,
-          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
-        },
-        {
-          "displayName": "TargetId.GroupType",
-          "oldValue": null,
-          "newValue": "\"Unified\""
-        }
-      ],
-      "timestamp": "2025-08-13T01:09:54.5531043Z"
     }
   ],
-  "lastUpdated": "2025-09-11T07:00:43.246Z"
+  "lastUpdated": "2025-09-17T13:06:03.770Z"
 }

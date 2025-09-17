@@ -15,10 +15,58 @@
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "appConfigName": "[concat('appconfig-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "cosmosAccountName": "[concat('cosmos-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "cosmosDbName": "watchtra",
+    "cosmosContainerName": "scanResults",
     "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D",
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
   "resources": [
+      {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2021-10-15",
+      "name": "[variables('cosmosAccountName')]",
+      "location": "[parameters('location')]",
+      "kind": "GlobalDocumentDB",
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "locations": [
+          {
+            "locationName": "[parameters('location')]",
+            "failoverPriority": 0
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+      "apiVersion": "2021-10-15",
+      "name": "[concat(variables('cosmosAccountName'), '/', variables('cosmosDbName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))]"
+      ],
+      "properties": {
+        "resource": { "id": "[variables('cosmosDbName')]" }
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "apiVersion": "2021-10-15",
+      "name": "[concat(variables('cosmosAccountName'), '/', variables('cosmosDbName'), '/', variables('cosmosContainerName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('cosmosAccountName'), variables('cosmosDbName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[variables('cosmosContainerName')]",
+          "partitionKey": {
+            "paths": ["/id"],
+            "kind": "Hash"
+          }
+        }
+      }
+    },
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2021-03-01",
@@ -27,12 +75,25 @@
       "sku": { "name": "[parameters('skuName')]", "capacity": 1 },
       "properties": { "reserved": true }
     },
+        {
+      "type": "Microsoft.AppConfiguration/configurationStores",
+      "apiVersion": "2024-05-01",
+      "name": "[variables('appConfigName')]",
+      "location": "[parameters('location')]",
+      "sku": { "name": "Standard" },
+      "properties": {
+        "publicNetworkAccess": "Enabled"
+      }
+    },
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
       "name": "[variables('webAppName')]",
       "location": "[parameters('location')]",
-      "dependsOn": ["[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"],
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigName'))]"
+      ],
       "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -44,7 +105,8 @@
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
-            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" }
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" },
+            { "name": "APP_CONFIG_CONNECTION_STRING", "value": "[listKeys(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigName')), '2023-07-01').primaryConnectionString]" }
           ]
         },
         "httpsOnly": true
@@ -55,7 +117,10 @@
       "apiVersion": "2021-03-01",
       "name": "[variables('functionAppName')]",
       "location": "[parameters('location')]",
-      "dependsOn": ["[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"],
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))]"
+      ],
       "kind": "functionapp,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -68,7 +133,9 @@
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
-            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]" }
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]" },
+            { "name": "COSMOS_ENDPOINT", "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))).documentEndpoint]" },
+            { "name": "COSMOS_KEY", "value": "[listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName')), '2021-10-15').primaryMasterKey]" }
           ]
         },
         "httpsOnly": true
@@ -77,6 +144,8 @@
   ],
   "outputs": {
     "webAppUrl": { "type": "string", "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]" },
-    "functionAppName": { "type": "string", "value": "[variables('functionAppName')]" }
+    "functionAppName": { "type": "string", "value": "[variables('functionAppName')]" },
+    "cosmosEndpoint": { "type": "string", "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))).documentEndpoint]" },
+    "appConfigConnectionString": { "type": "string", "value": "[listKeys(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigName')), '2023-07-01').primaryConnectionString]" }
   }
 }

@@ -42,5 +42,5 @@
       "membershipRule": "user.memberof -any (group.objectId -in ['e7caff86-d13d-493e-9d7d-1c15f3fb4a4b'])"
     }
   ],
-  "lastUpdated": "2025-09-11T07:00:40.482Z"
+  "lastUpdated": "2025-09-17T13:06:01.534Z"
 }

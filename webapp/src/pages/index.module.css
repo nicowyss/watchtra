@@ -37,6 +37,13 @@
   flex-wrap: wrap;
 }
 
+.lastSyncDate {
+  font-size: 1rem;
+  text-align: right;
+  font-weight: normal;
+  color: var(--ifm-color-gray-700);
+}
+
 .stacol {
   display: flex;
   justify-content: center;
