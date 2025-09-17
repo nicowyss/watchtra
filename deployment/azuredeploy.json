@@ -15,7 +15,7 @@
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "appConfigName": "[concat('appconfig-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "appConfigName": "[concat('appcs-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "cosmosAccountName": "[concat('cosmos-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "cosmosDbName": "watchtra",
     "cosmosContainerName": "scanResults",
@@ -77,7 +77,7 @@
     },
         {
       "type": "Microsoft.AppConfiguration/configurationStores",
-      "apiVersion": "2024-05-01",
+      "apiVersion": "2023-03-01",
       "name": "[variables('appConfigName')]",
       "location": "[parameters('location')]",
       "sku": { "name": "Standard" },
