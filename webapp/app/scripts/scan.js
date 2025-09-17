@@ -6,7 +6,7 @@ const { getUsers, validateUsers } = require("../users");
 const { fetchDynamicGroups } = require("../groups");
 const { saveFindings } = require("../cosmos");
 const { fetchAuditLogs } = require("../auditlogs");
-const { loadRules } = require("./appconfig");
+const { loadRules } = require("./appData");
 
 // Output paths for frontend
 const USERS_OUTPUT_PATH = path.join(

@@ -19,7 +19,6 @@
     "cosmosDbName": "watchtra",
     "cosmosContainerName": "scanResults",
     "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]",
-    "storageContainerName": "configuration",
     "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D",
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
@@ -43,21 +42,30 @@
         "properties": { "publicAccess": "None" }
       },
       {
-      "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
-      "name": "UploadJsonFiles",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'configuration')]"
-      ],
-      "kind": "AzureCLI",
-      "properties": {
-        "azCliVersion": "2.50.0",
-        "timeout": "PT15M",
-        "retentionInterval": "PT1H",
-        "scriptContent": "[concat('az storage blob upload --account-name ', variables('storageAccountName'), ' --container-name configuration --name members.json --file https://raw.githubusercontent.com/nicowyss/watchtra/webapp/app/rules/members.json && az storage blob upload --account-name ', variables('storageAccountName'), ' --container-name configuration --name guests.json --file https://raw.githubusercontent.com/nicowyss/watchtra/webapp/app/rules/guests.json')]",
-        "cleanupPreference": "OnSuccess"
-      }
+        "type": "Microsoft.Resources/deploymentScripts",
+        "apiVersion": "2020-10-01",
+        "name": "UploadJsonFiles",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'configuration')]"
+        ],
+        "kind": "AzureCLI",
+        "properties": {
+          "azCliVersion": "2.50.0",
+          "timeout": "PT15M",
+          "retentionInterval": "PT1H",
+          "environmentVariables": [
+            {
+              "name": "STORAGE_KEY",
+              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value]"
+            },
+            {
+              "name": "STORAGE_ACCOUNT",
+              "value": "[variables('storageAccountName')]"
+            }
+          ],
+          "scriptContent": "az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name configuration --name members.json --file https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/members.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name configuration --name guests.json --file https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/guests.json"
+        }
       },
       {
       "type": "Microsoft.DocumentDB/databaseAccounts",
