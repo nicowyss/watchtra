@@ -41,12 +41,6 @@ const config = {
     locales: ['en'],
   },
 
-  customFields: {
-    storageAccountName: process.env.STORAGE_ACCOUNT_NAME || '',
-    storageContainerName: process.env.STORAGE_CONTAINER_NAME || '',
-    storageSasToken: process.env.STORAGE_SAS_TOKEN || '',
-  },
-
   presets: [
     [
       'classic',
@@ -97,9 +91,8 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/nicowyss/watchtra',
             label: 'GitHub',
@@ -114,7 +107,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Docs',
                 to: '/docs/intro',
               },
             ],

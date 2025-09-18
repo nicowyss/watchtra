@@ -31,7 +31,7 @@
 
 /* Statistics*/
 .statistics {
-  margin: 2rem 0;
+  margin: 1rem 0;
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
@@ -45,8 +45,8 @@
 }
 
 .stacol {
-  display: flex;
-  justify-content: center;
+  flex: 1 1 0;
+  max-width: 25%;
 }
 
 .colDemo {

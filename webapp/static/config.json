@@ -1,0 +1,5 @@
+{
+  "STORAGE_URL": "https://stps5lr46lmjz62.blob.core.windows.net/watchtra?sp=racwl&st=2025-09-18T21:09:53Z&se=2025-09-19T05:24:53Z&spr=https&sv=2024-11-04&sr=c&sig=rZzDHJSvHWW5JmkFm0rcq30FI9O8fq%2BVQ4WOmPuynx0%3D",
+	"FUNCTION_URL": "http://localhost:7071/api/api",
+  "ENV": "development"
+}

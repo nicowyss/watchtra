@@ -1,16 +1,17 @@
 {
   "name": "scheduler-function",
   "version": "1.0.0",
-  "main": "Scheduler.js",
+  "main": "api/index.js",
   "scripts": {
     "start": "func start"
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0",
     "@azure/cosmos": "^4.5.1",
+    "@azure/functions": "^4.0.0",
     "@azure/storage-blob": "^12.28.0",
     "axios": "^1.12.2",
-    "dotenv": "^17.2.2"
+    "dotenv": "^17.2.2",
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "azure-functions-core-tools": "^4.x"

@@ -126,6 +126,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]",
         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
       ],
       "kind": "app,linux",
@@ -139,7 +140,10 @@
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
-            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" }
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" },
+            { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
+            { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
+            { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
           ]
         },
         "httpsOnly": true

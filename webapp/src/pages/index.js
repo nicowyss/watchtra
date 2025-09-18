@@ -17,7 +17,7 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className="container">
+      <div className="container" style={{ height: "150px" }}>
         <Heading as="h1" className="hero__title">
           <img
             src="/img/watchtra-logo.svg"
@@ -25,6 +25,7 @@ function HomepageHeader() {
             style={{
               width: "100px",
               marginRight: "15px",
+              marginTop: "-50px",
               verticalAlign: "middle",
             }}
           />
@@ -45,19 +46,40 @@ export default function Home() {
   const [lastUpdated, setLastUpdated] = useState("");
 
   useEffect(() => {
-    Promise.all([
-      fetch(`/users-results.json`).then((r) => r.json()),
-      fetch(`/groups-results.json`).then((r) => r.json()),
-      fetch(`/logs-results.json`).then((r) => r.json()),
-    ])
-      .then(([userData, groupData, logData]) => {
-        setUsers(userData.findings);
-        setGroups(groupData.groups);
-        setLogs(logData.logs);
-        setLastUpdated(userData.lastUpdated);
+    const configUrl =
+      process.env.NODE_ENV === "development" ? "/config.json" : "/api/config";
+      console.log("env:", process.env.NODE_ENV, configUrl);
+    fetch(configUrl)
+      .then((res) => res.json())
+      .then((cfg) => {
+        if (!cfg || !cfg.FUNCTION_URL)
+          throw new Error("Invalid config from Function");
+
+        const functionUrl = cfg.FUNCTION_URL;
+
+        // Use the Function as a proxy to fetch all JSON files
+        return Promise.all([
+          fetch(`${functionUrl}?file=users-results.json`).then((r) => r.json()),
+          fetch(`${functionUrl}?file=groups-results.json`).then((r) =>
+            r.json()
+          ),
+          fetch(`${functionUrl}?file=logs-results.json`).then((r) => r.json()),
+        ]);
       })
-      .catch(console.error);
+      .then(([userData, groupData, logData]) => {
+        setUsers(userData.findings || []);
+        setGroups(groupData.groups || []);
+        setLogs(logData.logs || []);
+        setLastUpdated(userData?.lastUpdated || null);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setUsers([]);
+        setGroups([]);
+        setLogs([]);
+      });
   }, []);
+
   const toggleRow = (userPrincipalName) => {
     setExpandedUser(
       expandedUser === userPrincipalName ? null : userPrincipalName
@@ -86,14 +108,14 @@ export default function Home() {
           </div>
         </div>
         <div class={clsx("row", styles.statistics)}>
-          <div class={clsx("col col--2", styles.stacol)}>
+          <div class={clsx("col col--3", styles.stacol)}>
             <div className={clsx(styles.colDemo)}>
               <Users size={28} color="#4F46E5" />
               <strong>{users.length}</strong>
               <p>Total Users</p>
             </div>
           </div>
-          <div class={clsx("col col--2", styles.stacol)}>
+          <div class={clsx("col col--3", styles.stacol)}>
             <div className={clsx(styles.colDemo)}>
               <UserCheck size={28} color="#4F46E5" />
               <strong>
@@ -102,7 +124,7 @@ export default function Home() {
               <p>Members</p>
             </div>
           </div>
-          <div class={clsx("col col--2", styles.stacol)}>
+          <div class={clsx("col col--3", styles.stacol)}>
             <div className={clsx(styles.colDemo)}>
               <UserPlus size={28} color="#4F46E5" />
               <strong>
@@ -111,18 +133,11 @@ export default function Home() {
               <p>Guests</p>
             </div>
           </div>
-          <div class={clsx("col col--2", styles.stacol)}>
+          <div class={clsx("col col--3", styles.stacol)}>
             <div className={clsx(styles.colDemo)}>
               <Group size={28} color="#4F46E5" />
               <strong>{groups.length}</strong>
               <p>Dynamic Groups</p>
-            </div>
-          </div>
-          <div class={clsx("col col--2", styles.stacol)}>
-            <div className={clsx(styles.colDemo)}>
-              <UserPlus size={28} color="#4F46E5" />
-              <strong>????</strong>
-              <p>???</p>
             </div>
           </div>
         </div>
