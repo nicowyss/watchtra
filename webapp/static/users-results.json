@@ -3,7 +3,8 @@
   "issues": 10,
   "findings": [
     {
-      "id": "19ef6c7e-ea32-4f24-972a-b613a16298fe",
+      "id": "0c6afa1b-a6d9-4673-a6fb-0a67cac04a33",
+      "userid": "9984d135-8fba-422b-b9aa-2887348a32fb",
       "userPrincipalName": "admin@cloudfil.ch",
       "name": "Admin",
       "userType": "Member",
@@ -21,10 +22,11 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T22:30:06.409Z"
+      "timestamp": "2025-09-18T12:51:17.951Z"
     },
     {
-      "id": "1e796bb6-cb67-48f9-aa70-518e95d7b5c1",
+      "id": "24c4cb98-3154-4a0f-835b-1dab63f986e0",
+      "userid": "6556582b-1436-4a9d-894a-eed1f5872db6",
       "userPrincipalName": "chris.green@cloudfil.ch",
       "name": "Chris Green",
       "userType": "Member",
@@ -39,10 +41,11 @@
         "companyName": "contoso.commmmmm",
         "department": "Sales"
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "98644163-6df2-43db-9959-dcdc03a98918",
+      "id": "84368fb6-c6df-40d9-8e16-0731d9859a85",
+      "userid": "2290a5ee-148e-484a-810d-7cbcc17dc0cc",
       "userPrincipalName": "EMP1222@cloudfil.ch",
       "name": "_TEST Talya Fleeta",
       "userType": "Member",
@@ -60,10 +63,11 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "15a699e1-bde0-41b0-bc20-f3fd61e994af",
+      "id": "4b851743-ad96-429d-97c8-219211f09943",
+      "userid": "aa4dc9da-7527-473d-aa6d-11c68f66082d",
       "userPrincipalName": "EMP1513@cloudfil.ch",
       "name": "_TEST Ginnie Hansmut",
       "userType": "Member",
@@ -81,10 +85,11 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "88c80775-8025-445b-934c-9ff9a21b3e9a",
+      "id": "a63d5a6d-cc52-44fe-9117-65b5c77fe863",
+      "userid": "e41d0806-d4c0-4962-8343-90de73dbdb7f",
       "userPrincipalName": "frank.mako@cloudfil.ch",
       "name": "Frank Mako",
       "userType": "Member",
@@ -98,10 +103,11 @@
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "92bdc8f1-1a36-4e54-b9a6-e0a47ccafe4d",
+      "id": "93ae30b9-44a1-453f-bfe8-b4179b72ba68",
+      "userid": "93b99b5f-e931-4ac1-86de-c10edcccb5d1",
       "userPrincipalName": "maria.stern@cloudfil.ch",
       "name": "Maria Stern",
       "userType": "Member",
@@ -115,10 +121,11 @@
       "issues": {
         "department": "Sales"
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "be3e1bf6-f6c1-4538-8e61-b3a0c546e1bc",
+      "id": "86bf6387-6b8a-4574-a8b2-b9cc07ba73aa",
+      "userid": "58d4c31a-c6f7-4b3b-a4c4-e55f129cf098",
       "userPrincipalName": "mike.mitchell@cloudfil.ch",
       "name": "Mike Michell",
       "userType": "Member",
@@ -132,10 +139,11 @@
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "7220e474-50f2-475c-9b5a-df06fc0fcb4a",
+      "id": "775f8793-ac5a-4f77-b2eb-b4538aa957eb",
+      "userid": "3dfb8441-d43a-45bd-a460-35c894326fcc",
       "userPrincipalName": "nico.adds@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico Wyss (ADDS)",
       "userType": "Member",
@@ -153,10 +161,11 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "6a1653a9-1040-42d5-a5d9-b6acdffd9d44",
+      "id": "f0a0db6d-c901-40ef-a2ef-da9737e6dd04",
+      "userid": "ee7a8034-302a-4fde-aa12-4271fd71ab6c",
       "userPrincipalName": "nico.wyss_softwareone.com#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Wyss, Nico",
       "userType": "Guest",
@@ -174,10 +183,11 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     },
     {
-      "id": "3e0cb90d-dd26-4134-9457-0600722c7eaa",
+      "id": "64fa5ae8-7983-41aa-b38a-0b578f47e766",
+      "userid": "dc23072b-e9a0-4baa-a055-726231f2a7b2",
       "userPrincipalName": "wyss.nico_bluewin.ch#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico TEST Guest",
       "userType": "Guest",
@@ -195,8 +205,8 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-17T22:30:06.410Z"
+      "timestamp": "2025-09-18T12:51:17.953Z"
     }
   ],
-  "lastUpdated": "2025-09-17T22:30:06.870Z"
+  "lastUpdated": "2025-09-18T12:51:18.452Z"
 }

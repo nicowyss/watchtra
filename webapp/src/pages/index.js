@@ -221,7 +221,7 @@ export default function Home() {
                               >
                                 <div className={styles.userInfoColumn}>
                                   <p>
-                                    <strong>ID:</strong> {user.id}
+                                    <strong>ID:</strong> {user.userid}
                                   </p>
                                   <p>
                                     <strong>Account Enabled:</strong>{" "}
@@ -259,7 +259,7 @@ export default function Home() {
                               {/* Footer button */}
                               <div className="card__footer">
                                 <a
-                                  href={`https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserProfileMenuBlade/~/overview/userId/${user.id}/hidePreviewBanner~/true`}
+                                  href={`https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserProfileMenuBlade/~/overview/userId/${user.userid}/hidePreviewBanner~/true`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="button button--secondary button--block"

@@ -1,6 +1,48 @@
 {
-  "totalLogs": 35,
+  "totalLogs": 37,
   "logs": [
+    {
+      "id": "Directory_0627f9cc-3c28-449d-8b55-20ae1052c737_WCL79_364096308",
+      "category": "UserManagement",
+      "activity": "Update user",
+      "initiatedBy": "system",
+      "target": "admin@cloudfil.ch",
+      "details": "[{\"key\":\"UserType\",\"value\":\"Member\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "Included Updated Properties",
+          "oldValue": null,
+          "newValue": "\"StrongAuthenticationPhoneAppDetail\""
+        },
+        {
+          "displayName": "TargetId.UserType",
+          "oldValue": null,
+          "newValue": "\"Member\""
+        }
+      ],
+      "timestamp": "2025-09-18T06:50:02.9688868Z"
+    },
+    {
+      "id": "Directory_66a71922-1e51-42bf-ab6b-21902fea8661_YKTL9_33743170",
+      "category": "GroupManagement",
+      "activity": "Update group",
+      "initiatedBy": "system",
+      "target": "cloudfil",
+      "details": "[{\"key\":\"GroupType\",\"value\":\"Unified\"},{\"key\":\"User-Agent\",\"value\":\"Microsoft ADO.NET Data Services\"}]",
+      "modifiedProperties": [
+        {
+          "displayName": "MethodExecutionResult.",
+          "oldValue": null,
+          "newValue": "\"Microsoft.Online.Workflows.ValidationException\""
+        },
+        {
+          "displayName": "TargetId.GroupType",
+          "oldValue": null,
+          "newValue": "\"Unified\""
+        }
+      ],
+      "timestamp": "2025-09-18T05:17:06.6691645Z"
+    },
     {
       "id": "Directory_13a9dc18-a367-4548-a1f1-dc34bb2036eb_J372A_254187344",
       "category": "GroupManagement",
@@ -772,5 +814,5 @@
       "timestamp": "2025-08-19T20:15:11.8472443Z"
     }
   ],
-  "lastUpdated": "2025-09-17T22:30:09.341Z"
+  "lastUpdated": "2025-09-18T12:51:20.907Z"
 }

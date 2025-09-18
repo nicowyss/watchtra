@@ -46,6 +46,7 @@ function validateUsers(users, rules) {
     if (Object.keys(issues).length > 0) {
       findings.push({
         id: crypto.randomUUID(),
+        userid: u.id,
         userPrincipalName: u.userPrincipalName,
         name: u.displayName,
         userType: u.userType,
