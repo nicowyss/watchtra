@@ -14,7 +14,7 @@ const {
 // Azure Blob Storage config
 const STORAGE_ACCOUNT_NAME = process.env.STORAGE_ACCOUNT_NAME;
 const STORAGE_CONTAINER_NAME =
-  process.env.STORAGE_CONTAINER_NAME || "scan-results";
+  process.env.STORAGE_CONTAINER_NAME || "watchtra";
 const STORAGE_SAS_TOKEN = process.env.STORAGE_SAS_TOKEN;
 
 if (!STORAGE_ACCOUNT_NAME || !STORAGE_SAS_TOKEN) {

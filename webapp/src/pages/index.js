@@ -43,20 +43,12 @@ export default function Home() {
   const [logs, setLogs] = useState([]);
   const [expandedUser, setExpandedUser] = useState(null);
   const [lastUpdated, setLastUpdated] = useState("");
-  const { siteConfig } = useDocusaurusContext();
-  const { storageAccountName, storageContainerName, storageSasToken } = siteConfig.customFields;
 
   useEffect(() => {
-    const useAzureStorage =
-      storageAccountName && storageContainerName && storageSasToken;
-    const baseUrl = useAzureStorage
-      ? `https://${storageAccountName}.blob.core.windows.net/${storageContainerName}?${storageSasToken}`
-      : "";
-
     Promise.all([
-      fetch(`${baseUrl}/users-results.json`).then((r) => r.json()),
-      fetch(`${baseUrl}/groups-results.json`).then((r) => r.json()),
-      fetch(`${baseUrl}/logs-results.json`).then((r) => r.json()),
+      fetch(`/users-results.json`).then((r) => r.json()),
+      fetch(`/groups-results.json`).then((r) => r.json()),
+      fetch(`/logs-results.json`).then((r) => r.json()),
     ])
       .then(([userData, groupData, logData]) => {
         setUsers(userData.findings);
@@ -66,7 +58,6 @@ export default function Home() {
       })
       .catch(console.error);
   }, []);
-
   const toggleRow = (userPrincipalName) => {
     setExpandedUser(
       expandedUser === userPrincipalName ? null : userPrincipalName
