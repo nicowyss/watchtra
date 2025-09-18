@@ -41,6 +41,12 @@ const config = {
     locales: ['en'],
   },
 
+  customFields: {
+    storageAccountName: process.env.STORAGE_ACCOUNT_NAME || '',
+    storageContainerName: process.env.STORAGE_CONTAINER_NAME || '',
+    storageSasToken: process.env.STORAGE_SAS_TOKEN || '',
+  },
+
   presets: [
     [
       'classic',

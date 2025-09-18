@@ -1,5 +1,4 @@
 // app/scripts/scan.js
-const fs = require("fs");
 const path = require("path");
 const { getGraphToken } = require("../auth");
 const { getUsers, validateUsers } = require("../users");
@@ -7,21 +6,60 @@ const { fetchDynamicGroups } = require("../groups");
 const { saveFindings } = require("../cosmos");
 const { fetchAuditLogs } = require("../auditlogs");
 const { loadRules } = require("./appData");
+const {
+  BlobServiceClient,
+  StorageSharedKeyCredential,
+} = require("@azure/storage-blob");
 
-// Output paths for frontend
-const USERS_OUTPUT_PATH = path.join(
-  __dirname,
-  "../../static/users-results.json"
-);
-const GROUPS_OUTPUT_PATH = path.join(
-  __dirname,
-  "../../static/groups-results.json"
-);
-const LOGS_OUTPUT_PATH = path.join(__dirname, "../../static/logs-results.json");
+// Azure Blob Storage config
+const STORAGE_ACCOUNT_NAME = process.env.STORAGE_ACCOUNT_NAME;
+const STORAGE_CONTAINER_NAME =
+  process.env.STORAGE_CONTAINER_NAME || "scan-results";
+const STORAGE_SAS_TOKEN = process.env.STORAGE_SAS_TOKEN;
+
+if (!STORAGE_ACCOUNT_NAME || !STORAGE_SAS_TOKEN) {
+  throw new Error(
+    "Azure Storage account name or SAS token not set in environment variables"
+  );
+}
+
+// Helper to upload JSON to blob storage
+async function uploadToBlob(filename, data) {
+  // Ensure SAS token starts with '?'
+  const sas = STORAGE_SAS_TOKEN.startsWith("?")
+    ? STORAGE_SAS_TOKEN
+    : "?" + STORAGE_SAS_TOKEN;
+
+  // Use container-level SAS URL
+  const containerClient = new BlobServiceClient(
+    `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net${sas}`
+  ).getContainerClient(STORAGE_CONTAINER_NAME);
+
+  // Only try to create container if SAS allows it
+  try {
+    await containerClient.createIfNotExists();
+  } catch (err) {
+    if (err.statusCode === 403) {
+      console.warn(
+        `⚠️ Cannot create container, SAS token may lack 'c' permission. Continuing to upload.`
+      );
+    } else {
+      throw err;
+    }
+  }
+
+  const blockBlobClient = containerClient.getBlockBlobClient(filename);
+  await blockBlobClient.upload(
+    JSON.stringify(data, null, 2),
+    Buffer.byteLength(JSON.stringify(data)),
+    { overwrite: true }
+  );
+
+  console.log(`✅ Uploaded/Updated ${filename} to Azure Blob Storage`);
+}
 
 async function runUserScan() {
   const { members: memberRules, guests: guestRules } = await loadRules();
-
   const token = await getGraphToken();
   const users = await getUsers(token);
 
@@ -63,18 +101,15 @@ async function runAuditLogScan() {
 async function runScan() {
   try {
     const userResults = await runUserScan();
-    fs.writeFileSync(USERS_OUTPUT_PATH, JSON.stringify(userResults, null, 2));
-    console.log(`✅ User scan saved to ${USERS_OUTPUT_PATH}`);
+    await uploadToBlob("users-results.json", userResults);
 
     const groupResults = await runGroupScan();
-    fs.writeFileSync(GROUPS_OUTPUT_PATH, JSON.stringify(groupResults, null, 2));
-    console.log(`✅ Group scan saved to ${GROUPS_OUTPUT_PATH}`);
+    await uploadToBlob("groups-results.json", groupResults);
 
     const logResults = await runAuditLogScan();
-    fs.writeFileSync(LOGS_OUTPUT_PATH, JSON.stringify(logResults, null, 2));
-    console.log(`✅ Audit Log scan saved to ${LOGS_OUTPUT_PATH}`);
+    await uploadToBlob("logs-results.json", logResults);
 
-    return { userResults, groupResults };
+    return { userResults, groupResults, logResults };
   } catch (err) {
     console.error("❌ Scan failed:", err.message);
     throw err;

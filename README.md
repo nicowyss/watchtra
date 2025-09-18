@@ -2,6 +2,7 @@
 - Cosmos DB
 - Azure Web App
 - Azure Function
+- Storage Account
 - Entra ID App Registration
 
 ## Sources (Links)
@@ -12,19 +13,16 @@
 ## Features (To Do List)
 - Deploy to Azure (bicep via GitHub)
 - Setup static (guests, members) app config in the webapp   
+- Notfication via Email 
+
 
 ## Bugs (Known Issues)
 - Dynamic Group Membership Validator not works
-- scheduler.js does not start automatically after ARM Template deployment (needs to be fixed, every hour update data)
+- Azure Function (Scheduler) does not work yet
 
 ## Notes
 
-- UPDATE DATA: node app/scripts/scan.js 
-      // "schedule": "0 0 */4 * * *"
 
-
-⚠️ App Registration caveat:
-Deploying Entra ID App Registrations via Bicep requires the Microsoft Graph resource provider (preview). The deploying user must have permission (Application.ReadWrite.All) in Entra ID. If your customers deploy, they’ll need those rights in their tenant.
 
 ## Deploy to Azure
 1. App Registration

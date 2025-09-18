@@ -43,12 +43,20 @@ export default function Home() {
   const [logs, setLogs] = useState([]);
   const [expandedUser, setExpandedUser] = useState(null);
   const [lastUpdated, setLastUpdated] = useState("");
+  const { siteConfig } = useDocusaurusContext();
+  const { storageAccountName, storageContainerName, storageSasToken } = siteConfig.customFields;
 
   useEffect(() => {
+    const useAzureStorage =
+      storageAccountName && storageContainerName && storageSasToken;
+    const baseUrl = useAzureStorage
+      ? `https://${storageAccountName}.blob.core.windows.net/${storageContainerName}?${storageSasToken}`
+      : "";
+
     Promise.all([
-      fetch("/users-results.json").then((r) => r.json()),
-      fetch("/groups-results.json").then((r) => r.json()),
-      fetch("/logs-results.json").then((r) => r.json()),
+      fetch(`${baseUrl}/users-results.json`).then((r) => r.json()),
+      fetch(`${baseUrl}/groups-results.json`).then((r) => r.json()),
+      fetch(`${baseUrl}/logs-results.json`).then((r) => r.json()),
     ])
       .then(([userData, groupData, logData]) => {
         setUsers(userData.findings);
@@ -80,7 +88,9 @@ export default function Home() {
           </div>
           <div class="col col--6">
             <div class="col-demo">
-              <h2 class={styles.lastSyncDate}>Last Sync Date: {lastUpdated ? formatDate(lastUpdated) : "…"}</h2>
+              <h2 class={styles.lastSyncDate}>
+                Last Sync Date: {lastUpdated ? formatDate(lastUpdated) : "…"}
+              </h2>
             </div>
           </div>
         </div>

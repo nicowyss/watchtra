@@ -84,7 +84,7 @@ export default function RulesButton() {
                 {renderTable(rules.guests)}
 
                 <a
-                  href={`https://portal.azure.com/`}
+                  href={`https://portal.azure.com/#view/Microsoft_Azure_StorageHub/StorageHub.MenuView/~/StorageAccountsBrowse`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button button--secondary button--block"
