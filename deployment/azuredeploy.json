@@ -15,9 +15,6 @@
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "cosmosAccountName": "[concat('cosmos-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
-    "cosmosDbName": "watchtra",
-    "cosmosContainerName": "scanResults",
     "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]",
     "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D",
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
@@ -67,50 +64,6 @@
           "scriptContent": "curl -L -o members.json https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/members.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name watchtra --name members.json --file members.json && curl -L -o guests.json https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/guests.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name watchtra --name guests.json --file guests.json"
         }
       },
-      {
-      "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2021-10-15",
-      "name": "[variables('cosmosAccountName')]",
-      "location": "[parameters('location')]",
-      "kind": "GlobalDocumentDB",
-      "properties": {
-        "databaseAccountOfferType": "Standard",
-        "locations": [
-          {
-            "locationName": "[parameters('location')]",
-            "failoverPriority": 0
-          }
-        ]
-      }
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
-      "apiVersion": "2021-10-15",
-      "name": "[concat(variables('cosmosAccountName'), '/', variables('cosmosDbName'))]",
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))]"
-      ],
-      "properties": {
-        "resource": { "id": "[variables('cosmosDbName')]" }
-      }
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-      "apiVersion": "2021-10-15",
-      "name": "[concat(variables('cosmosAccountName'), '/', variables('cosmosDbName'), '/', variables('cosmosContainerName'))]",
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('cosmosAccountName'), variables('cosmosDbName'))]"
-      ],
-      "properties": {
-        "resource": {
-          "id": "[variables('cosmosContainerName')]",
-          "partitionKey": {
-            "paths": ["/id"],
-            "kind": "Hash"
-          }
-        }
-      }
-    },
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2021-03-01",
@@ -156,7 +109,6 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
       ],
       "kind": "functionapp,linux",
@@ -172,8 +124,6 @@
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]" },
-            { "name": "COSMOS_ENDPOINT", "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))).documentEndpoint]" },
-            { "name": "COSMOS_KEY", "value": "[listKeys(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName')), '2021-10-15').primaryMasterKey]" },
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
@@ -186,7 +136,6 @@
   ],
   "outputs": {
     "webAppUrl": { "type": "string", "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]" },
-    "functionAppName": { "type": "string", "value": "[variables('functionAppName')]" },
-    "cosmosEndpoint": { "type": "string", "value": "[reference(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosAccountName'))).documentEndpoint]" }
+    "functionAppName": { "type": "string", "value": "[variables('functionAppName')]" }
   }
 }
