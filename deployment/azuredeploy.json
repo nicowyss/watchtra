@@ -16,7 +16,6 @@
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]",
-    "webZipUrl": "https://watchtra.blob.core.windows.net/releases/webapp-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D",
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
   "resources": [
@@ -90,6 +89,7 @@
           "alwaysOn": true,
           "appCommandLine": "cd /home/site/wwwroot && npm install && npm run build && npx serve -s build -l 8080",
           "httpLoggingEnabled": true,
+          "logsDirectorySizeLimit": 35,
           "ftpsState": "AllAllowed",
           "logs": {
             "applicationLogs": {
@@ -103,11 +103,11 @@
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
-            { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
-            { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
-            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]"},
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/watchtra/webapp-v1.0.zip?', listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken)]" }, 
             { "name": "ENV", "value": "production" },
             { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
+            { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
+            { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
           ]
         },
