@@ -38,13 +38,15 @@ module.exports = async function (context, req) {
     }
 
     // Construct the full storage URL dynamically
-    const storageUrl = `https://${storageAccountName}.blob.core.windows.net/${containerName}${sasToken ? (sasToken.startsWith('?') ? sasToken : '?' + sasToken) : ''}`;
+    const storageUrl = `https://${storageAccountName}.blob.core.windows.net/${containerName}`;
+    const storageSAS = sasToken || "";
 
     context.res = {
       status: 200,
       headers: { "Content-Type": "application/json" },
       body: {
         STORAGE_URL: storageUrl,
+        STORAGE_SAS: storageSAS,
         FUNCTION_URL: process.env.FUNCTION_URL,
         env: process.env.ENV || "production"
       }

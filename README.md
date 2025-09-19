@@ -24,7 +24,6 @@
 - Dynamic Group Membership Validator not works
 - Azure Function (Scheduler) does not work yet
 - Audit Logs make it more prettier
-- statics only four bubbles
 - last sync date make it prettier   
 
 ## Ideas (v2)
@@ -32,9 +31,6 @@
 - Comos DB, store not compliant Users in DB for 30 Days (Historie View)
 - Alering, notify a specific admin User with a daily summary of non compliant Users (SendGrid - Azure Monitor Alerts)
 - Bicep, Terraform, GitHub Action -  CI/CD Deployments
-
-
-
 
 ## Deploy to Azure
 1. App Registration

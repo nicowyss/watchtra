@@ -48,22 +48,24 @@ export default function Home() {
   useEffect(() => {
     const configUrl =
       process.env.NODE_ENV === "development" ? "/config.json" : "/api/config";
-      console.log("env:", process.env.NODE_ENV, configUrl);
+
+    console.log("env:", process.env.NODE_ENV, configUrl);
+
     fetch(configUrl)
       .then((res) => res.json())
       .then((cfg) => {
-        if (!cfg || !cfg.FUNCTION_URL)
-          throw new Error("Invalid config from Function");
+        if (!cfg || !cfg.STORAGE_URL || !cfg.STORAGE_SAS) {
+          throw new Error("Invalid config");
+        }
 
-        const functionUrl = cfg.FUNCTION_URL;
+        // Helper to construct full blob URL
+        const buildUrl = (filename) =>
+          `${cfg.STORAGE_URL}/${filename}?${cfg.STORAGE_SAS}`;
 
-        // Use the Function as a proxy to fetch all JSON files
         return Promise.all([
-          fetch(`${functionUrl}?file=users-results.json`).then((r) => r.json()),
-          fetch(`${functionUrl}?file=groups-results.json`).then((r) =>
-            r.json()
-          ),
-          fetch(`${functionUrl}?file=logs-results.json`).then((r) => r.json()),
+          fetch(buildUrl("users-results.json")).then((r) => r.json()),
+          fetch(buildUrl("groups-results.json")).then((r) => r.json()),
+          fetch(buildUrl("logs-results.json")).then((r) => r.json()),
         ]);
       })
       .then(([userData, groupData, logData]) => {

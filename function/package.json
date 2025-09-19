@@ -1,7 +1,6 @@
 {
   "name": "scheduler-function",
   "version": "1.0.0",
-  "main": "api/index.js",
   "scripts": {
     "start": "func start"
   },
@@ -10,6 +9,7 @@
     "@azure/functions": "^4.0.0",
     "@azure/storage-blob": "^12.28.0",
     "axios": "^1.12.2",
+    "crypto": "^1.0.1",
     "dotenv": "^17.2.2",
     "node-fetch": "^2.7.0"
   },

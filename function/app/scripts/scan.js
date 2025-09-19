@@ -3,7 +3,6 @@ const path = require("path");
 const { getGraphToken } = require("../auth");
 const { getUsers, validateUsers } = require("../users");
 const { fetchDynamicGroups } = require("../groups");
-const { saveFindings } = require("../cosmos");
 const { fetchAuditLogs } = require("../auditlogs");
 const { loadRules } = require("./appData");
 const {
@@ -70,7 +69,6 @@ async function runUserScan() {
   const guestFindings = validateUsers(guestUsers, guestRules);
 
   const allFindings = [...memberFindings, ...guestFindings];
-  await saveFindings(allFindings);
 
   return {
     total: users.length,

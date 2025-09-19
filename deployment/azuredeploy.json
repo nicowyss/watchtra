@@ -96,6 +96,7 @@
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" },
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
+            { "name": "ENV", "value": "production" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
           ]
         },
@@ -126,8 +127,8 @@
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]" },
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
-            { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
-
+            { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},
+            { "name": "AzureWebJobsStorage", "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value, ';EndpointSuffix=core.windows.net')]"}
           ]
         },
         "httpsOnly": true
