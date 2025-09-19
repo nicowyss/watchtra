@@ -9,9 +9,12 @@
     "@azure/storage-blob": "^12.28.0",
     "adm-zip": "^0.5.16",
     "axios": "^1.12.2",
+    "child_process": "^1.0.2",
     "crypto": "^1.0.1",
     "dotenv": "^17.2.2",
+    "fs": "^0.0.1-security",
     "node-fetch": "^2.7.0",
+    "path": "^0.12.7",
     "simple-git": "^3.28.0"
   },
   "devDependencies": {

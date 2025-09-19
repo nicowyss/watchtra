@@ -4,7 +4,6 @@ const { spawn } = require('child_process');
 const simpleGit = require('simple-git');
 const { BlobServiceClient } = require('@azure/storage-blob');
 const AdmZip = require('adm-zip');
-const { Console } = require('console');
 
 module.exports = async function (context, req) {
     try {
