@@ -20,50 +20,50 @@
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
   "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2023-01-01",
-        "name": "[variables('storageAccountName')]",
-        "location": "[parameters('location')]",
-        "sku": { "name": "Standard_LRS" },
-        "kind": "StorageV2",
-        "properties": {}
-      },
-      {
-        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-        "apiVersion": "2022-09-01",
-        "name": "[concat(variables('storageAccountName'), '/default/watchtra')]",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": { "name": "Standard_LRS" },
+      "kind": "StorageV2",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-09-01",
+      "name": "[concat(variables('storageAccountName'), '/default/watchtra')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ],
+      "properties": { "publicAccess": "None" }
+    },
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "UploadJsonFiles",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
+      ],
+      "kind": "AzureCLI",
+      "properties": {
+        "azCliVersion": "2.50.0",
+        "timeout": "PT15M",
+        "retentionInterval": "PT1H",
+        "environmentVariables": [
+          {
+            "name": "STORAGE_KEY",
+            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value]"
+          },
+          {
+            "name": "STORAGE_ACCOUNT",
+            "value": "[variables('storageAccountName')]"
+          }
         ],
-        "properties": { "publicAccess": "None" }
-      },
-      {
-        "type": "Microsoft.Resources/deploymentScripts",
-        "apiVersion": "2020-10-01",
-        "name": "UploadJsonFiles",
-        "location": "[parameters('location')]",
-        "dependsOn": [
-          "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
-        ],
-        "kind": "AzureCLI",
-        "properties": {
-          "azCliVersion": "2.50.0",
-          "timeout": "PT15M",
-          "retentionInterval": "PT1H",
-          "environmentVariables": [
-            {
-              "name": "STORAGE_KEY",
-              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value]"
-            },
-            {
-              "name": "STORAGE_ACCOUNT",
-              "value": "[variables('storageAccountName')]"
-            }
-          ],
-          "scriptContent": "curl -L -o members.json https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/members.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name watchtra --name members.json --file members.json && curl -L -o guests.json https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/guests.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name watchtra --name guests.json --file guests.json"
-        }
-      },
+        "scriptContent": "curl -L -o members.json https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/members.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name watchtra --name members.json --file members.json && curl -L -o guests.json https://raw.githubusercontent.com/nicowyss/watchtra/refs/heads/main/webapp/app/rules/guests.json && az storage blob upload --account-name $STORAGE_ACCOUNT --account-key $STORAGE_KEY --container-name watchtra --name guests.json --file guests.json"
+      }
+    },
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2021-03-01",
@@ -85,18 +85,29 @@
       "kind": "app,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "alwaysOn": true,
         "siteConfig": {
           "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
-          "appCommandLine": "npx serve -s /home/site/wwwroot -l 8080",
+          "alwaysOn": true,
+          "appCommandLine": "cd /home/site/wwwroot && npm install && npm run build && npx serve -s build -l 8080",
+          "httpLoggingEnabled": true,
+          "ftpsState": "AllAllowed",
+          "logs": {
+            "applicationLogs": {
+              "fileSystem": {
+                "level": "Information",
+                "retentionInDays": 2
+              }
+            }
+          },
           "appSettings": [
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
-            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]" },
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('webZipUrl')]"},
             { "name": "ENV", "value": "production" },
+            { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
           ]
         },
@@ -115,16 +126,18 @@
       "kind": "functionapp,linux",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "alwaysOn": true,
         "siteConfig": {
-        "linuxFxVersion": "[concat('NODE|', replace(parameters('nodeVersion'), '~', ''))]",
+          "alwaysOn": true,
+          "linuxFxVersion": "[concat('NODE|', replace(parameters('nodeVersion'), '~', ''))]",
           "appSettings": [
             { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
             { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~4" },
+            { "name": "FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
+            { "name": "WEBAPP_URL", "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]"},
+            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]"},
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
-            { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]" },
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},

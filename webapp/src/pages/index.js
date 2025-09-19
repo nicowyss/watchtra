@@ -46,40 +46,64 @@ export default function Home() {
   const [lastUpdated, setLastUpdated] = useState("");
 
   useEffect(() => {
-    const configUrl =
-      process.env.NODE_ENV === "development" ? "/config.json" : "/api/config";
+    const fetchData = async () => {
+      try {
+        if (process.env.NODE_ENV === "development") {
+          console.log("Development mode");
+          // Local dev: load JSON directly from static folder
+          const userRes = await fetch("/users-results.json");
+          const groupRes = await fetch("/groups-results.json");
+          const logRes = await fetch("/logs-results.json");
 
-    console.log("env:", process.env.NODE_ENV, configUrl);
+          const userData = await userRes.json();
+          const groupData = await groupRes.json();
+          const logData = await logRes.json();
 
-    fetch(configUrl)
-      .then((res) => res.json())
-      .then((cfg) => {
-        if (!cfg || !cfg.STORAGE_URL || !cfg.STORAGE_SAS) {
-          throw new Error("Invalid config");
+          setUsers(userData.findings || []);
+          setGroups(groupData.groups || []);
+          setLogs(logData.logs || []);
+          setLastUpdated(userData?.lastUpdated || null);
+        } else {
+          console.log("Production mode");
+          // Production: fetch config first, then use function proxy
+          console.log("Fetching config from /api/api");
+          const configRes = await fetch("/api/api");
+          console.log("Config response:", configRes);
+          
+          if (!configRes.ok)
+            throw new Error(`Failed to fetch config: ${configRes.statusText}`);
+          const cfg = await configRes.json();
+          console.log("Config:", cfg);
+
+          if (!cfg || !cfg.FUNCTION_URL) throw new Error("Invalid config");
+
+          const functionUrl = cfg.FUNCTION_URL;
+          console.log("Function URL:", functionUrl);
+
+          const userData = await fetch(
+            `${functionUrl}?file=users-results.json`
+          ).then((r) => r.json());
+          const groupData = await fetch(
+            `${functionUrl}?file=groups-results.json`
+          ).then((r) => r.json());
+          const logData = await fetch(
+            `${functionUrl}?file=logs-results.json`
+          ).then((r) => r.json());
+
+          setUsers(userData.findings || []);
+          setGroups(groupData.groups || []);
+          setLogs(logData.logs || []);
+          setLastUpdated(userData?.lastUpdated || null);
         }
-
-        // Helper to construct full blob URL
-        const buildUrl = (filename) =>
-          `${cfg.STORAGE_URL}/${filename}?${cfg.STORAGE_SAS}`;
-
-        return Promise.all([
-          fetch(buildUrl("users-results.json")).then((r) => r.json()),
-          fetch(buildUrl("groups-results.json")).then((r) => r.json()),
-          fetch(buildUrl("logs-results.json")).then((r) => r.json()),
-        ]);
-      })
-      .then(([userData, groupData, logData]) => {
-        setUsers(userData.findings || []);
-        setGroups(groupData.groups || []);
-        setLogs(logData.logs || []);
-        setLastUpdated(userData?.lastUpdated || null);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error("Error fetching data:", err);
         setUsers([]);
         setGroups([]);
         setLogs([]);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const toggleRow = (userPrincipalName) => {

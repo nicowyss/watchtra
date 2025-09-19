@@ -5,7 +5,6 @@
     "start": "func start"
   },
   "dependencies": {
-    "@azure/cosmos": "^4.5.1",
     "@azure/functions": "^4.0.0",
     "@azure/storage-blob": "^12.28.0",
     "axios": "^1.12.2",
