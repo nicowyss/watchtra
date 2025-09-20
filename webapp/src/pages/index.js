@@ -66,6 +66,8 @@ export default function Home() {
         } else {
           console.log("Production mode");
           // Production: fetch config first, then use function proxy
+          const testfunctionUrl = process.env.FUNCTION_URL;
+          console.log("Test Function URL:", testfunctionUrl);
           console.log("Fetching config from /api/api");
           const configRes = await fetch("/api/api");
           console.log("Config response:", configRes);

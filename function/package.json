@@ -13,9 +13,11 @@
     "crypto": "^1.0.1",
     "dotenv": "^17.2.2",
     "fs": "^0.0.1-security",
+    "glob": "^11.0.3",
+    "inflight": "^1.0.6",
     "node-fetch": "^2.7.0",
     "path": "^0.12.7",
-    "simple-git": "^3.28.0"
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "azure-functions-core-tools": "^4.x"

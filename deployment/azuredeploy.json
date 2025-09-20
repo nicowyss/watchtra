@@ -146,6 +146,29 @@
         },
         "httpsOnly": true
       }
+    },
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "UpdateWebApp",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
+      ],
+      "kind": "AzureCLI",
+      "properties": {
+        "azCliVersion": "2.50.0",
+        "timeout": "PT30M",
+        "retentionInterval": "P30D",
+        "environmentVariables": [
+          {
+            "name": "FUNCTION_APP_NAME",
+            "value": "[variables('functionAppName')]"
+          }
+        ],
+        "scriptContent": "[concat('functionKey=$(az functionapp function keys list --name ', variables('functionAppName'), ' --resource-group ', resourceGroup().name, ' --function-name web --query default -o tsv) && curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$functionKey')]"
+      }
     }
   ],
   "outputs": {
