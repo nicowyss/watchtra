@@ -15,6 +15,7 @@
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
+    "AppInsightsName": "[concat('appi-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]",
     "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
   },
@@ -64,6 +65,16 @@
       }
     },
     {
+      "type": "Microsoft.Insights/components",
+      "apiVersion": "2020-02-02",
+      "name": "[variables('AppInsightsName')]",
+      "location": "[parameters('location')]",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web"
+      }
+    },
+    {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2021-03-01",
       "name": "[variables('hostingPlanName')]",
@@ -78,7 +89,9 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('AppInsightsName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]",
+        "[resourceId('Microsoft.Resources/deploymentScripts', 'CreatingWebApp')]",
         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
       ],
       "kind": "app,linux",
@@ -106,6 +119,7 @@
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/watchtra/webapp-v1.0.zip?', listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken)]" }, 
             { "name": "ENV", "value": "production" },
             { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
+            { "name": "APPLICATIONINSIGHTS_CONNECTION_STRING", "value": "[reference(resourceId('microsoft.insights/components', variables('AppInsightsName')), '2020-02-02').ConnectionString]"},
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
@@ -121,6 +135,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('AppInsightsName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
       ],
       "kind": "functionapp,linux",
@@ -138,6 +153,7 @@
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
+            { "name": "APPLICATIONINSIGHTS_CONNECTION_STRING", "value": "[reference(resourceId('microsoft.insights/components', variables('AppInsightsName')), '2020-02-02').ConnectionString]"},
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},
@@ -150,7 +166,7 @@
     {
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2020-10-01",
-      "name": "UpdateWebApp",
+      "name": "CreatingWebApp",
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
@@ -159,15 +175,19 @@
       "kind": "AzureCLI",
       "properties": {
         "azCliVersion": "2.50.0",
-        "timeout": "PT30M",
-        "retentionInterval": "P30D",
+        "timeout": "PT15M",
+        "retentionInterval": "PT1H",
         "environmentVariables": [
           {
             "name": "FUNCTION_APP_NAME",
             "value": "[variables('functionAppName')]"
+          },
+          {
+            "name": "FUNCTION_KEY",
+            "value": "[listKeys(resourceId('Microsoft.Web/sites/functions', variables('functionAppName'), 'web'), '2023-01-01').default]"
           }
         ],
-        "scriptContent": "[concat('functionKey=$(az functionapp function keys list --name ', variables('functionAppName'), ' --resource-group ', resourceGroup().name, ' --function-name web --query default -o tsv) && curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$functionKey')]"
+        "scriptContent": "[concat('sleep 300 && (curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$FUNCTION_KEY &)')]"
       }
     }
   ],

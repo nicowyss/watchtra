@@ -25,6 +25,7 @@
 - Azure Function (Scheduler) does not work yet
 - Audit Logs make it more prettier
 - last sync date make it prettier   
+- Azure Function CORS Settings deployment
 
 ## Ideas (v2)
 - Entra ID App Registration Deployment

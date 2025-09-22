@@ -8,8 +8,7 @@ const fetch = require('node-fetch'); // make sure to add to package.json
 
 module.exports = async function (context, req) {
     try {
-        const repoUrl = 'https://github.com/nicowyss/watchtra';
-        const branch = 'main';
+        const repoUrl = 'https://download-directory.github.io/?url=https://github.com/nicowyss/watchtra/tree/main/webapp&output=zip';
 
         // Env variables
         const storageAccountName = process.env.STORAGE_ACCOUNT_NAME;
@@ -21,10 +20,8 @@ module.exports = async function (context, req) {
         console.log('🔹 Temporary directory:', tempDir);
 
         // 1️⃣ Clean old repo and download fresh ZIP
-        const extractedRepoPath = await downloadRepoZip(repoUrl, branch, tempDir);
+        const webappPath = await downloadRepoZip(repoUrl, tempDir);
 
-        // 2️⃣ Build the webapp
-        const webappPath = path.join(extractedRepoPath, 'webapp');
         console.log('🔹 Building webapp at:', webappPath);
 
         console.log('🔹 Installing dependencies...');
@@ -54,10 +51,9 @@ module.exports = async function (context, req) {
     }
 };
 
-// Helper: download GitHub repo ZIP
-async function downloadRepoZip(repoUrl, branch, targetPath) {
-    const zipUrl = `${repoUrl}/archive/refs/heads/${branch}.zip`;
-    console.log(`🔹 Downloading repo ZIP from ${zipUrl}...`);
+// Helper: download GitHub repo ZIP (handles arbitrary internal folder names)
+async function downloadRepoZip(repoUrl, targetPath) {
+    console.log(`🔹 Downloading ZIP from ${repoUrl}...`);
 
     // Clean target path
     if (fs.existsSync(targetPath)) {
@@ -66,26 +62,26 @@ async function downloadRepoZip(repoUrl, branch, targetPath) {
     }
     fs.mkdirSync(targetPath, { recursive: true });
 
-    const res = await fetch(zipUrl);
+    // download zip directly from given URL
+    const res = await fetch(repoUrl);
     if (!res.ok) throw new Error(`Failed to download repo: ${res.statusText}`);
     const buffer = await res.buffer();
 
-    const zip = new AdmZip(buffer);
+    // Save to temp file and extract
+    const zipPath = path.join(targetPath, 'repo.zip');
+    fs.writeFileSync(zipPath, buffer);
+    const zip = new AdmZip(zipPath);
     zip.extractAllTo(targetPath, true);
-    console.log('🔹 Repo extracted');
+    console.log('🔹 Repo extracted to', targetPath);
 
-    // GitHub wraps content in "<repo>-<branch>" folder
-    const extractedFolder = path.join(targetPath, `watchtra-${branch}`);
+    // Detect first subfolder (download-directory.github.io creates one)
+    const entries = fs.readdirSync(targetPath, { withFileTypes: true });
+    const firstFolder = entries.find(e => e.isDirectory());
+    if (!firstFolder) throw new Error('No folder found inside extracted ZIP');
+    const webappPath = path.join(targetPath, firstFolder.name);
+    console.log('🔹 Using webapp path:', webappPath);
 
-    // Move contents directly into targetPath (flatten)
-    console.log('🔹 Flattening extracted folder...');
-    for (const file of fs.readdirSync(extractedFolder)) {
-        fs.renameSync(path.join(extractedFolder, file), path.join(targetPath, file));
-    }
-    fs.rmSync(extractedFolder, { recursive: true, force: true });
-
-    console.log('🔹 Extraction complete, path ready:', targetPath);
-    return targetPath;
+    return webappPath;
 }
 
 // Helper: run npm commands with spawn
