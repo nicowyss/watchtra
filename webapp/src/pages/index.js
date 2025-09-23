@@ -68,6 +68,8 @@ export default function Home() {
           // Production: fetch config first, then use function proxy
           const testfunctionUrl = process.env.FUNCTION_URL;
           console.log("Test Function URL:", testfunctionUrl);
+          const testfunctionUrl2 = process.env.REACT_APP_FUNCTION_URL;
+          console.log("Test Function URL2:", testfunctionUrl2);
           console.log("Fetching config from /api/api");
           const configRes = await fetch("/api/api");
           console.log("Config response:", configRes);
