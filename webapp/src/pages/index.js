@@ -66,13 +66,13 @@ export default function Home() {
         } else {
           console.log("Production mode");
           // Production: fetch config first, then use function proxy
-          const testfunctionUrl = process.env.FUNCTION_URL;
-          console.log("Test Function URL:", testfunctionUrl);
           const testfunctionUrl2 = process.env.REACT_APP_FUNCTION_URL;
           console.log("Test Function URL2:", testfunctionUrl2);
           console.log("Fetching config from /api/api");
           const configRes = await fetch("/api/api");
+          const config = await configRes.json();
           console.log("Config response:", configRes);
+          console.log("Fetched runtime config:", config);
           
           if (!configRes.ok)
             throw new Error(`Failed to fetch config: ${configRes.statusText}`);

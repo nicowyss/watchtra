@@ -32,6 +32,7 @@
 - Comos DB, store not compliant Users in DB for 30 Days (Historie View)
 - Alering, notify a specific admin User with a daily summary of non compliant Users (SendGrid - Azure Monitor Alerts)
 - Bicep, Terraform, GitHub Action -  CI/CD Deployments
+- Visualization with armviz.io 
 
 ## Deploy to Azure
 1. App Registration

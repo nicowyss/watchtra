@@ -4,7 +4,7 @@
   "parameters": {
     "siteName": { "type": "string", "metadata": { "description": "Base name of the Web App. A unique suffix will be added." } },
     "location": { "type": "string", "defaultValue": "[resourceGroup().location]", "metadata": { "description": "Location for all resources." } },
-    "skuName": { "type": "string", "defaultValue": "B1", "allowedValues": ["B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"] },
+    "skuName": { "type": "string", "defaultValue": "B3", "allowedValues": ["B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"] },
     "nodeVersion": { "type": "string", "defaultValue": "~20", "allowedValues": ["~18","~20"] },
     "tenantId": { "type": "string", "metadata": { "description": "Tenant ID of the Azure AD where the app registration exists." } },
     "clientId": { "type": "string", "metadata": { "description": "Client ID of the pre-created app registration." } },
@@ -100,7 +100,7 @@
         "siteConfig": {
           "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
           "alwaysOn": true,
-          "appCommandLine": "cd /home/site/wwwroot && npm install && npm run build && npx serve -s build -l 8080",
+          "appCommandLine": "npx serve -s build -l 8080",
           "httpLoggingEnabled": true,
           "logsDirectorySizeLimit": 35,
           "ftpsState": "AllAllowed",
