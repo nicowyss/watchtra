@@ -45,19 +45,26 @@ export default function Home() {
   const [expandedUser, setExpandedUser] = useState(null);
   const [lastUpdated, setLastUpdated] = useState("");
 
+  const { siteConfig } = useDocusaurusContext();
+  const functionUrl = siteConfig.customFields.functionUrl;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (process.env.NODE_ENV === "development") {
           console.log("Development mode");
-          // Local dev: load JSON directly from static folder
-          const userRes = await fetch("/users-results.json");
-          const groupRes = await fetch("/groups-results.json");
-          const logRes = await fetch("/logs-results.json");
 
-          const userData = await userRes.json();
-          const groupData = await groupRes.json();
-          const logData = await logRes.json();
+          const [userRes, groupRes, logRes] = await Promise.all([
+            fetch("/users-results.json"),
+            fetch("/groups-results.json"),
+            fetch("/logs-results.json"),
+          ]);
+
+          const [userData, groupData, logData] = await Promise.all([
+            userRes.json(),
+            groupRes.json(),
+            logRes.json(),
+          ]);
 
           setUsers(userData.findings || []);
           setGroups(groupData.groups || []);
@@ -65,33 +72,20 @@ export default function Home() {
           setLastUpdated(userData?.lastUpdated || null);
         } else {
           console.log("Production mode");
-          // Production: fetch config first, then use function proxy
-          console.log(process.env.REACT_APP_FUNCTION_URL);
-          console.log("Fetching config from /api/api");
-          const configRes = await fetch(process.env.REACT_APP_FUNCTION_URL);
-          const config = await configRes.json();
-          console.log("Config response:", configRes);
-          console.log("Fetched runtime config:", config);
-          
-          if (!configRes.ok)
-            throw new Error(`Failed to fetch config: ${configRes.statusText}`);
-          const cfg = await configRes.json();
-          console.log("Config:", cfg);
+          console.log("Function URL from config:", functionUrl);
 
-          if (!cfg || !cfg.FUNCTION_URL) throw new Error("Invalid config");
-
-          const functionUrl = cfg.FUNCTION_URL;
-          console.log("Function URL:", functionUrl);
-
-          const userData = await fetch(
-            `${functionUrl}?file=users-results.json`
-          ).then((r) => r.json());
-          const groupData = await fetch(
-            `${functionUrl}?file=groups-results.json`
-          ).then((r) => r.json());
-          const logData = await fetch(
-            `${functionUrl}?file=logs-results.json`
-          ).then((r) => r.json());
+          // Fetch JSON files directly via your function app
+          const [userData, groupData, logData] = await Promise.all([
+            fetch(`${functionUrl}?file=users-results.json`).then((r) =>
+              r.json()
+            ),
+            fetch(`${functionUrl}?file=groups-results.json`).then((r) =>
+              r.json()
+            ),
+            fetch(`${functionUrl}?file=logs-results.json`).then((r) =>
+              r.json()
+            ),
+          ]);
 
           setUsers(userData.findings || []);
           setGroups(groupData.groups || []);
@@ -107,7 +101,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, []);
+  }, [functionUrl]);
 
   const toggleRow = (userPrincipalName) => {
     setExpandedUser(
