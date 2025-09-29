@@ -100,7 +100,7 @@
         "siteConfig": {
           "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
           "alwaysOn": true,
-          "appCommandLine": "npx serve -s build -l 8080",
+          "appCommandLine": "npx serve -s . -l 8080",
           "httpLoggingEnabled": true,
           "logsDirectorySizeLimit": 35,
           "ftpsState": "AllAllowed",
@@ -147,8 +147,8 @@
           "appSettings": [
             { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
             { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~4" },
-            { "name": "FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
-            { "name": "WEBAPP_URL", "value": "[concat('https://', variables('webAppName'), '.azurewebsites.net')]"},
+            { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
+            { "name": "ENV", "value": "production" },
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]"},
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
             { "name": "CLIENT_ID", "value": "[parameters('clientId')]" },
