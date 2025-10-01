@@ -3,28 +3,28 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "siteName": { "type": "string", "metadata": { "description": "Base name of the Web App. A unique suffix will be added." } },
-    "location": { "type": "string", "defaultValue": "[resourceGroup().location]", "metadata": { "description": "Location for all resources." } },
-    "skuName": { "type": "string", "defaultValue": "B3", "allowedValues": ["B1","B2","B3","S1","S2","S3","P1v2","P2v2","P3v2"] },
-    "nodeVersion": { "type": "string", "defaultValue": "~20", "allowedValues": ["~18","~20"] },
     "tenantId": { "type": "string", "metadata": { "description": "Tenant ID of the Azure AD where the app registration exists." } },
     "clientId": { "type": "string", "metadata": { "description": "Client ID of the pre-created app registration." } },
     "clientSecret": { "type": "securestring", "metadata": { "description": "Client Secret of the app registration." } }
   },
   "variables": {
+    "location": "[resourceGroup().location]",
+    "nodeVersion": "~20",
+    "skuName": "B3",
     "uniqueSuffix": "[uniqueString(resourceGroup().id)]",
     "hostingPlanName": "[concat('asp-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "webAppName": "[concat('app-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "functionAppName": "[concat('func-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "AppInsightsName": "[concat('appi-', parameters('siteName'), '-', variables('uniqueSuffix'))]",
     "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]",
-    "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=rl&st=2025-09-16T08:09:51Z&se=2025-09-30T16:24:51Z&spr=https&sv=2024-11-04&sr=c&sig=GUy58RLeaGW7Ww02KbtFR%2BJC4eHqgyjK7VJH7JCel5w%3D"
+    "functionZipUrl": "https://watchtra.blob.core.windows.net/releases/function-v1.0.zip?sp=r&st=2025-09-29T16:12:37Z&se=2027-08-31T00:27:37Z&spr=https&sv=2024-11-04&sr=c&sig=4wHJkTe7SzRbEa0br4oc561dWPbltl9K0s%2BZq%2Bxah5U%3D"
   },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2023-01-01",
       "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "sku": { "name": "Standard_LRS" },
       "kind": "StorageV2",
       "properties": {}
@@ -42,7 +42,7 @@
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2020-10-01",
       "name": "UploadJsonFiles",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
       ],
@@ -68,25 +68,26 @@
       "type": "Microsoft.Insights/components",
       "apiVersion": "2020-02-02",
       "name": "[variables('AppInsightsName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "kind": "web",
       "properties": {
-        "Application_Type": "web"
+        "Application_Type": "web",
+        "DisableAppInsightsAlerts": true
       }
     },
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2021-03-01",
       "name": "[variables('hostingPlanName')]",
-      "location": "[parameters('location')]",
-      "sku": { "name": "[parameters('skuName')]", "capacity": 1 },
+      "location": "[variables('location')]",
+      "sku": { "name": "[variables('skuName')]", "capacity": 1 },
       "properties": { "reserved": true }
     },
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
       "name": "[variables('webAppName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Insights/components', variables('AppInsightsName'))]",
@@ -98,7 +99,7 @@
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
-          "linuxFxVersion": "[concat('NODE|', parameters('nodeVersion'))]",
+          "linuxFxVersion": "[concat('NODE|', variables('nodeVersion'))]",
           "alwaysOn": true,
           "appCommandLine": "npx serve -s . -l 8080",
           "httpLoggingEnabled": true,
@@ -132,7 +133,7 @@
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
       "name": "[variables('functionAppName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Insights/components', variables('AppInsightsName'))]",
@@ -143,11 +144,13 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
           "alwaysOn": true,
-          "linuxFxVersion": "[concat('NODE|', replace(parameters('nodeVersion'), '~', ''))]",
+          "linuxFxVersion": "[concat('NODE|', replace(variables('nodeVersion'), '~', ''))]",
           "appSettings": [
             { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
             { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~4" },
             { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
+            { "name": "REACT_APP_STORAGE_URL", "value": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/watchtra')]"},
+            { "name": "REACT_APP_STORAGE_SAS", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},
             { "name": "ENV", "value": "production" },
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]"},
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },
@@ -158,7 +161,13 @@
             { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},
             { "name": "AzureWebJobsStorage", "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value, ';EndpointSuffix=core.windows.net')]"}
-          ]
+          ],
+          "cors": {
+            "allowedOrigins": [
+              "https://portal.azure.com",
+              "[concat('https://', variables('webAppName'), '.azurewebsites.net')]"
+            ]
+          }
         },
         "httpsOnly": true
       }
@@ -167,7 +176,7 @@
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2020-10-01",
       "name": "CreatingWebApp",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', 'watchtra')]"
@@ -187,7 +196,7 @@
             "value": "[listKeys(resourceId('Microsoft.Web/sites/functions', variables('functionAppName'), 'web'), '2023-01-01').default]"
           }
         ],
-        "scriptContent": "[concat('sleep 300 && (curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$FUNCTION_KEY &)')]"
+        "scriptContent": "[concat('sleep 150 && (curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$FUNCTION_KEY &)')]"
       }
     }
   ],

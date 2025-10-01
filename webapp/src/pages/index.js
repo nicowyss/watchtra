@@ -308,7 +308,7 @@ export default function Home() {
                             </div>
                           </TabItem>
                           <TabItem value="issues" label="Issues" default>
-                            <div>
+                            <div className={styles.issuesTab}>
                               <h4>Issues</h4>
                               {Object.keys(user.issues).length >= 3 ? (
                                 <div
@@ -389,7 +389,7 @@ export default function Home() {
                             label="Dynamic Groups"
                             default
                           >
-                            <div>
+                            <div className={styles.dynGroupsTab}>
                               <h4>Dynamic Group Membership</h4>
                               <div
                                 class="alert alert--warning"
@@ -410,13 +410,13 @@ export default function Home() {
                                 This is a alert. Be warned, you should pay
                                 attention!
                               </div>
-                              <div>
+                              <div className={styles.dynTableWrapper}>
                                 <table className={styles.tabtables}>
                                   <thead>
                                     <tr>
-                                      <th>Status</th>
+                                      <th style={{ width: "4%" }}>Status</th>
                                       <th>Group</th>
-                                      <th>Member Count</th>
+                                      <th style={{ width: "1%" }}>Members</th>
                                       <th>Membership Rule</th>
                                     </tr>
                                   </thead>
@@ -461,7 +461,9 @@ export default function Home() {
                                               </span>
                                             </td>
                                             <td>{g.name}</td>
-                                            <td>{g.memberCount}</td>
+                                            <td style={{ textAlign: "center" }}>
+                                              {g.memberCount}
+                                            </td>
                                             <td>{g.membershipRule}</td>
                                           </tr>
                                         ))
@@ -477,7 +479,7 @@ export default function Home() {
                           </TabItem>
 
                           <TabItem value="logs" label="Audit Logs">
-                            <div>
+                            <div className={styles.AuditLogTab}>
                               <h4>Audit Logs</h4>
                               <div
                                 class="alert alert--info"
@@ -497,21 +499,44 @@ export default function Home() {
                                 <strong>Info: </strong>
                                 This is an alert. For your information only.
                               </div>
-                              <div>
+                              <div className={styles.AuditLogWrapper}>
                                 <table className={styles.tabtables}>
                                   <thead>
                                     <tr>
-                                      <th>Activity</th>
-                                      <th>Initiator</th>
-                                      <th>Target</th>
+                                      <th style={{ width: "4%" }}>Timestamp</th>
+                                      <th style={{ width: "4%" }}>Activity</th>
+                                      <th style={{ width: "4%" }}>Initiator</th>
+                                      <th style={{ width: "4%" }}>Target</th>
                                       <th>Modified Properties</th>
-                                      <th>Timestamp</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     {userLogs.length > 0 ? (
                                       userLogs.map((l) => (
                                         <tr key={l.id}>
+                                          <td>
+                                            {(() => {
+                                              const d = new Date(l.timestamp);
+                                              const day = String(
+                                                d.getDate()
+                                              ).padStart(2, "0");
+                                              const month = String(
+                                                d.getMonth() + 1
+                                              ).padStart(2, "0"); // months are 0-based
+                                              const year = d.getFullYear();
+                                              const hours = String(
+                                                d.getHours()
+                                              ).padStart(2, "0");
+                                              const minutes = String(
+                                                d.getMinutes()
+                                              ).padStart(2, "0");
+                                              const seconds = String(
+                                                d.getSeconds()
+                                              ).padStart(2, "0");
+                                              return `${day}.${month}.${year} - ${hours}:${minutes}:${seconds}`;
+                                            })()}
+                                          </td>
+
                                           <td>{l.activity}</td>
                                           <td>{l.initiatedBy}</td>
                                           <td>{l.target}</td>
@@ -534,11 +559,6 @@ export default function Home() {
                                             ) : (
                                               "—"
                                             )}
-                                          </td>
-                                          <td>
-                                            {new Date(
-                                              l.timestamp
-                                            ).toLocaleString()}
                                           </td>
                                         </tr>
                                       ))

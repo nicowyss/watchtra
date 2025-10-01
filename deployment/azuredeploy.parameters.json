@@ -8,12 +8,6 @@
     "location": {
       "value": "switzerlandnorth"
     },
-    "skuName": {
-      "value": "B3"
-    },
-    "nodeVersion": {
-      "value": "~20"
-    },
     "tenantId": {
       "value": "YOUR-TENANT-ID"
     },

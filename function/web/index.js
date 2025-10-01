@@ -34,9 +34,14 @@ module.exports = async function (context, req) {
     // Temp paths
     const tempDir = path.join(os.tmpdir(), "watchtra");
     const downloadedZipPath = path.join(os.tmpdir(), "webapp-v1.0.zip");
-    const finalZipPath = path.join(os.tmpdir(), "webapp-v1.0.zip");
+    const finalZipPath = path.join(os.tmpdir(), "webapp-v1.0-final.zip");
 
-    log("🔹 Temporary extraction directory: " + tempDir);
+    log("🔹 Preparing temporary workspace...");
+
+    // Always clean up old dirs/files
+    safeDelete(tempDir);
+    safeDelete(downloadedZipPath);
+    safeDelete(finalZipPath);
 
     // Download, extract, and clean zip
     const webappPath = await downloadAndExtractZip(
@@ -51,7 +56,7 @@ module.exports = async function (context, req) {
     await execCommand(["run", "build"], webappPath, {
       REACT_APP_FUNCTION_URL: process.env.REACT_APP_FUNCTION_URL,
     });
-    
+
     // Zip the build folder
     const buildPath = path.join(webappPath, "build");
     log("🔹 Zipping build folder: " + buildPath);
@@ -70,7 +75,7 @@ module.exports = async function (context, req) {
       sasToken
     );
 
-    // Optional: upload log file itself
+    // Upload log file itself
     log("🔹 Uploading build log...");
     await uploadFileToBlobWithSAS(
       "webapp-build.log",
@@ -88,14 +93,29 @@ module.exports = async function (context, req) {
   }
 };
 
-// Helper: download, extract, and remove zip
+// Safe delete helper
+function safeDelete(targetPath) {
+  try {
+    if (fs.existsSync(targetPath)) {
+      const stat = fs.lstatSync(targetPath);
+      if (stat.isDirectory()) {
+        fs.rmSync(targetPath, { recursive: true, force: true });
+        log(`🗑️ Deleted old folder: ${targetPath}`);
+      } else {
+        fs.unlinkSync(targetPath);
+        log(`🗑️ Deleted old file: ${targetPath}`);
+      }
+    }
+  } catch (err) {
+    log(`⚠️ Failed to delete ${targetPath}: ${err}`);
+  }
+}
+
+// Download + extract
 async function downloadAndExtractZip(zipUrl, zipPath, extractPath) {
   log(`🔹 Downloading ZIP from ${zipUrl}...`);
 
-  if (fs.existsSync(extractPath)) {
-    log(`🔹 Cleaning old folder at ${extractPath}...`);
-    fs.rmSync(extractPath, { recursive: true, force: true });
-  }
+  safeDelete(extractPath);
   fs.mkdirSync(extractPath, { recursive: true });
 
   const res = await fetch(zipUrl);
@@ -105,7 +125,7 @@ async function downloadAndExtractZip(zipUrl, zipPath, extractPath) {
 
   const zip = new AdmZip(zipPath);
   zip.extractAllTo(extractPath, true);
-  fs.unlinkSync(zipPath);
+  safeDelete(zipPath);
 
   // find the actual extracted folder
   const entries = fs.readdirSync(extractPath);
@@ -122,7 +142,7 @@ async function downloadAndExtractZip(zipUrl, zipPath, extractPath) {
   return rootPath;
 }
 
-// Helper: run npm commands
+// Run npm
 function execCommand(args, cwd, extraEnv = {}) {
   return new Promise((resolve, reject) => {
     try {
@@ -154,7 +174,7 @@ function execCommand(args, cwd, extraEnv = {}) {
   });
 }
 
-// Helper: upload to Azure Blob Storage
+// Upload to Azure Blob
 async function uploadFileToBlobWithSAS(
   blobName,
   filePath,

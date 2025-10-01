@@ -59,7 +59,8 @@ To install **WatchTra**, follow these steps:
    - Region
    - Site Name (e.g. **watchtra** - beware a Unique Suffix will be added later)  
    - Tenant ID, Client ID, Client Secret  
-4. Click **Review + Create → Create**.  
+4. Click **Review + Create → Create**.
+5. Deployment Time can be up to 15 Minutes!  
 
 The deployment will provision the **Azure Function App**, **Web App**, and **Storage Account** automatically.
 
@@ -75,20 +76,22 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Open Points (In Development)
 **Backend:**
-- Organizational Defaults - (Setup static (guests, members) app config in the webapp)   
+- Organizational Defaults - ( fix getRules.js with env.var in docusaurus.config - update works, view does not)   
 - Least Privlidges for ARM Deployment in Azure (does it really needs a Global Admin) - try ARM Deployment with Contributor Rights only in one sub
 - Storage Account Deployment - (Generate a SAS with right priv for ARM Deployment and later on use a SAS on the same container for access data with read priv)
 - Dynamic Group Membership Validator - (some groups are not working)
 - Azure Function CORS - (Settings deployment)
+- ENV Variables Clean UP - (maybe we dont need the api function)
 
 **Frontend:**
-- User Issues Tab - (userCard max hight definition and scollable tables)
-- Audit Logs - (make it more prettier)
 - last sync date - (make it prettier) 
-- Documentation (Make it better)   
+- Documentation - (Make it better)   
+
+**Done:**
 
 ## Ideas (v2)
 - Entra ID App Registration Deployment
+- Button to Trigger Update User Information manually
 - Comos DB, store not compliant Users in DB for 30 Days (Historie View)
 - Alering, notify a specific admin User with a daily summary of non compliant Users (SendGrid - Azure Monitor Alerts)
 - Bicep, Terraform, GitHub Action -  CI/CD Deployments

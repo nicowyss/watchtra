@@ -110,6 +110,9 @@
 }
 
 /* Issues Table */
+.issuesTab {
+  max-height: 500px; 
+}
 .tabtables  {
   width: 100%;
   table-layout: auto;
@@ -128,12 +131,37 @@
   color: white;
 }
 
+/* Dynamic Groups Table */
+.dynGroupsTab {
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dynTableWrapper {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Audit Logs Table */
+.AuditLogTab {
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.AuditLogWrapper {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
 /* User Summary Card */
 .userCard {
   background: #f5f5ff; /* soft purple background */
   border: 1px solid #f5f5ff;
   border-radius: 12px;
   overflow: hidden;
+  max-height: 500px;
 }
 .userCardHeader {
   display: flex;
