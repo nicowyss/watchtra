@@ -1,4 +1,4 @@
-![Logo](https://accesspackagebuilder.dev/images/watchtra-github-banner.png)
+![Banner](webapp/img/watchtra-github-banner.png)
 
 # WatchTra
 
@@ -11,6 +11,8 @@
 - ⚡ **Automation** – Hourly data fetch from Entra ID and automatic webapp updates.  
 - 🛠 **Configurable Rules** – Define your organization’s compliance standards in JSON.  
 
+![Landingpage](webapp/img/watchtra-landingpage.png)
+
 ## Architecture Overview
 
 WatchTra is built entirely on **Azure**:
@@ -19,6 +21,8 @@ WatchTra is built entirely on **Azure**:
 - **Azure Web App** – Hosts the Docusaurus-based frontend dashboard.  
 - **Azure Storage Account** – Stores compliance dictionaries, processed data, and static assets.  
 - **GitHub Repository** – Source of truth for frontend code.  
+
+![Landingpage](webapp/img/watchtra-architecture.png)
 
 # Installation
 
