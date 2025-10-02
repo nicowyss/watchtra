@@ -28,7 +28,7 @@ module.exports = async function (context, req) {
 
     // Env variables
     const storageAccountName = process.env.STORAGE_ACCOUNT_NAME;
-    const containerName = process.env.STORAGE_CONTAINER_NAME;
+    const containerName = "watchtra";
     const sasToken = process.env.STORAGE_SAS_TOKEN;
 
     // Temp paths

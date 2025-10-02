@@ -78,7 +78,6 @@ This project is licensed under the [MIT License](LICENSE).
 **Backend:**
 - Least Privlidges for ARM Deployment in Azure (does it really needs a Global Admin) - try ARM Deployment with Contributor Rights only in one sub
 - Storage Account Deployment - (Generate a SAS with right priv for ARM Deployment and later on use a SAS on the same container for access data with read priv)
-- ENV Variables Clean UP - (maybe we dont need the api function)
 
 **Frontend:**
 - last sync date - (make it prettier) 
@@ -91,6 +90,8 @@ This project is licensed under the [MIT License](LICENSE).
 - Alering, notify a specific admin User with a daily summary of non compliant Users (SendGrid - Azure Monitor Alerts)
 - Bicep, Terraform, GitHub Action -  CI/CD Deployments
 - Visualization with armviz.io 
+
+- Application Insights ? Ja oder Nein?
 
 
 
