@@ -2,10 +2,9 @@ const fetch = require("node-fetch");
 
 module.exports = async function (context, req) {
   const storageAccountName = process.env.STORAGE_ACCOUNT_NAME;
-  const containerName = process.env.STORAGE_CONTAINER_NAME;
+  const containerName = "watchtra";
   const sasToken = process.env.STORAGE_SAS_TOKEN;
-  const functionUrl = process.env.FUNCTION_URL;
-  const webappUrl = process.env.WEBAPP_URL; // your frontend URL
+  const functionUrl = process.env.REACT_APP_FUNCTION_URL;
 
   try {
     // Handle query for blob file
@@ -18,8 +17,7 @@ module.exports = async function (context, req) {
       context.res = {
         status: 200,
         headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": webappUrl || "*", // allow your webapp
+          "Content-Type": "application/json"
         },
         body: data,
       };
@@ -33,8 +31,7 @@ module.exports = async function (context, req) {
     context.res = {
       status: 200,
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": webappUrl || "*",
+        "Content-Type": "application/json"
       },
       body: {
         STORAGE_URL: storageUrl,

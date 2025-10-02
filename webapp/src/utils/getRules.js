@@ -6,14 +6,12 @@ import siteConfig from "@generated/docusaurus.config"; // Docusaurus config impo
 /**
  * Get member and guest rules based on environment.
  * - dev: returns local JSON
- * - prod: fetches from Azure storage using storageUrl + SAS from customFields
+ * - prod: fetches from Azure Function, which proxies Storage
  */
 export async function getRules() {
-  // Grab storage info from Docusaurus config
-  const { storageUrl, storageSas } = siteConfig.customFields;
+  const { functionUrl } = siteConfig.customFields;
 
   if (process.env.NODE_ENV === "development") {
-    // Development: return local JSON
     console.log("Development mode: using local rules JSON.");
     return {
       members: memberRulesLocal,
@@ -21,21 +19,17 @@ export async function getRules() {
     };
   }
 
-  // Production: fetch from Azure storage
+  // Production: fetch via Function API (no SAS exposed)
   try {
-    console.log("Production mode: fetching rules from Azure storage.");
-    if (!storageUrl) throw new Error("storageUrl not defined in customFields");
-
-    const membersUrl = `${storageUrl}/members.json${storageSas ? `?${storageSas}` : ""}`;
-    const guestsUrl = `${storageUrl}/guests.json${storageSas ? `?${storageSas}` : ""}`;
+    console.log("Production mode: fetching rules from Azure Function.");
 
     const [membersRes, guestsRes] = await Promise.all([
-      fetch(membersUrl),
-      fetch(guestsUrl),
+      fetch(`${functionUrl}?file=members.json`),
+      fetch(`${functionUrl}?file=guests.json`),
     ]);
 
     if (!membersRes.ok || !guestsRes.ok) {
-      throw new Error("Failed to fetch rules from Azure storage.");
+      throw new Error("Failed to fetch rules from Azure Function.");
     }
 
     const [members, guests] = await Promise.all([
@@ -46,7 +40,7 @@ export async function getRules() {
     return { members, guests };
   } catch (err) {
     console.warn(
-      "Failed to fetch rules from Azure, falling back to local JSON.",
+      "Failed to fetch rules from Azure Function, falling back to local JSON.",
       err
     );
     return {

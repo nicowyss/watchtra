@@ -149,8 +149,6 @@
             { "name": "FUNCTIONS_WORKER_RUNTIME", "value": "node" },
             { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~4" },
             { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
-            { "name": "REACT_APP_STORAGE_URL", "value": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/watchtra')]"},
-            { "name": "REACT_APP_STORAGE_SAS", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},
             { "name": "ENV", "value": "production" },
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[variables('functionZipUrl')]"},
             { "name": "TENANT_ID", "value": "[parameters('tenantId')]" },

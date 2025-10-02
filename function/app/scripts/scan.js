@@ -5,42 +5,51 @@ const { getUsers, validateUsers } = require("../users");
 const { fetchDynamicGroups } = require("../groups");
 const { fetchAuditLogs } = require("../auditlogs");
 const { loadRules } = require("./appData");
-const {
-  BlobServiceClient,
-  StorageSharedKeyCredential,
-} = require("@azure/storage-blob");
+const { BlobServiceClient } = require("@azure/storage-blob");
 
-// Azure Blob Storage config
-const STORAGE_ACCOUNT_NAME = process.env.STORAGE_ACCOUNT_NAME;
-const STORAGE_CONTAINER_NAME =
-  process.env.STORAGE_CONTAINER_NAME || "watchtra";
-const STORAGE_SAS_TOKEN = process.env.STORAGE_SAS_TOKEN;
+// Function URL to fetch storage credentials
+const FUNCTION_URL =
+  process.env.REACT_APP_FUNCTION_URL || "http://localhost:7071/api/api";
 
-if (!STORAGE_ACCOUNT_NAME || !STORAGE_SAS_TOKEN) {
-  throw new Error(
-    "Azure Storage account name or SAS token not set in environment variables"
-  );
+// Lazy-load storage config from Function API
+let storageConfig = null;
+
+async function getStorageConfig() {
+  if (storageConfig) return storageConfig;
+
+  try {
+    const res = await fetch(FUNCTION_URL);
+    if (!res.ok) throw new Error(`Failed to fetch storage config`);
+    storageConfig = await res.json();
+
+    if (!storageConfig.STORAGE_URL || !storageConfig.STORAGE_SAS) {
+      throw new Error("Function did not return valid storage config");
+    }
+    console.log("✅ Loaded storage config from Function API");
+    return storageConfig;
+  } catch (err) {
+    console.error("❌ Could not fetch storage config:", err.message);
+    throw err;
+  }
 }
 
 // Helper to upload JSON to blob storage
 async function uploadToBlob(filename, data) {
-  // Ensure SAS token starts with '?'
-  const sas = STORAGE_SAS_TOKEN.startsWith("?")
-    ? STORAGE_SAS_TOKEN
-    : "?" + STORAGE_SAS_TOKEN;
+  const { STORAGE_URL, STORAGE_SAS } = await getStorageConfig();
 
-  // Use container-level SAS URL
+  // Ensure SAS starts with "?"
+  const sas = STORAGE_SAS.startsWith("?") ? STORAGE_SAS : "?" + STORAGE_SAS;
+
   const containerClient = new BlobServiceClient(
-    `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net${sas}`
-  ).getContainerClient(STORAGE_CONTAINER_NAME);
+    `${STORAGE_URL}${sas}`
+  ).getContainerClient("watchtra"); // container is implied by STORAGE_URL
 
-  // Only try to create container if SAS allows it
   try {
     await containerClient.createIfNotExists();
   } catch (err) {
     if (err.statusCode === 403) {
       console.warn(
-        `⚠️ Cannot create container, SAS token may lack 'c' permission. Continuing to upload.`
+        `⚠️ Cannot create container, SAS may lack 'c' permission. Continuing with upload.`
       );
     } else {
       throw err;
@@ -48,15 +57,15 @@ async function uploadToBlob(filename, data) {
   }
 
   const blockBlobClient = containerClient.getBlockBlobClient(filename);
-  await blockBlobClient.upload(
-    JSON.stringify(data, null, 2),
-    Buffer.byteLength(JSON.stringify(data)),
-    { overwrite: true }
-  );
+  const body = JSON.stringify(data, null, 2);
+  await blockBlobClient.upload(body, Buffer.byteLength(body), {
+    overwrite: true,
+  });
 
   console.log(`✅ Uploaded/Updated ${filename} to Azure Blob Storage`);
 }
 
+// === Scan logic ===
 async function runUserScan() {
   const { members: memberRules, guests: guestRules } = await loadRules();
   const token = await getGraphToken();

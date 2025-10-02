@@ -30,9 +30,7 @@ const config = {
 
   // 🔹 Add your custom fields here
 customFields: {
-  functionUrl: process.env.REACT_APP_FUNCTION_URL || 'http://localhost:7071/api/api',
-  storageUrl: process.env.REACT_APP_STORAGE_URL || '',
-  storageSas: process.env.REACT_APP_STORAGE_SAS || '',
+  functionUrl: process.env.REACT_APP_FUNCTION_URL || 'http://localhost:7071/api/api'
 },
 
   presets: [
