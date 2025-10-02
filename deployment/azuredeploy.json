@@ -72,6 +72,7 @@
       "kind": "web",
       "properties": {
         "Application_Type": "web",
+        "IngestionMode": "ApplicationInsights",
         "DisableAppInsightsAlerts": true
       }
     },
@@ -120,10 +121,7 @@
             { "name": "WEBSITE_RUN_FROM_PACKAGE", "value": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/watchtra/webapp-v1.0.zip?', listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken)]" }, 
             { "name": "ENV", "value": "production" },
             { "name": "REACT_APP_FUNCTION_URL", "value": "[concat('https://', variables('functionAppName'), '.azurewebsites.net/api/api')]"},
-            { "name": "APPLICATIONINSIGHTS_CONNECTION_STRING", "value": "[reference(resourceId('microsoft.insights/components', variables('AppInsightsName')), '2020-02-02').ConnectionString]"},
-            { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
-            { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
-            { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"}
+            { "name": "APPLICATIONINSIGHTS_CONNECTION_STRING", "value": "[reference(resourceId('microsoft.insights/components', variables('AppInsightsName')), '2020-02-02').ConnectionString]"}
           ]
         },
         "httpsOnly": true
@@ -156,7 +154,6 @@
             { "name": "CLIENT_SECRET", "value": "[parameters('clientSecret')]" },
             { "name": "APPLICATIONINSIGHTS_CONNECTION_STRING", "value": "[reference(resourceId('microsoft.insights/components', variables('AppInsightsName')), '2020-02-02').ConnectionString]"},
             { "name": "STORAGE_ACCOUNT_NAME", "value": "[variables('storageAccountName')]" },
-            { "name": "STORAGE_CONTAINER_NAME", "value": "watchtra" },
             { "name": "STORAGE_SAS_TOKEN", "value": "[listAccountSas(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01', json('{\"signedServices\":\"b\",\"signedResourceTypes\":\"co\",\"signedPermission\":\"rlcw\",\"signedProtocol\":\"https\",\"signedExpiry\":\"2026-09-17T00:00:00Z\"}')).accountSasToken]"},
             { "name": "AzureWebJobsStorage", "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value, ';EndpointSuffix=core.windows.net')]"}
           ],
@@ -194,7 +191,7 @@
             "value": "[listKeys(resourceId('Microsoft.Web/sites/functions', variables('functionAppName'), 'web'), '2023-01-01').default]"
           }
         ],
-        "scriptContent": "[concat('sleep 150 && (curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$FUNCTION_KEY &)')]"
+        "scriptContent": "[concat('sleep 100 && (curl -X POST https://', variables('functionAppName'), '.azurewebsites.net/api/web?code=$FUNCTION_KEY &)')]"
       }
     }
   ],

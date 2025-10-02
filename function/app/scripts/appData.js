@@ -13,7 +13,7 @@ async function loadRules() {
   const rules = { members: null, guests: null };
 
   async function fetchFromFunction(file, fallbackPath) {
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.REACT_APP_FUNCTION_URL) {
       try {
         const res = await fetch(`${functionUrl}?file=${file}`);
         if (!res.ok) {

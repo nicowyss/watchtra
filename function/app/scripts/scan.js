@@ -1,11 +1,12 @@
 // app/scripts/scan.js
 const path = require("path");
+const fetch = require("node-fetch");
 const { getGraphToken } = require("../auth");
 const { getUsers, validateUsers } = require("../users");
 const { fetchDynamicGroups } = require("../groups");
 const { fetchAuditLogs } = require("../auditlogs");
 const { loadRules } = require("./appData");
-const { BlobServiceClient } = require("@azure/storage-blob");
+const { ContainerClient } = require("@azure/storage-blob");
 
 // Function URL to fetch storage credentials
 const FUNCTION_URL =
@@ -40,27 +41,13 @@ async function uploadToBlob(filename, data) {
   // Ensure SAS starts with "?"
   const sas = STORAGE_SAS.startsWith("?") ? STORAGE_SAS : "?" + STORAGE_SAS;
 
-  const containerClient = new BlobServiceClient(
-    `${STORAGE_URL}${sas}`
-  ).getContainerClient("watchtra"); // container is implied by STORAGE_URL
-
-  try {
-    await containerClient.createIfNotExists();
-  } catch (err) {
-    if (err.statusCode === 403) {
-      console.warn(
-        `⚠️ Cannot create container, SAS may lack 'c' permission. Continuing with upload.`
-      );
-    } else {
-      throw err;
-    }
-  }
+  // STORAGE_URL already includes container, treat it as container-level URL
+  const containerClient = new ContainerClient(`${STORAGE_URL}${sas}`);
 
   const blockBlobClient = containerClient.getBlockBlobClient(filename);
   const body = JSON.stringify(data, null, 2);
-  await blockBlobClient.upload(body, Buffer.byteLength(body), {
-    overwrite: true,
-  });
+
+  await blockBlobClient.upload(body, Buffer.byteLength(body), { overwrite: true });
 
   console.log(`✅ Uploaded/Updated ${filename} to Azure Blob Storage`);
 }

@@ -2,41 +2,47 @@ export function checkUserInGroup(user, membershipRule) {
   try {
     let expr = membershipRule;
 
-    // Replace Entra operators with JS
+    // Step 1: Replace operators
+    // Match operands as: "quoted string" | non-space token
+    const operand = `"[^"]*"|\\S+`;
+
     expr = expr
-      .replace(/-eq/g, "===")
-      .replace(/-ne/g, "!==")
-      .replace(/-contains/g, ".includes")
-      .replace(/-startsWith/g, ".startsWith")
-      .replace(/-in/g, ".__in")
-      .replace(/\band\b/gi, "&&")
-      .replace(/\bor\b/gi, "||")
+      .replace(new RegExp(`(${operand})\\s*-eq\\s*(${operand})`, "gi"), "($1 === $2)")
+      .replace(new RegExp(`(${operand})\\s*-ne\\s*(${operand})`, "gi"), "($1 !== $2)")
+      .replace(new RegExp(`(${operand})\\s*-contains\\s*(${operand})`, "gi"), "($1.includes($2))")
+      .replace(new RegExp(`(${operand})\\s*-startsWith\\s*(${operand})`, "gi"), "($1.startsWith($2))")
+      .replace(new RegExp(`(${operand})\\s*-in\\s*(${operand})`, "gi"), "helpers.__in($1, $2)")
+      .replace(/\s*-and\s*/gi, " && ")
+      .replace(/\s*-or\s*/gi, " || ")
       .replace(/\bTrue\b/gi, "true")
       .replace(/\bFalse\b/gi, "false");
 
-    // Replace user attributes
-    expr = expr.replace(/user\.([a-zA-Z]+)/g, (_, attr) => {
+    // Step 2: Replace user attributes
+    expr = expr.replace(/user\.([a-zA-Z0-9_]+)/g, (_, attr) => {
       const val = user[attr];
       if (val === undefined || val === null) return "undefined";
-      if (typeof val === "string") return `"${val}"`;
+      if (typeof val === "string") return JSON.stringify(val); // handles quotes safely
       if (typeof val === "boolean") return val ? "true" : "false";
       return val;
     });
 
-    const helpers = { __in: (val, arr) => (Array.isArray(arr) ? arr.includes(val) : false) };
+    const helpers = {
+      __in: (val, arr) => (Array.isArray(arr) ? arr.includes(val) : false),
+    };
 
-    // console.log("🔍 Original Rule:", membershipRule);
-    // console.log("🔍 Translated Expression:", expr);
+    // Debug logging
+    console.log("🔍 Original Rule:", membershipRule);
+    console.log("🔍 Translated Expression:", expr);
 
     const result = Function("helpers", `"use strict"; return (${expr});`)(helpers);
 
-    // console.log("✅ Eval Result:", result);
+    console.log("✅ Eval Result:", result);
 
     return result ? "In Group" : "Not in Group";
   } catch (err) {
-    console.error("❌ Validator error:", err.message, "Rule:", membershipRule, "User:", user);
+    console.error("❌ Validator error:", err.message);
+    console.error("   Rule:", membershipRule);
+    console.error("   User:", user);
     return `Unknown`;
-    // return `Unknown (error: ${err.message})`;
-
   }
 }

@@ -76,18 +76,13 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Open Points (In Development)
 **Backend:**
-- Organizational Defaults - ( fix getRules.js with env.var in docusaurus.config - update works, view does not)   
 - Least Privlidges for ARM Deployment in Azure (does it really needs a Global Admin) - try ARM Deployment with Contributor Rights only in one sub
 - Storage Account Deployment - (Generate a SAS with right priv for ARM Deployment and later on use a SAS on the same container for access data with read priv)
-- Dynamic Group Membership Validator - (some groups are not working)
-- Azure Function CORS - (Settings deployment)
 - ENV Variables Clean UP - (maybe we dont need the api function)
 
 **Frontend:**
 - last sync date - (make it prettier) 
 - Documentation - (Make it better)   
-
-**Done:**
 
 ## Ideas (v2)
 - Entra ID App Registration Deployment
