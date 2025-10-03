@@ -21,7 +21,6 @@ const config = {
   projectName: 'watchtra',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',

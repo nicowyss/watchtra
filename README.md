@@ -7,7 +7,7 @@
 ## Features
 
 - 🔍 **Compliance Monitoring** – Detects inconsistent or invalid user attributes.  
-- 📊 **Dashboard** – Visualizes compliant vs. non-compliant users.  
+- 📊 **Dashboard** – Visualizes only non-compliant users.  
 - ⚡ **Automation** – Hourly data fetch from Entra ID and automatic webapp updates.  
 - 🛠 **Configurable Rules** – Define your organization’s compliance standards in JSON.  
 
@@ -86,10 +86,10 @@ This project is licensed under the [MIT License](LICENSE).
 **Frontend:**
 - last sync date - (make it prettier) 
 - Documentation - (Make it better)   
+- Button to Trigger Update User Information manually
 
 ## Ideas (v2)
 - Entra ID App Registration Deployment
-- Button to Trigger Update User Information manually
 - Comos DB, store not compliant Users in DB for 30 Days (Historie View)
 - Alering, notify a specific admin User with a daily summary of non compliant Users (SendGrid - Azure Monitor Alerts)
 - Bicep, Terraform, GitHub Action -  CI/CD Deployments

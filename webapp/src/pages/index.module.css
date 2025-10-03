@@ -29,6 +29,49 @@
   color: #2d3748; /* dark gray */
 }
 
+/* Update Button Container */
+.updateContainer {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.progressOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(76, 175, 80, 0.3);
+  border-radius: 6px;
+  z-index: 1; /* unter Text */
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+/* Spinner Icon */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* Statistics*/
 .statistics {
   margin: 1rem 0;

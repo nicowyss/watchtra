@@ -12,6 +12,7 @@ import styles from "./index.module.css";
 import { checkUserInGroup } from "../utils/validateUser";
 import { formatDate } from "../utils/formatDate";
 import RulesButton from "../components/RulesButton";
+import UpdateButton from "../components/UpdateButton";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -581,6 +582,9 @@ export default function Home() {
             })}
           </tbody>
         </table>
+        <div className={styles.updateContainer}>
+          <UpdateButton />
+        </div>
       </main>
     </Layout>
   );
