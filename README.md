@@ -87,6 +87,7 @@ This project is licensed under the [MIT License](LICENSE).
 - last sync date - (make it prettier) 
 - Documentation - (Make it better)   
 - Button to Trigger Update User Information manually
+- Github Improvments - (Cost Estimation SKU B3, und wieso es 15 minuten dauert)
 
 ## Ideas (v2)
 - Entra ID App Registration Deployment
