@@ -80,13 +80,10 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Open Points (In Development)
 **Backend:**
-- Least Privlidges for ARM Deployment in Azure (does it really needs a Global Admin) - try ARM Deployment with Contributor Rights only in one sub
 - Storage Account Deployment - (Generate a SAS with right priv for ARM Deployment and later on use a SAS on the same container for access data with read priv)
 
 **Frontend:**
-- last sync date - (make it prettier) 
-- Documentation - (Make it better)   
-- Button to Trigger Update User Information manually
+- Documentation - (Make it better, support trough Oliver)   
 - Github Improvments - (Cost Estimation SKU B3, und wieso es 15 minuten dauert)
 
 ## Ideas (v2)
@@ -94,8 +91,7 @@ This project is licensed under the [MIT License](LICENSE).
 - Comos DB, store not compliant Users in DB for 30 Days (Historie View)
 - Alering, notify a specific admin User with a daily summary of non compliant Users (SendGrid - Azure Monitor Alerts)
 - Bicep, Terraform, GitHub Action -  CI/CD Deployments
-- Visualization with armviz.io 
-
+- Visualization with armviz.io (draw.io)
 - Application Insights ? Ja oder Nein?
 
 

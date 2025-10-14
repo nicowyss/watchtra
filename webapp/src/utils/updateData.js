@@ -11,7 +11,7 @@ export async function updateData(progressCallback, duration = 1 * 60 * 1000) {
     "https://localhost/api/api"; 
   const urlToCall =
     process.env.NODE_ENV === "development"
-      ? localTestUrl
+      ? buildFunctionUrl(localTestUrl, "m-fetch")
       : buildFunctionUrl(functionUrl, "m-fetch");
 
   // Progressbar simulieren
@@ -52,6 +52,8 @@ export async function updateData(progressCallback, duration = 1 * 60 * 1000) {
 }
 
 function buildFunctionUrl(baseUrl, path) {
-  const cleanBase = baseUrl.replace(/\/+$/, "");
-  return `${cleanBase}/${path}`;
+  const cleanBase = baseUrl.replace(/\/+$/, ""); // remove trailing slashes
+  const withoutDoubleApi = cleanBase.replace(/\/api$/, ""); // remove final /api if it exists
+  return `${withoutDoubleApi}/${path}`;
 }
+
