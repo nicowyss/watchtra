@@ -8,9 +8,15 @@ sidebar_position: 1
 
 The **WatchTra** solution is built on multiple Azure services working together to deliver compliance monitoring for Entra ID.  
 
-## High-Level Architecture
+![WatchTra Archtitecture Simple](./images/watchtra-architecture-simple.svg)
+
+---
+
+## High-Level Components
 
 At a glance, the solution contains these main components:
+
+> **Note:** This Solution use an App Service Plan B3 that incurs costs approx. 70 USD per month.
 
 - **Azure Function App**  
   - Provides backend logic for WatchTra.  
@@ -33,14 +39,3 @@ At a glance, the solution contains these main components:
 ---
 
 📌 Together, these components form a **scalable, cloud-native compliance monitoring solution** that runs entirely in Azure.
-
-## Architecture Diagram
-
-```mermaid
-flowchart TD
-    A[Microsoft Graph API] -->|Fetch User & Group Data| B[Azure Function App]
-    B -->|Write Data| C[Azure Storage Account]
-    C -->|Serve Data| D[Azure Web App]
-    D -->|Fetch via API| B
-    E[GitHub Repository] -->|Frontend Code| D
-    E -->|Build Trigger| B

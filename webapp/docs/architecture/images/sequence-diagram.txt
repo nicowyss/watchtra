@@ -1,0 +1,24 @@
+title WatchTra Function App
+
+participant GitHub
+participant Function App
+participant Graph API
+participant Storage Account
+participant Webapp
+
+note over GitHub,Function App:Automatically starts after **Azure ARM Deployment**
+Function App->GitHub: GET (web) - request webapp
+GitHub-->Function App:POST (web) - deliver webapp-v1.0.zip
+
+note over Function App,Webapp:Data Fetch Process **every hour** automatically!
+Function App->Graph API:GET (fetch) - request user data
+Graph API-->Storage Account:POST (fetch) - store data
+Storage Account<-Webapp:GET (api) - request data
+Storage Account-->Webapp:BACK (api) - receive data
+Function App<--Graph API:BACK (fetch) - return status
+
+note over Function App,Webapp:Data Manual Fetch Process **initiated** trough the enduser on the Webapp. **(UpdateButton)**
+Function App<-Webapp:GET (m-fetch) - request new data manually
+Function App-->Graph API:GET (m-fetch) - request user data
+Graph API-->Storage Account:POST (m-fetch) - store data
+Storage Account-->Webapp:BACK (m-fetch) - new data available

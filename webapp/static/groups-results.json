@@ -8,7 +8,7 @@
     },
     {
       "name": "All-Users-cloudfil-Company-SharePointSite",
-      "memberCount": 8,
+      "memberCount": 25,
       "membershipRule": "(user.companyName -eq \"cloudfil.ch\")"
     },
     {
@@ -18,8 +18,8 @@
     },
     {
       "name": "All-Users-All-Companies",
-      "memberCount": 16,
-      "membershipRule": "(user.accountEnabled -eq True) and (user.userType -eq \"Member\")"
+      "memberCount": 37,
+      "membershipRule": "(user.accountEnabled -eq True) -and (user.userType -eq \"Member\")"
     },
     {
       "name": "All Guest Users ",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Contoso-SharePoint-Page",
-      "memberCount": 2,
+      "memberCount": 6,
       "membershipRule": "(user.companyName -eq \"contoso.com\")"
     },
     {
@@ -42,5 +42,5 @@
       "membershipRule": "user.memberof -any (group.objectId -in ['e7caff86-d13d-493e-9d7d-1c15f3fb4a4b'])"
     }
   ],
-  "lastUpdated": "2025-09-18T12:51:19.420Z"
+  "lastUpdated": "2025-10-14T12:00:01.932Z"
 }

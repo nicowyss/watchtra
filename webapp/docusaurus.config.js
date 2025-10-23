@@ -68,7 +68,7 @@ customFields: {
       navbar: {
         title: 'WatchTra',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'WatchTra Logo',
           src: 'img/watchtra-logo.svg',
         },
         items: [
@@ -118,13 +118,9 @@ customFields: {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+                href: 'https://github.com/nicowyss/watchtra',
+              }
             ],
           },
         ],

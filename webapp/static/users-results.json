@@ -1,15 +1,15 @@
 {
-  "total": 19,
-  "issues": 10,
+  "total": 40,
+  "issues": 21,
   "findings": [
     {
-      "id": "0c6afa1b-a6d9-4673-a6fb-0a67cac04a33",
+      "id": "512134b5-ef7a-415e-b15b-dd7f77b783af",
       "userid": "9984d135-8fba-422b-b9aa-2887348a32fb",
       "userPrincipalName": "admin@cloudfil.ch",
       "name": "Admin",
       "userType": "Member",
       "accountEnabled": true,
-      "jobTitle": "TEST Job Title",
+      "jobTitle": null,
       "companyName": null,
       "department": null,
       "officeLocation": null,
@@ -22,32 +22,104 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-18T12:51:17.951Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "24c4cb98-3154-4a0f-835b-1dab63f986e0",
-      "userid": "6556582b-1436-4a9d-894a-eed1f5872db6",
-      "userPrincipalName": "chris.green@cloudfil.ch",
-      "name": "Chris Green",
+      "id": "92ce4637-35a1-45d5-8cdb-ea08e42167e5",
+      "userid": "e45d3f77-ef70-4629-a65a-99eb64d210b7",
+      "userPrincipalName": "andreas.keller@cloudfil.ch",
+      "name": "Andreas Keller",
       "userType": "Member",
       "accountEnabled": true,
-      "jobTitle": null,
-      "companyName": "contoso.commmmmm",
+      "jobTitle": "Consultant",
+      "companyName": "cloudfil.ch",
+      "department": "Digital Transformation",
+      "officeLocation": "Bern",
+      "city": "Bern",
+      "country": "Switzerland",
+      "issues": {
+        "department": "Digital Transformation"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "5215252b-691a-4685-9125-02c9302b9c9d",
+      "userid": "05c57a1c-188c-4392-93d8-f71cf96a4c51",
+      "userPrincipalName": "beatrice.zuber@cloudfil.ch",
+      "name": "Beatrice Zuber",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Juniro Account Manager",
+      "companyName": "contoso.com",
       "department": "Sales",
       "officeLocation": "Hamburg",
       "city": "Hamburg",
       "country": "Germany",
       "issues": {
-        "companyName": "contoso.commmmmm",
         "department": "Sales"
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "84368fb6-c6df-40d9-8e16-0731d9859a85",
+      "id": "52250731-7345-4bc1-8c03-6aef6d23f160",
+      "userid": "930c2092-df1d-42bc-850b-4a50d99be7e1",
+      "userPrincipalName": "caroline.zimmer@cloudfil.ch",
+      "name": "Caroline Zimmer",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Consultant",
+      "companyName": "cloudfil.ch",
+      "department": "Digital Transformation",
+      "officeLocation": "Bern",
+      "city": "Bern",
+      "country": "Switzerland",
+      "issues": {
+        "department": "Digital Transformation"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "fa8879f1-7f4f-46ae-883d-e1a54aa50d4b",
+      "userid": "6556582b-1436-4a9d-894a-eed1f5872db6",
+      "userPrincipalName": "chris.green@cloudfil.ch",
+      "name": "Chris Green",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Account Manager",
+      "companyName": "contoso.commmm",
+      "department": "Sales",
+      "officeLocation": "Hamburg",
+      "city": "Hamburg",
+      "country": "Germany",
+      "issues": {
+        "companyName": "contoso.commmm",
+        "department": "Sales"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "de6758a3-1691-491c-93eb-8520f23ff40c",
+      "userid": "0c95b7b5-242d-4717-8b1b-d2418e5a7c88",
+      "userPrincipalName": "elena.weber@cloudfil.ch",
+      "name": "Elena Weber",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Developer",
+      "companyName": "cloudfil.ch",
+      "department": "IT",
+      "officeLocation": "Zurich",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "issues": {
+        "officeLocation": "Zurich"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "5e1f05fe-c31d-4928-8187-645408f62211",
       "userid": "2290a5ee-148e-484a-810d-7cbcc17dc0cc",
       "userPrincipalName": "EMP1222@cloudfil.ch",
-      "name": "_TEST Talya Fleeta",
+      "name": "Talya Fleeta",
       "userType": "Member",
       "accountEnabled": false,
       "jobTitle": null,
@@ -63,13 +135,13 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "4b851743-ad96-429d-97c8-219211f09943",
+      "id": "94c6fe62-aca5-4361-adce-5f2b0148ccd3",
       "userid": "aa4dc9da-7527-473d-aa6d-11c68f66082d",
       "userPrincipalName": "EMP1513@cloudfil.ch",
-      "name": "_TEST Ginnie Hansmut",
+      "name": "Ginnie Hansmut",
       "userType": "Member",
       "accountEnabled": true,
       "jobTitle": null,
@@ -85,16 +157,16 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "a63d5a6d-cc52-44fe-9117-65b5c77fe863",
-      "userid": "e41d0806-d4c0-4962-8343-90de73dbdb7f",
-      "userPrincipalName": "frank.mako@cloudfil.ch",
-      "name": "Frank Mako",
+      "id": "6df783dd-451d-411c-b899-fec7dc5f17c1",
+      "userid": "f7bb9659-7c7c-4d96-baf2-af796e7f1318",
+      "userPrincipalName": "eric.berger@cloudfil.ch",
+      "name": "Eric Berger",
       "userType": "Member",
       "accountEnabled": true,
-      "jobTitle": null,
+      "jobTitle": "Consultant",
       "companyName": "cloudfil.ch",
       "department": "Digital Transformation",
       "officeLocation": "Bern",
@@ -103,16 +175,34 @@
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "93ae30b9-44a1-453f-bfe8-b4179b72ba68",
-      "userid": "93b99b5f-e931-4ac1-86de-c10edcccb5d1",
-      "userPrincipalName": "maria.stern@cloudfil.ch",
-      "name": "Maria Stern",
+      "id": "27306c5c-1d3c-4ace-bae8-4bd45dc07be1",
+      "userid": "e41d0806-d4c0-4962-8343-90de73dbdb7f",
+      "userPrincipalName": "frank.mako@cloudfil.ch",
+      "name": "Frank Mako",
       "userType": "Member",
       "accountEnabled": true,
-      "jobTitle": null,
+      "jobTitle": "Data Analyst",
+      "companyName": "cloudfil.ch",
+      "department": "Digital Transformation",
+      "officeLocation": "Bern",
+      "city": "Bern",
+      "country": "Switzerland",
+      "issues": {
+        "department": "Digital Transformation"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "7d70b0a5-332a-4e28-bcde-7e696daf59d4",
+      "userid": "da1d8140-e37a-4eff-9c41-b16f2348fb14",
+      "userPrincipalName": "jonas.steiner@cloudfil.ch",
+      "name": "Jonas Steiner",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Account Manager",
       "companyName": "contoso.com",
       "department": "Sales",
       "officeLocation": "Hamburg",
@@ -121,16 +211,88 @@
       "issues": {
         "department": "Sales"
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "86bf6387-6b8a-4574-a8b2-b9cc07ba73aa",
+      "id": "694ca9e8-942e-4792-b58b-c6390bb264df",
+      "userid": "3f0881e7-b1e6-4117-b0f3-55585ebe0d2b",
+      "userPrincipalName": "lukas.meier@cloudfil.ch",
+      "name": "Lukas Meier",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Developer",
+      "companyName": "cloudfil.ch",
+      "department": "IT",
+      "officeLocation": "Zurich",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "issues": {
+        "officeLocation": "Zurich"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "aca2a62f-6df8-4dbd-8e31-7681ab95debc",
+      "userid": "1defbc1e-a1c4-4483-9df3-5b151198618a",
+      "userPrincipalName": "marco.rossi@cloudfil.ch",
+      "name": "Marco Rossi",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Developer",
+      "companyName": "cloudfil.ch",
+      "department": "IT",
+      "officeLocation": "Zurich",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "issues": {
+        "officeLocation": "Zurich"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "340b45df-7fc7-4520-b3d4-224d59896bb4",
+      "userid": "93b99b5f-e931-4ac1-86de-c10edcccb5d1",
+      "userPrincipalName": "maria.stern@cloudfil.ch",
+      "name": "Maria Stern",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Account Manager",
+      "companyName": "contoso.com",
+      "department": "Sales",
+      "officeLocation": "Hamburg",
+      "city": "Hamburg",
+      "country": "Germany",
+      "issues": {
+        "department": "Sales"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "575b0257-9d1a-460f-8137-1c0bdc9c4b23",
+      "userid": "bff88702-91df-41b5-a7d2-6694bbdd20d9",
+      "userPrincipalName": "martina.roth@cloudfil.ch",
+      "name": "Martina Roth",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Junior Account Manager",
+      "companyName": "contoso.com",
+      "department": "Sales",
+      "officeLocation": "Hamburg",
+      "city": "Hamburg",
+      "country": "Germany",
+      "issues": {
+        "department": "Sales"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "a3d7b4a5-a5c2-4448-a451-3c9d6c08e934",
       "userid": "58d4c31a-c6f7-4b3b-a4c4-e55f129cf098",
       "userPrincipalName": "mike.mitchell@cloudfil.ch",
       "name": "Mike Michell",
       "userType": "Member",
       "accountEnabled": true,
-      "jobTitle": null,
+      "jobTitle": "Head of Digital Transformation",
       "companyName": "cloudfil.ch",
       "department": "Digital Transformation",
       "officeLocation": "Bern",
@@ -139,10 +301,28 @@
       "issues": {
         "department": "Digital Transformation"
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "775f8793-ac5a-4f77-b2eb-b4538aa957eb",
+      "id": "14bc547c-c2e3-4e9a-8678-be7db0e6e18d",
+      "userid": "6b96bed5-652e-4d31-80c9-60ca1585f8c3",
+      "userPrincipalName": "nadia.ferrari@cloudfil.ch",
+      "name": "Nadia Ferrari",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Consultant",
+      "companyName": "cloudfil.ch",
+      "department": "Digital Transformation",
+      "officeLocation": "Bern",
+      "city": "Bern",
+      "country": "Switzerland",
+      "issues": {
+        "department": "Digital Transformation"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "47bb2e66-f1b4-4fe6-8c48-90b9ca558939",
       "userid": "3dfb8441-d43a-45bd-a460-35c894326fcc",
       "userPrincipalName": "nico.adds@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico Wyss (ADDS)",
@@ -161,10 +341,28 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "f0a0db6d-c901-40ef-a2ef-da9737e6dd04",
+      "id": "38dba791-bbe6-4df1-a4a0-b247c369395e",
+      "userid": "bcb94011-83f9-4e73-a617-21da02319bad",
+      "userPrincipalName": "oliver.brunner@cloudfil.ch",
+      "name": "Oliver Brunner",
+      "userType": "Member",
+      "accountEnabled": true,
+      "jobTitle": "Account Manager",
+      "companyName": "contoso.com",
+      "department": "Sales",
+      "officeLocation": "Hamburg",
+      "city": "Hamburg",
+      "country": "Germany",
+      "issues": {
+        "department": "Sales"
+      },
+      "timestamp": "2025-10-14T12:00:00.655Z"
+    },
+    {
+      "id": "6d652560-b51f-486a-a3b0-082f2b723ab9",
       "userid": "ee7a8034-302a-4fde-aa12-4271fd71ab6c",
       "userPrincipalName": "nico.wyss_softwareone.com#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Wyss, Nico",
@@ -183,10 +381,10 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     },
     {
-      "id": "64fa5ae8-7983-41aa-b38a-0b578f47e766",
+      "id": "f24345e8-c95a-4632-81d1-9d69d24f5750",
       "userid": "dc23072b-e9a0-4baa-a055-726231f2a7b2",
       "userPrincipalName": "wyss.nico_bluewin.ch#EXT#@SWOTDEMPID021545.onmicrosoft.com",
       "name": "Nico TEST Guest",
@@ -205,8 +403,8 @@
         "city": null,
         "country": null
       },
-      "timestamp": "2025-09-18T12:51:17.953Z"
+      "timestamp": "2025-10-14T12:00:00.655Z"
     }
   ],
-  "lastUpdated": "2025-09-18T12:51:18.452Z"
+  "lastUpdated": "2025-10-14T12:00:00.655Z"
 }

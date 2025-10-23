@@ -1,3 +1,4 @@
 /.env
 /releases/*
 !/releases/webapp-v1.0.zip
+/function-tracker/*

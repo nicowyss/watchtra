@@ -20,8 +20,10 @@ To connect WatchTra with **Microsoft Entra ID**, you must first create an App Re
 6. Go to **API permissions** → **Add a permission** → **Microsoft Graph**.  
    - Select **Application permissions**.  
    - Add:  
-     - `User.Read.All`  
-     - `Group.Read.All`  
+     - `User.Read.All`
+     - `Group.Read.All`
+     - `GroupMember.Read.All` 
+     - `AuditLog.Read.All`     
    - Click **Grant admin consent**.  
 
 📌 You now have the following values ready for deployment:

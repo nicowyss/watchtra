@@ -1,18 +1,18 @@
 {
   "excludeUsers": {
-    "allowed": ["breakglass@yourcompany.com", "admin@yourcompany.com"]
+    "allowed": ["guest1@contoso.com", "guest2@contoso.com"]
   },
   "companyName": {
     "allowed": ["cloudfil.ch", "contoso.com"]
   },
   "department": {
-    "allowed": ["IT", "HR", "Finance"]
+    "allowed": ["IT", "HR", "Finance", "Marketing"]
   },
   "officeLocation": {
-    "allowed": ["Bern", "Zürich", "Branch2"]
+    "allowed": ["Bern", "Zurich", "Hamburg"]
   },
   "city": {
-    "allowed": ["Zurich", "Bern", "Zürich"]
+    "allowed": ["Zurich", "Bern", "Zurich", "Hamburg"]
   },
   "country": {
     "allowed": ["Switzerland", "Germany", "France"]

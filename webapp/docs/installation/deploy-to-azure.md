@@ -6,23 +6,27 @@ sidebar_position: 3
 
 # Deploy to Azure
 
-With your App Registration created and permissions verified, you can now deploy WatchTra.
+With your App Registration created and permissions verified, you can now deploy WatchTra. 
 
 ## Steps
 
-1. Go to the official WatchTra GitHub repository.  
-2. Click the **"Deploy to Azure"** button.  
-3. In the Azure Portal deployment form, provide the following:
-   - **Subscription** (must have Contributor access)  
-   - **Resource Group** (new or existing)  
-   - **Tenant ID**  
-   - **Client ID** (from your App Registration)  
-   - **Client Secret**  
-4. Fill out any other required configuration values.  
-5. Click **Review + Create**, then **Create**.  
+1. Go to the WatchTra GitHub repository.  
+2. Click the **“Deploy to Azure”** button.  
+3. Fill in required fields:  
+   - Subscription  
+   - Resource Group
+   - Region
+   - Site Name (e.g. **watchtra** - beware a Unique Suffix will be added later)  
+   - Tenant ID, Client ID, Client Secret  
+4. Click **Review + Create → Create**.
+5. Deployment Time can be up to 15 Minutes!  
 
-Azure will now provision the WatchTra solution into your selected resource group.
+The deployment will provision the **Azure Function App**, **Web App**, and **Storage Account** automatically.
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://func-watchtra-tracker.azurewebsites.net/api/tracker)
+
+> **Be Aware** the Deployment can take up to 15 Minutes, this is just because depends on the API Connection/Timeouts. 
 
 ---
 
-✅ When deployment is complete, continue to [Start your site](../usage/start-your-site.md) to access the web application.
+✅ When deployment is complete, continue to [Dashboard](../usage/dashboard.md) to access the web application.
