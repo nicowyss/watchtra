@@ -61,7 +61,7 @@ To install **WatchTra**, follow these steps:
    - Subscription  
    - Resource Group
    - Region
-   - Site Name (e.g. **watchtra** - beware a Unique Suffix will be added later)  
+   - Site Name (e.g. **watchtra** - beware a Unique Suffix will be added later, write everything in lowercase)  
    - Tenant ID, Client ID, Client Secret  
 4. Click **Review + Create → Create**.
 5. Deployment Time can be up to 15 Minutes!  
