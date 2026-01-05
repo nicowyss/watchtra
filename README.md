@@ -4,6 +4,8 @@
 
 **WatchTra** is a web application for **Microsoft Entra ID** that helps organizations enforce compliance in user attributes. It compares values stored in Entra ID user properties against a predefined compliance dictionary and highlights non-compliant entries.
 
+![Blog](https://www.cloudkaffee.ch/microsoft-azure/watchtra-attribute-compliance-microsoft-entra-id/)
+
 ## Features
 
 - 🔍 **Compliance Monitoring** – Detects inconsistent or invalid user attributes.  
